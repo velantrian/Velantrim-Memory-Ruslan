@@ -118,7 +118,10 @@ Velantrim-Memory/
 
 ## 🎵 Velantrim — Soundtrack
 
-Музыкальные композиции скоро появятся. После загрузки здесь появятся настоящие названия треков и ссылки для прослушивания.
+| Composition | Listen |
+|---|---|
+| **Heartbeat Instrumental** | [Play](media/music/heartbeat-instrumental.mp3) |
+| **Karif Best Instrumental** | [Play](media/music/Karif-bestinstrumental.mp3) |
 
 ---
 
