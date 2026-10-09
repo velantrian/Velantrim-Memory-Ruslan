@@ -35,3 +35,11 @@
 - **Границы:** оба испытания проведены в ChatGPT; межпровайдерная переносимость — `NOT_ESTABLISHED`. Независимость чат-сессий и универсальная совместимость не доказаны. Полный цикл записи и восстановления в новом репозитории — `NOT_RUN`.
 
 **SOURCE_LINKS:** [целевой репозиторий](https://github.com/velantrian/Velantrim-Memory-Ruslan); [его проверенный HEAD](https://github.com/velantrian/Velantrim-Memory-Ruslan/commit/faa91a93c6e5b2c1b7d8a329a2c5f08abe3cf782); [README исходной памяти](https://github.com/velantrian/Velantrim-Memory/blob/9c7366ec7f36da562416acfb3724a6393433daf7/README.md); [исторический CURRENT исходной памяти](https://github.com/velantrian/Velantrim-Memory/blob/9c7366ec7f36da562416acfb3724a6393433daf7/CURRENT.md); [`Eiti Wizard`](projects/eiti-wizard.md); [`HLC`](projects/hlc.md); [исходный репозиторий Eiti](https://github.com/velantrian/Eiti-Wizard-Lab-2); [Eiti PR #1](https://github.com/velantrian/Eiti-Wizard-Lab-2/pull/1); [Eiti PR #2](https://github.com/velantrian/Eiti-Wizard-Lab-2/pull/2); [Notion Experiment Registry](https://app.notion.com/p/3edac84d054781ad9634db49b600ad08); [Notion HLC-SPECTRUM-01](https://app.notion.com/p/3f2ac84d0547819c9306f3674727b42a).
+## GitHub write/read-back checkpoint — 2026-10-10
+
+- **Historical `NOT_RUN`:** Существующая запись `NOT_RUN` сохраняет состояние более ранней контрольной точки и не описывает текущие наблюдения GitHub/read-back ниже. Эти наблюдения сами по себе не доказывают независимое восстановление между провайдерами.
+- **GITHUB_VERIFIED:** PR #1 и #2 слиты; merge commit PR #2 (`3da1dfb9f3c0e2c75fd25c15539986fc968b4813`) является текущим HEAD `main`, и изменение PR #2 присутствует в `main`.
+- **READ_BACK_OBSERVED:** После merge `CURRENT.md` прочитан из `main` на SHA `3da1dfb9f3c0e2c75fd25c15539986fc968b4813`; записи Cold-Read-01/02 присутствовали.
+- **OWNER_REPORTED:** Для одного конкретного изменения в этом репозитории завершён практический цикл `approved diff → Draft PR → merge → read-back`. По отчётам владельца, положительные результаты восстановления записи получены для ChatGPT, Claude, Grok, Mistral, Copilot, Perplexity и Manus; независимость всех сессий не утверждается.
+- **RAW_EXTERNAL_LOGS_NOT_AUDITED:** Исходные журналы внешних сессий независимо не проверялись.
+- **NEXT_ACTION:** Подготовить и согласовать изолированную конфликтную симуляцию A/B/C.
