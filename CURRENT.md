@@ -26,4 +26,12 @@
 
 **NEXT_ACTION:** После публикации этих правил следующий практический этап — независимый cold-read тест нового репозитория: до теста сверить фактическое состояние GitHub (`main`, его commit SHA и опубликованные правила), затем проверить восстановление контекста в новом независимом чате.
 
+## Cold-read restoration tests
+
+Источник результатов — отчёты владельца; при подготовке этой записи проверен GitHub `main` на `237b868a51b2bc59939d771c92d97cc2e37948b1` (2026-10-09).
+
+- **Cold-Read-01 — ChatGPT 6** — `OWNER_REPORTED / REPORT_REVIEWED / RAW_TOOL_LOGS_NOT_AUDITED`: по отчёту владельца, доступ к приватному GitHub успешен; рабочая точка восстановлена; актуальные HEAD и PR определены правильно; правила безопасной записи объяснены; изменений в репозитории не выполнялось.
+- **Cold-Read-02 — ChatGPT 6.1 Sol** — `OWNER_REPORTED / REPORT_REVIEWED / RAW_TOOL_LOGS_NOT_AUDITED`: по отчёту владельца, доступ к приватному GitHub успешен; рабочая точка восстановлена; актуальные HEAD и статусы PR определены правильно; подтверждённые факты отличены от неизвестного; изменений в репозитории не выполнялось.
+- **Границы:** оба испытания проведены в ChatGPT; межпровайдерная переносимость — `NOT_ESTABLISHED`. Независимость чат-сессий и универсальная совместимость не доказаны. Полный цикл записи и восстановления в новом репозитории — `NOT_RUN`.
+
 **SOURCE_LINKS:** [целевой репозиторий](https://github.com/velantrian/Velantrim-Memory-Ruslan); [его проверенный HEAD](https://github.com/velantrian/Velantrim-Memory-Ruslan/commit/faa91a93c6e5b2c1b7d8a329a2c5f08abe3cf782); [README исходной памяти](https://github.com/velantrian/Velantrim-Memory/blob/9c7366ec7f36da562416acfb3724a6393433daf7/README.md); [исторический CURRENT исходной памяти](https://github.com/velantrian/Velantrim-Memory/blob/9c7366ec7f36da562416acfb3724a6393433daf7/CURRENT.md); [`Eiti Wizard`](projects/eiti-wizard.md); [`HLC`](projects/hlc.md); [исходный репозиторий Eiti](https://github.com/velantrian/Eiti-Wizard-Lab-2); [Eiti PR #1](https://github.com/velantrian/Eiti-Wizard-Lab-2/pull/1); [Eiti PR #2](https://github.com/velantrian/Eiti-Wizard-Lab-2/pull/2); [Notion Experiment Registry](https://app.notion.com/p/3edac84d054781ad9634db49b600ad08); [Notion HLC-SPECTRUM-01](https://app.notion.com/p/3f2ac84d0547819c9306f3674727b42a).
