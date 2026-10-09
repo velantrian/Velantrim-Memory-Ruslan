@@ -118,10 +118,11 @@ Velantrim-Memory/
 
 ## 🎵 Velantrim — Soundtrack
 
-| Composition | Listen |
-|---|---|
-| **Heartbeat Instrumental** | [Play](media/music/heartbeat-instrumental.mp3) |
-| **Karif Best Instrumental** | [Play](media/music/Karif-bestinstrumental.mp3) |
+### 🎼 Heartbeat Instrumental
+⏱️ **4:20** · [▶️ Слушать Heartbeat Instrumental](https://github.com/user-attachments/assets/e57d2fe4-afe0-487a-8629-a98f8a8416d7) · [⬇️ Скачать MP3](media/music/heartbeat-instrumental.mp3)
+
+### 🎹 Karif Best Instrumental
+⏱️ **5:37** · [▶️ Слушать Karif Best Instrumental](https://github.com/user-attachments/assets/4104ce76-7513-4824-95b1-ad17ed5c7e9d) · [⬇️ Скачать MP3](media/music/Karif-bestinstrumental.mp3)
 
 ---
 
