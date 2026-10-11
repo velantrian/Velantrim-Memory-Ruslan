@@ -64,9 +64,11 @@ Velantrim-Memory/
 ├── README.md                 # обзор и навигация
 ├── START_HERE.md             # правила восстановления контекста для агента
 ├── CURRENT.md                # датированная рабочая ориентация и источники
-└── projects/
+├── projects/
     ├── eiti-wizard.md        # карточка Eiti Wizard
     └── hlc.md                # карточка исследований HLC
+└── discussions/
+    └── discussion-ruslan-karif-people-ai.md # место для будущего материала
 ```
 
 `CURRENT.md` — изменяемый checkpoint, а не неизменная истина. Сверяйте `AS_OF` и `LAST_VERIFIED`, проверяйте первоисточники и сообщайте о расхождениях. Карточки кратко маршрутизируют по проектам; они не заменяют исходные документы, код, эксперименты или свидетельства.
@@ -113,6 +115,7 @@ Velantrim-Memory/
 | [`CURRENT.md`](CURRENT.md) | Датированная текущая ориентация, решения, неизвестное и ссылки на источники. |
 | [`projects/eiti-wizard.md`](projects/eiti-wizard.md) | Карточка проекта Eiti Wizard. |
 | [`projects/hlc.md`](projects/hlc.md) | Карточка исследований HLC и границ доказательств. |
+| [Дискуссия Руслан, кариф, Люди, ИИ](discussions/discussion-ruslan-karif-people-ai.md) | Оформленная страница-основа; ожидает материал для переноса. |
 
 ---
 
