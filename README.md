@@ -74,13 +74,24 @@ flowchart TB
 ## 📁 Структура памяти
 
 ```text
-Velantrim-Memory/
-├── README.md                 # обзор и навигация
-├── START_HERE.md             # правила восстановления контекста для агента
-├── CURRENT.md                # датированная рабочая ориентация и источники
-└── projects/
-    ├── eiti-wizard.md        # карточка Eiti Wizard
-    └── hlc.md                # карточка исследований HLC
+Velantrim-Memory-Ruslan/
+├── README.md
+├── START_HERE.md
+├── CURRENT.md
+├── Velantrim_cognitive_architecture_report_corrected_2026-10-15.md
+├── Рабочая Доска Иследования Разума 🧠.md
+├── projects/
+│   ├── creativity-genesis.md
+│   ├── eiti-wizard.md
+│   ├── hlc.md
+│   ├── mentaury-quorum-revision.md
+│   ├── self-experience-consciousness.md
+│   └── syn-01.md
+└── media/
+    └── music/
+        ├── README.md
+        ├── heartbeat-instrumental.mp3
+        └── Karif-bestinstrumental.mp3
 ```
 
 `CURRENT.md` — изменяемый checkpoint, а не неизменная истина. Сверяйте `AS_OF` и `LAST_VERIFIED`, проверяйте первоисточники и сообщайте о расхождениях. Карточки кратко маршрутизируют по проектам; они не заменяют исходные документы, код, эксперименты или свидетельства.
@@ -125,8 +136,14 @@ Velantrim-Memory/
 |---|---|
 | [`START_HERE.md`](START_HERE.md) | Вход для агента: восстановление состояния, проверка и безопасная запись. |
 | [`CURRENT.md`](CURRENT.md) | Датированная текущая ориентация, решения, неизвестное и ссылки на источники. |
+| [`Рабочая Доска Иследования Разума 🧠.md`](<Рабочая Доска Иследования Разума 🧠.md>) | Организованная исследовательская доска: гипотезы, статусы, ограничения и сохранённая история. |
+| [`Velantrim_cognitive_architecture_report_corrected_2026-10-15.md`](Velantrim_cognitive_architecture_report_corrected_2026-10-15.md) | Исправленный исследовательский отчёт по когнитивной архитектуре. |
+| [`projects/creativity-genesis.md`](projects/creativity-genesis.md) | Карточка исследований творчества и интеллектуальной инициативы. |
 | [`projects/eiti-wizard.md`](projects/eiti-wizard.md) | Карточка проекта Eiti Wizard. |
 | [`projects/hlc.md`](projects/hlc.md) | Карточка исследований HLC и границ доказательств. |
+| [`projects/mentaury-quorum-revision.md`](projects/mentaury-quorum-revision.md) | Карточка линии Mentaury Quorum Revision. |
+| [`projects/self-experience-consciousness.md`](projects/self-experience-consciousness.md) | Карточка исследований self-experience и consciousness. |
+| [`projects/syn-01.md`](projects/syn-01.md) | Карточка исследовательского предложения VELANTRIM-SYN-01. |
 
 ---
 
