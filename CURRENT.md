@@ -14,6 +14,7 @@
 
 - **Eiti Wizard:** направление переносимой памяти / PWA Working Memory остаётся `WORK PAUSE`. В отдельном репозитории [PR #1](https://github.com/velantrian/Eiti-Wizard-Lab-2/pull/1) и [PR #2](https://github.com/velantrian/Eiti-Wizard-Lab-2/pull/2) проверены как `OPEN / DRAFT / NOT MERGED` 2026-10-09. Eiti PR #2 — не Memory PR #2.
 - **HLC:** сохранённые исследовательские статусы и границы доказательств приведены в [`projects/hlc.md`](projects/hlc.md); в рамках этой проверки эксперименты не запускались.
+- **VELANTRIM-SYN-01 — Verified Experience Learning:** research proposal; experiment not run; no implementation or runtime/training authorization. Details in [`projects/syn-01.md`](projects/syn-01.md).
 - **Velantrim-Memory-Ruslan:** текущая цель — надёжные правила чтения и подготовки минимального изменения; состояние после возможного будущего merge нужно проверять отдельно.
 
 **OWNER_DECISIONS:** Память должна быть отделена от приложения, модели и чат-сессии; GitHub выбран первоначальным хранилищем. Приоритет перенесён с PWA-памяти Eiti на независимую GitHub-память. Изменение памяти требует подтверждения конкретного diff; merge — отдельное решение владельца. Репозиторий Velantrim-Memory-Ruslan является целевым в этой задаче, но решение сделать его единственным основным репозиторием для всех будущих ИИ не принято. Исходный репозиторий не удалять и не объявлять архивным административно.
