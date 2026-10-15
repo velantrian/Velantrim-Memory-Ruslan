@@ -212,3 +212,10 @@ The next methodological gate is blind external content-validity/leakage review o
 
 **Detailed Q1–Q7 register and source map:** [existing Notion INIT-01 handoff](https://app.notion.com/p/3f9ac84d054781418b4ef10c01f47373).  
 **Preserved source packet:** [INIT-01-CREATIVITY-SOURCE-PACKET_2026-10-15.zip](https://drive.google.com/file/d/12z3WMbWqfv36_oZ_RAySYgKGayLi56zD/view?usp=drivesdk).
+
+
+## 13. INIT-01 REVIEW-01 — unresolved S4 source-variant conflict (2026-10-15)
+
+This addendum records a source conflict; it does not select or supersede either review version. The three supplied REVIEW-01 files with `(1)` match byte-for-byte the corresponding `source_reports` files in the existing Drive source-packet ZIP. In those copies, S4 is **PASS FOR FURTHER REVIEW** only as a logical fixture. The supplied no-suffix `decision_handoff` and `content_validity` files are materially different and mark S4 **REVISE**, citing unconfirmed primary records, independent checks, and a pre-specified acceptance threshold. The no-suffix `leakage_audit` also differs in its description of the E+ source.
+
+Section 12 reflects the `(1)`-style S4 qualification; that existing checkpoint is not an adjudication of the competing source version. Filenames alone do not establish which review was intended as authoritative. Preserve both versions and both conclusions until an owner decision; do not silently harmonize them. This is source reconciliation only, not a new experiment record, protocol approval, or run authorization.
