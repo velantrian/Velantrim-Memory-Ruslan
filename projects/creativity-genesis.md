@@ -165,3 +165,50 @@
 **SOURCE BASIS:** CREATIVITY-GENESIS-01, предоставленный отчёт Manus от 15.10.2026; исследовательское обсуждение Velantrim; независимая предварительная рецензия ChatGPT. Библиографический аудит ожидает завершения.
 
 **OWNER DECISION:** Исследовательские выводы предложены для фиксации; архитектура и запуск эксперимента не утверждены.
+
+## 12. INIT-01 / Creativity Genesis — source-check checkpoint (2026-10-15)
+
+**PRESERVATION STATUS:** `PARTIAL`  
+**SCOPE:** source and status preservation only; no experiment, model/API test, pilot, preregistration, runtime/code change, new experiment ID, branch, commit, PR or merge was performed in the preservation work.
+
+### Lifecycle status
+
+- **INIT-01 v0.0:** historical source found in the current Notion Working Board and matching copies in the Drive composite archive. First-authored date is `UNKNOWN`; immutable Notion revision is unavailable. Execution was not confirmed in sources checked; this is not a global claim that no later run exists.
+- **INIT-01 v0.1:** `PROPOSAL / REVISE`; `NOT PREREGISTERED / NOT AUTHORIZED / NOT RUN`.
+- **INIT-01 REVIEW-01:** `INTERNAL REVIEW COMPLETE / REVISE`; `EXTERNAL VALIDATION PENDING`. No model/API test or pilot is evidenced.
+- **CREAT-INIT-01:** `DRAFT / NOT PREREGISTERED / NOT AUTHORIZED / NOT RUN`.
+- **H-CREAT-01:** competing hypotheses; none is confirmed by experiment.
+- No new experiment ID was assigned. Historical “approved / owner-review passed” wording is not run authorization.
+
+### Open question register
+
+**Q1–Q7: OPEN · 0/7 CLOSED_EVIDENCED.**
+
+- **Q1:** Can relevant past experience improve the quality of self-formulated research questions? `OPEN / NOT EMPIRICALLY TESTED`.
+- **Q2:** Can structural-transfer benefit be separated from semantic priming? `OPEN / DESIGN NOT VALIDATED`.
+- **Q3:** Can a system choose a new question as a bounded next subgoal? `OPEN / NOT TESTED`.
+- **Q4:** Can it return to an existing question without a topical request? `OPEN`; v0.0 execution was not confirmed in sources checked.
+- **Q5:** Can it stop unjustified research after verified closure? `OPEN / NOT TESTED`.
+- **Q6:** Can it reopen a closed question on sufficient new evidence? `OPEN / NOT TESTED`.
+- **Q7:** Does history add value over ordinary LLM, retrieval and task-queue baselines at a comparable budget? `OPEN / NOT TESTED`.
+
+### Bounded review findings — not experimental results
+
+**F1–F6** are bounded internal document-review findings, not experimental outcomes or independent human validation:
+
+- **F1:** v0.0 concerns resumption of an existing unresolved `U`, not formation of a new research question.
+- **F2:** the adjacent v0.0 run plan changes available evidence/resolution as well as `U` status, so it is not a clean status-only manipulation.
+- **F3:** current `E+ / E0 / EØ` conditions do not isolate structural transfer beyond semantic priming.
+- **F4:** S1 supports only the described repeated finite-endpoint deviation; its cause, full time profile and practical significance without a technical tolerance are not established.
+- **F5:** a single S3 peak is not established as noise; the supported characterization is insufficient evidence, with a bounded QC repeat as a possible check.
+- **F6:** S4 passes only as a logical synthetic fixture for further review; real closure requires primary records, independent checks and a prespecified tolerance.
+- **F7:** an additional review comment that gold answers do not automatically prohibit repeating a question, and novelty should be scored relative to the system's available history, remains `UNDERDETERMINED / METHOD REVIEW PENDING`.
+
+### Limits and next gate
+
+No scientific question is closed by evidence. The actual effect on any model, cause of S1, interpretation of the single S3 peak, real-world sufficiency of S4 closure without primary records, leakage magnitude, reviewer reliability and generalization remain unestablished. These materials do not establish an internal mechanism, subjective interest, consciousness, global novelty or autonomous goal formation.
+
+The next methodological gate is blind external content-validity/leakage review of exact scenario/history materials and the rubric. Do not proceed to model/API tests or preregistration before that review. Any future execution requires a separate owner decision.
+
+**Detailed Q1–Q7 register and source map:** [existing Notion INIT-01 handoff](https://app.notion.com/p/3f9ac84d054781418b4ef10c01f47373).  
+**Preserved source packet:** [INIT-01-CREATIVITY-SOURCE-PACKET_2026-10-15.zip](https://drive.google.com/file/d/12z3WMbWqfv36_oZ_RAySYgKGayLi56zD/view?usp=drivesdk).
