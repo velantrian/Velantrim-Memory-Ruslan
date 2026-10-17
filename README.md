@@ -82,6 +82,7 @@ Velantrim-Memory-Ruslan/
 ├── Velantrim_cognitive_architecture_report_corrected_2026-10-15.md
 ├── Рабочая Доска Иследования Разума 🧠.md
 ├── projects/
+│   ├── cognitive-research-synthesis-2026-10-17.md
 │   ├── creativity-genesis.md
 │   ├── eiti-wizard.md
 │   ├── hlc.md
@@ -141,6 +142,7 @@ Velantrim-Memory-Ruslan/
 | [Кариф и личная ориентация — 2026-10-16](projects/karif-dialogue-and-personal-orientation-2026-10-16.md) | Суть обсуждения, авторство, поправки и разногласия; не полный транскрипт. |
 | [`Рабочая Доска Иследования Разума 🧠.md`](<Рабочая Доска Иследования Разума 🧠.md>) | Организованная исследовательская доска: гипотезы, статусы, ограничения и сохранённая история. |
 | [`Velantrim_cognitive_architecture_report_corrected_2026-10-15.md`](Velantrim_cognitive_architecture_report_corrected_2026-10-15.md) | Исправленный исследовательский отчёт по когнитивной архитектуре. |
+| [`projects/cognitive-research-synthesis-2026-10-17.md`](projects/cognitive-research-synthesis-2026-10-17.md) | Синтез целей, выводов и открытого исследовательского вопроса Velantrim на 2026-10-17; не канон и не результат эксперимента. |
 | [`projects/creativity-genesis.md`](projects/creativity-genesis.md) | Карточка исследований творчества и интеллектуальной инициативы. |
 | [`projects/eiti-wizard.md`](projects/eiti-wizard.md) | Карточка проекта Eiti Wizard. |
 | [`projects/hlc.md`](projects/hlc.md) | Карточка исследований HLC и границ доказательств. |
