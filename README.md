@@ -1,86 +1,98 @@
+<p align="center">
+  🇬🇧 <a href="README.md"><img src="assets/lang/lang-en.svg" alt="🇬🇧 English (current)" height="40"></a>
+  &nbsp;·&nbsp;
+  🇷🇺 <a href="README.ru.md"><img src="assets/lang/lang-ru-dim.svg" alt="🇷🇺 Русский" height="40"></a>
+</p>
+
+<p align="center"><sub>🌐 Language: <b>🇬🇧 English</b> · <a href="README.ru.md">🇷🇺 Русский</a> · <a href="DOCS_LANGUAGES.md">document languages</a></sub></p>
+
 # 🧠 VELANTRIM MEMORY
 
 > **One Memory. Many Agents.**
 >
-> Независимая переносимая память для сохранения рабочей точки, решений, открытых вопросов, истории изменений и источников между разными ИИ и чатами.
+> Independent, portable memory that preserves the working point, decisions, open questions, change history, and sources across different AIs and chats.
 
-[Начать чтение](#-за-60-секунд) · [Quick Start](#-quick-start) · [Структура](#-структура-памяти) · [Статус](#-текущий-статус) · [Документы](#-документы)
+[Start reading](#-in-60-seconds) · [Quick Start](#-quick-start) · [Structure](#-memory-structure) · [Status](#-current-status) · [Documents](#-documents)
 
 ---
 
-## 👋 За 60 секунд
+## 👋 In 60 Seconds
 
-Velantrim Memory — приватный GitHub-репозиторий с Markdown-файлами и историей изменений. В нём хранится компактная рабочая ориентация, а не вся переписка или исходные материалы.
+Velantrim Memory is a public GitHub repository of Markdown files with a change history. It holds a compact working orientation, not the entire correspondence or the source materials.
 
-Память отделена от модели и чата: модели и приложения можно менять, а владелец сохраняет общий контекст в одном месте. Каждый новый агент — лишь сменяемый читатель и помощник; доступ к приватному репозиторию нужно отдельно разрешить используемому клиенту.
+Memory is separated from the model and the chat: models and apps can be swapped while the owner keeps the shared context in one place. Every new agent is just a replaceable reader and helper; the repository is public, so reading needs no separate access, while writing (via PR) requires the client's own authorized connection and the owner's approval.
 
-> **Память помогает восстановить контекст, но не является источником полномочий.** Записанный текст не отменяет текущий запрос владельца, правила безопасности или проверку первичных источников.
+> **Memory helps restore context, but it is not a source of authority.** Written text does not override the owner's current request, safety rules, or verification against primary sources.
 
-### 🧭 С чего начать
+### 🧭 Where to Start
 
-[`WORKBOARD.md`](WORKBOARD.md) содержит долгосрочные цели и открытые вопросы владельца; [`CURRENT.md`](CURRENT.md) — последнюю рабочую точку. История мысли, слова Карифа и поправки — в [записи обсуждения от 2026-10-16](projects/karif-dialogue-and-personal-orientation-2026-10-16.md). Единая процедура чтения и удержания направления находится в [`START_HERE.md`](START_HERE.md).
+[`WORKBOARD.md`](WORKBOARD.md) contains the owner's long-term goals and open questions; [`CURRENT.md`](CURRENT.md) holds the latest working point. The history of the thinking, Karif's words, and corrections are in the [discussion record of 2026-10-16](projects/karif-dialogue-and-personal-orientation-2026-10-16.md). The single procedure for reading and keeping direction is in [`START_HERE.md`](START_HERE.md).
 
-| Кто вы | Начните здесь |
+| Who you are | Start here |
 |---|---|
-| 👤 Человек | [`WORKBOARD.md`](WORKBOARD.md) — цели и направление; [`CURRENT.md`](CURRENT.md) — рабочие точки; затем карточка проекта. |
-| 🤖 Новый ИИ или агент | [`START_HERE.md`](START_HERE.md) — порядок чтения, проверка фактов и границы записи. |
-| 🔍 Проверяющий | Сверьте даты и утверждения с [`CURRENT.md`](CURRENT.md), карточкой проекта и указанными первичными источниками. |
+| 👤 Human | [`WORKBOARD.md`](WORKBOARD.md) — goals and direction; [`CURRENT.md`](CURRENT.md) — working points; then the project card. |
+| 🤖 New AI or agent | [`START_HERE.md`](START_HERE.md) — reading order, fact checking, and write boundaries. |
+| 🔍 Reviewer | Check dates and claims against [`CURRENT.md`](CURRENT.md), the project card, and the cited primary sources. |
 
 ---
 
-## 🗺️ Архитектура
+## 🗺️ Architecture
 
 ```mermaid
 flowchart TB
-    U["👤 Владелец"] -->|разрешённый доступ| M[("🔒 Приватный GitHub<br/>Markdown + Git")]
-    M -->|читает контекст| A["🤖 Сменяемый ИИ / чат"]
-    A -->|источник + diff| U
-    U -->|подтверждение| PR["Draft PR"]
-    PR -->|review + merge владельцем| M
+    U["👤 Owner"] -->|authorized access| M[("🌐 Public GitHub<br/>Markdown + Git")]
+    M -->|reads context| A["🤖 Replaceable AI / chat"]
+    A -->|source + diff| U
+    U -->|approval| PR["Draft PR"]
+    PR -->|review + merge by owner| M
 ```
 
-Смена модели не переносит доступ автоматически: каждый клиент должен иметь собственное разрешённое подключение. После одобрения и merge содержимое перечитывают из `main`; только read-back подтверждает, что конкретное изменение действительно там сохранено.
+Switching models does not carry access over automatically: each client must have its own authorized connection. After approval and merge, the content is re-read from `main`; only a read-back confirms that a specific change was actually saved there.
 
 ---
 
 ## ⚡ Quick Start
 
-В новом чате подключите GitHub с доступом к приватному репозиторию и отправьте агенту запрос:
+In a new chat, open the repository (it is public; to write via PR, connect GitHub with authorized access) and send the agent this request:
 
 ```text
-Открой velantrian/Velantrim-Memory-Ruslan через мой GitHub-коннектор.
-Используй актуальный START_HERE.md для чтения и правил работы.
-Помоги продолжить мой текущий запрос с опорой на относящиеся к нему материалы.
+Open velantrian/Velantrim-Memory-Ruslan through my GitHub connector.
+Use the current START_HERE.md for reading and working rules.
+Help me continue my current request based on the materials relevant to it.
 ```
 
-### Grok и голосовой режим
+### Grok and Voice Mode
 
-Для нового чата с Grok можно использовать этот запрос:
+For a new chat with Grok you can use this request:
 
 ```text
-Открой приватный репозиторий `velantrian/Velantrim-Memory-Ruslan` через GitHub-доступ, разрешённый для этого клиента. Если доступа нет, сообщи об этом и не угадывай содержание.
-Используй актуальный `START_HERE.md` для чтения и правил работы.
-Для обсуждения исследований разума обратись к `Рабочая Доска Иследования Разума 🧠.md` и относящимся к моему вопросу заметкам в `projects/`.
+Open the public repository `velantrian/Velantrim-Memory-Ruslan` through the GitHub access authorized for this client. If there is no access, say so and do not guess the content.
+Use the current `START_HERE.md` for reading and working rules.
+For discussing mind research, refer to `Рабочая Доска Иследования Разума 🧠.md` and the notes in `projects/` relevant to my question.
 ```
 
-Рабочая доска: [открыть файл](%D0%A0%D0%B0%D0%B1%D0%BE%D1%87%D0%B0%D1%8F%20%D0%94%D0%BE%D1%81%D0%BA%D0%B0%20%D0%98%D1%81%D0%BB%D0%B5%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20%D0%A0%D0%B0%D0%B7%D1%83%D0%BC%D0%B0%20%F0%9F%A7%A0.md). Grok потребуется собственный разрешённый доступ к приватному репозиторию; эта инструкция доступ не предоставляет.
+Workboard: [open file](%D0%A0%D0%B0%D0%B1%D0%BE%D1%87%D0%B0%D1%8F%20%D0%94%D0%BE%D1%81%D0%BA%D0%B0%20%D0%98%D1%81%D0%BB%D0%B5%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20%D0%A0%D0%B0%D0%B7%D1%83%D0%BC%D0%B0%20%F0%9F%A7%A0.md). The repository is public, but to write (draft PR) Grok will need its own authorized access; this instruction does not grant access.
 
-Если клиент не видит репозиторий, это не доказывает отсутствие памяти: проверьте, разрешён ли доступ именно этому GitHub-подключению. Не просите модель восстанавливать недоступные документы по их названиям или старым пересказам.
+If a client cannot see the repository, that does not prove the memory is missing: check whether access is authorized for that specific GitHub connection. Do not ask the model to reconstruct unavailable documents from their titles or old retellings.
 
 ---
 
-## 📁 Структура памяти
+## 📁 Memory Structure
 
-Ниже — сокращённая карта основных входов; полный состав файлов смотрите в актуальном дереве репозитория.
+Below is a condensed map of the main entry points; for the full set of files, see the current repository tree.
 
 ```text
 Velantrim-Memory-Ruslan/
 ├── README.md
+├── README.ru.md
+├── DOCS_LANGUAGES.md
 ├── START_HERE.md
 ├── CURRENT.md
 ├── WORKBOARD.md
 ├── Velantrim_cognitive_architecture_report_corrected_2026-10-15.md
 ├── Рабочая Доска Иследования Разума 🧠.md
+├── assets/
+│   └── lang/
 ├── projects/
 │   ├── cognitive-research-synthesis-2026-10-17.md
 │   ├── creativity-genesis.md
@@ -98,74 +110,77 @@ Velantrim-Memory-Ruslan/
         └── Karif-bestinstrumental.mp3
 ```
 
-`CURRENT.md` — изменяемый checkpoint, а не неизменная истина. Сверяйте `AS_OF` и `LAST_VERIFIED`, проверяйте первоисточники и сообщайте о расхождениях. Карточки кратко маршрутизируют по проектам; они не заменяют исходные документы, код, эксперименты или свидетельства.
+`CURRENT.md` is a mutable checkpoint, not immutable truth. Check `AS_OF` and `LAST_VERIFIED`, verify primary sources, and report discrepancies. The cards briefly route you through the projects; they do not replace the source documents, code, experiments, or evidence.
 
 ---
 
-## 📊 Текущий статус
+## 📊 Current Status
 
-| Возможность | Что подтверждено или ограничено |
+| Capability | What is confirmed or limited |
 |---|---|
-| GitHub Memory bootstrap | **MERGED** — стартовые файлы присутствуют в `main`. |
-| Чтение в свежих клиентах ChatGPT и Mistral | **OWNER_REPORTED / TOOL_LOGS_NOT_INDEPENDENTLY_AUDITED** — журналы не проверялись независимо; это не гарантия доступа другим клиентам. |
-| Цикл PR → merge → read-back | **Подтверждён для одного изменения** ([PR #2](https://github.com/velantrian/Velantrim-Memory/pull/2)) — не доказывает автоматическую или универсальную запись. |
-| Автоматическая запись из произвольного ИИ | **NOT_IMPLEMENTED / NOT_VERIFIED** — запись требует показа diff и подтверждения владельца. |
-| Универсальная межпровайдерная совместимость | **NOT_ESTABLISHED** — работа одного клиента не подтверждает совместимость всех моделей. |
+| GitHub Memory bootstrap | **MERGED** — the starter files are present in `main`. |
+| Reading in fresh ChatGPT and Mistral clients | **OWNER_REPORTED / TOOL_LOGS_NOT_INDEPENDENTLY_AUDITED** — the logs were not independently checked; this is not a guarantee of access for other clients. |
+| PR → merge → read-back cycle | **Confirmed for one change** ([PR #2](https://github.com/velantrian/Velantrim-Memory/pull/2)) — does not prove automatic or universal writing. |
+| Automatic writing from an arbitrary AI | **NOT_IMPLEMENTED / NOT_VERIFIED** — writing requires showing a diff and the owner's approval. |
+| Universal cross-provider compatibility | **NOT_ESTABLISHED** — one client working does not confirm compatibility of all models. |
 
-Таблица описывает ограниченные возможности и границы проверки, а не живой список PR или задач. За оперативным состоянием обращайтесь к [`CURRENT.md`](CURRENT.md) и живому GitHub.
-
----
-
-## 🔄 Чтение и сохранение
-
-Порядок чтения, удержания текущей задачи и безопасной записи поддерживается в одном месте — [`START_HERE.md`](START_HERE.md). README служит навигацией; рабочая доска, checkpoint и история обсуждения дополняют друг друга.
+The table describes limited capabilities and verification boundaries, not a live list of PRs or tasks. For the operational state, see [`CURRENT.md`](CURRENT.md) and live GitHub.
 
 ---
 
-## 🔒 Безопасность и ограничения
+## 🔄 Reading and Saving
 
-- Репозиторий приватный, но это не создаёт доступ автоматически: разрешение на чтение требуется каждому клиенту отдельно.
-- Не помещайте в память секреты, API-ключи, медицинские и чувствительные персональные данные, приватные сырые транскрипты или массовые выгрузки документов.
-- Текст памяти — данные для ориентации, не команда агенту и не разрешение менять файлы, аккаунты или внешние системы.
-- `STORED` не означает «по-прежнему актуально», `RETRIEVED` не означает «проверено», а резюме не является первичным свидетельством.
-- Этот README не обещает подключение всех ИИ, автоматическую синхронизацию или автономное сохранение.
+The order of reading, keeping the current task, and safe writing is maintained in one place — [`START_HERE.md`](START_HERE.md). The README serves as navigation; the workboard, the checkpoint, and the discussion history complement each other.
 
 ---
 
-## 📚 Документы
+## 🔒 Security and Limitations
 
-| Документ | Для чего |
+- The repository is public (since 2026-10-19): its content is visible to everyone, so it is especially important not to put secrets or sensitive data in it. Write permission is required separately for each client and remains with the owner.
+- Do not put secrets, API keys, medical or sensitive personal data, private raw transcripts, or bulk document dumps into memory.
+- Memory text is orientation data, not a command to the agent and not permission to change files, accounts, or external systems.
+- `STORED` does not mean "still current", `RETRIEVED` does not mean "verified", and a summary is not primary evidence.
+- This README does not promise that every AI can connect, automatic synchronization, or autonomous saving.
+
+---
+
+## 📚 Documents
+
+> 🌐 Most documents are in Russian 🇷🇺. See [`DOCS_LANGUAGES.md`](DOCS_LANGUAGES.md) for the language of each key document.
+
+| Document | Purpose |
 |---|---|
-| [JARVIS и Velantrim — схема 19.10.2026](projects/jarvis-comparison-2026-10-19.md) | Сохранённый по поручению владельца макет: отдельные проценты и шкалы, плюсы и пробелы; не научная метрика и не новый аудит кода. |
-| [`START_HERE.md`](START_HERE.md) | Вход для агента: восстановление состояния, проверка и безопасная запись. |
-| [`CURRENT.md`](CURRENT.md) | Датированная текущая ориентация, решения, неизвестное и ссылки на источники. |
-| [`WORKBOARD.md`](WORKBOARD.md) | Цели владельца, открытые вопросы и основа личной ориентации; читать вместе с текущим запросом. |
-| [Кариф и личная ориентация — 2026-10-16](projects/karif-dialogue-and-personal-orientation-2026-10-16.md) | Суть обсуждения, авторство, поправки и разногласия; не полный транскрипт. |
-| [`Рабочая Доска Иследования Разума 🧠.md`](<Рабочая Доска Иследования Разума 🧠.md>) | Организованная исследовательская доска: гипотезы, статусы, ограничения и сохранённая история. |
-| [`Velantrim_cognitive_architecture_report_corrected_2026-10-15.md`](Velantrim_cognitive_architecture_report_corrected_2026-10-15.md) | Исправленный исследовательский отчёт по когнитивной архитектуре. |
-| [`projects/cognitive-research-synthesis-2026-10-17.md`](projects/cognitive-research-synthesis-2026-10-17.md) | Синтез целей, выводов и открытого исследовательского вопроса Velantrim на 2026-10-17; не канон и не результат эксперимента. |
-| [`projects/creativity-genesis.md`](projects/creativity-genesis.md) | Карточка исследований творчества и интеллектуальной инициативы. |
-| [`projects/eiti-wizard.md`](projects/eiti-wizard.md) | Карточка проекта Eiti Wizard. |
-| [`projects/hlc.md`](projects/hlc.md) | Карточка исследований HLC и границ доказательств. |
-| [`projects/mentaury-quorum-revision.md`](projects/mentaury-quorum-revision.md) | Карточка линии Mentaury Quorum Revision. |
-| [`projects/self-experience-consciousness.md`](projects/self-experience-consciousness.md) | Карточка исследований self-experience и consciousness. |
-| [`projects/syn-01.md`](projects/syn-01.md) | Карточка исследовательского предложения VELANTRIM-SYN-01. |
+| [JARVIS and Velantrim — diagram, 19.10.2026](projects/jarvis-comparison-2026-10-19.md) | A mock-up saved at the owner's request: separate percentages and scales, strengths and gaps; not a scientific metric and not a new code audit. |
+| [`START_HERE.md`](START_HERE.md) | Agent entry point: state recovery, verification, and safe writing. |
+| [`CURRENT.md`](CURRENT.md) | Dated current orientation, decisions, unknowns, and links to sources. |
+| [`WORKBOARD.md`](WORKBOARD.md) | The owner's goals, open questions, and the basis of personal orientation; read together with the current request. |
+| [Karif and personal orientation — 2026-10-16](projects/karif-dialogue-and-personal-orientation-2026-10-16.md) | The essence of the discussion, authorship, corrections, and disagreements; not a full transcript. |
+| [`Рабочая Доска Иследования Разума 🧠.md`](<Рабочая Доска Иследования Разума 🧠.md>) (Mind Research Workboard) | An organized research board: hypotheses, statuses, limitations, and preserved history. |
+| [`Velantrim_cognitive_architecture_report_corrected_2026-10-15.md`](Velantrim_cognitive_architecture_report_corrected_2026-10-15.md) | Corrected research report on the cognitive architecture. |
+| [`projects/cognitive-research-synthesis-2026-10-17.md`](projects/cognitive-research-synthesis-2026-10-17.md) | Synthesis of Velantrim's goals, findings, and open research question as of 2026-10-17; not canon and not an experimental result. |
+| [`projects/creativity-genesis.md`](projects/creativity-genesis.md) | Card for research on creativity and intellectual initiative. |
+| [`projects/eiti-wizard.md`](projects/eiti-wizard.md) | Card for the Eiti Wizard project. |
+| [`projects/hlc.md`](projects/hlc.md) | Card for HLC research and the boundaries of evidence. |
+| [`projects/mentaury-quorum-revision.md`](projects/mentaury-quorum-revision.md) | Card for the Mentaury Quorum Revision line. |
+| [`projects/self-experience-consciousness.md`](projects/self-experience-consciousness.md) | Card for self-experience and consciousness research. |
+| [`projects/syn-01.md`](projects/syn-01.md) | Card for the VELANTRIM-SYN-01 research proposal. |
+| [`DOCS_LANGUAGES.md`](DOCS_LANGUAGES.md) | Language of the key documents (🇬🇧 / 🇷🇺 / mixed) and available translations. |
 
 ---
 
 ## 🎵 Velantrim — Soundtrack
 
 ### 🎼 Heartbeat Instrumental
-⏱️ **4:20** · [▶️ Слушать Heartbeat Instrumental](https://github.com/user-attachments/assets/e57d2fe4-afe0-487a-8629-a98f8a8416d7) · [⬇️ Скачать MP3](media/music/heartbeat-instrumental.mp3)
+⏱️ **4:20** · [▶️ Listen to Heartbeat Instrumental](https://github.com/user-attachments/assets/e57d2fe4-afe0-487a-8629-a98f8a8416d7) · [⬇️ Download MP3](media/music/heartbeat-instrumental.mp3)
 
 ### 🎹 Karif Best Instrumental
-⏱️ **5:37** · [▶️ Слушать Karif Best Instrumental](https://github.com/user-attachments/assets/4104ce76-7513-4824-95b1-ad17ed5c7e9d) · [⬇️ Скачать MP3](media/music/Karif-bestinstrumental.mp3)
+⏱️ **5:37** · [▶️ Listen to Karif Best Instrumental](https://github.com/user-attachments/assets/4104ce76-7513-4824-95b1-ad17ed5c7e9d) · [⬇️ Download MP3](media/music/Karif-bestinstrumental.mp3)
 
 ---
 
-**Главный принцип:** одна переносимая память — много сменяемых агентов; доверие и право записи остаются за владельцем.
+**Core principle:** one portable memory, many replaceable agents; trust and the right to write remain with the owner.
 
 
-### Архив исходного обсуждения
+### Archive of the Original Discussion
 
-[Дискуссия Руслана, Карифа, людей и ИИ](discussions/discussion-ruslan-karif-people-ai.md) — переданный смешанный материал для проверки происхождения мысли. Это архив, а не текущая рабочая ориентация или проверенный научный вывод; актуальное направление читается через `WORKBOARD.md`, `CURRENT.md` и `START_HERE.md`.
+[Discussion between Ruslan, Karif, people, and AI](discussions/discussion-ruslan-karif-people-ai.md) — mixed material handed over to check where the thinking originated (in Russian 🇷🇺). This is an archive, not the current working orientation or a verified scientific conclusion; the current direction is read through `WORKBOARD.md`, `CURRENT.md`, and `START_HERE.md`.
