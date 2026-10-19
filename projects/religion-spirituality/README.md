@@ -1,31 +1,4 @@
 # Религия и духовность
 
-Раздел для материалов о религиозных и духовных традициях, источниках и связанных исследовательских проектах. Каждый проект хранится отдельно; статус, охват и ограничения указаны в его README.
-
-## Проекты
-
-### HARVYRÐ — «Писание первое: Коран», пилот v0.4
-
-- [Страница проекта и состав пакета](harvyrd-quran-v0.4-pilot/README.md)
-- [Экранная PDF-редакция](harvyrd-quran-v0.4-pilot/HARVYRD_QURAN_VOL1_SCREEN.pdf)
-- [Печатная PDF-редакция](harvyrd-quran-v0.4-pilot/HARVYRD_QURAN_VOL1_PRINT.pdf)
-- [Редактируемый DOCX](harvyrd-quran-v0.4-pilot/HARVYRD_QURAN_VOL1_v0.4_pilot.docx)
-- [Исходник книги в Markdown](harvyrd-quran-v0.4-pilot/HARVYRD_QURAN_VOL1_v0.4_pilot.md)
-
-Это ограниченный пилот, а не завершённая обработка всего Корана. Охват и нерешённые вопросы описаны на странице проекта и в приложенных отчётах.
-
-
-### HARVYRÐ — «Писание второе: Библия», пилот v0.2
-
-- [Описание и ограничения](harvyrd-bible-v0.1-pilot/README.md)
-- [Читательская книга v0.2](harvyrd-bible-v0.1-pilot/HARVYRD_BIBLE_VOL2_v0.2_pilot.md)
-- [Реестр XLSX v0.2](harvyrd-bible-v0.1-pilot/research_register_v0.2.xlsx)
-
-Бытие 1–3 — последовательный пилот; Матфея 5–7 — тематический блок Нагорной проповеди. Все 104 записей пока REVIEW; канон и окончательные правила отбора не утверждены. Один русский перевод без проверки оригинальных языков. Материалы v0.1 сохранены.
-
-### HARVYRÐ — «Махабхарата», пилот v0.1
-- [Описание, состав и ограничения](harvyrd-mahabharata-v0.1-pilot/README.md)
-- [Иллюстрированная PDF-редакция (43 страницы)](harvyrd-mahabharata-v0.1-pilot/HARVYRD_MAHABHARATA_v0.1_Illustrated.pdf)
-- [Полный текст Markdown](harvyrd-mahabharata-v0.1-pilot/HARVYRD_MAHABHARATA_v0.1_Full_Text.md)
-
-20 авторских глав по выборочным эпизодам, с маршрутом по 18 парвам, 45 записями отбора и 5 новыми иллюстрациями. Это не полное прочтение эпоса и не перевод с санскрита; основа — выборочное чтение английского перевода K. M. Ganguli.
+Книжные коллекции собраны в [book-collections](../../book-collections/README.md).
+Подробный прежний индекс и ограничения: [HARVYRD](../../book-collections/HARVYRD.md).

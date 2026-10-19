@@ -35,7 +35,7 @@
 
 ## Классификация 54 библиографических проверок
 
-Категории соответствуют листу `Item-level status` в `Bibliography_Audit_V4.1.xlsx`; сумма — 54.
+Категории соответствуют листу `Item-level status` в `../book-collections/encyclopedia-of-cognition-v4.1/Bibliography_Audit_V4.1.xlsx`; сумма — 54.
 
 | Категория | Количество | Серьёзность и влияние на выпуск |
 |---|---:|---|
@@ -50,7 +50,7 @@
 
 ## Классификация 39 пунктов переноса V2 → V4.1
 
-Категории соответствуют текущему листу `Item-level status` в `V2_V4.1_Crosswalk.xlsx`; отдельные строки E-86 и E-91 в этот счёт не входят.
+Категории соответствуют текущему листу `Item-level status` в `../book-collections/encyclopedia-of-cognition-v4.1/V2_V4.1_Crosswalk.xlsx`; отдельные строки E-86 и E-91 в этот счёт не входят.
 
 | Категория | Количество | Серьёзность и влияние на выпуск |
 |---|---:|---|
@@ -83,12 +83,12 @@
 
 В `/workspace/encyclopedia-v3/build/v4.1-corrected-20261015/final/` находятся ровно семь файлов:
 
-1. `Encyclopedia_of_Cognition_V4.1.pdf`
-2. `Encyclopedia_of_Cognition_V4.1.docx`
-3. `V4_to_V4.1_Changes.md`
-4. `Bibliography_Audit_V4.1.xlsx`
-5. `V2_V4.1_Crosswalk.xlsx`
-6. `Illustration_Register.xlsx`
+1. `../book-collections/encyclopedia-of-cognition-v4.1/Encyclopedia_of_Cognition_V4.1.pdf`
+2. `../book-collections/encyclopedia-of-cognition-v4.1/Encyclopedia_of_Cognition_V4.1.docx`
+3. `../book-collections/encyclopedia-of-cognition-v4.1/V4_to_V4.1_Changes.md`
+4. `../book-collections/encyclopedia-of-cognition-v4.1/Bibliography_Audit_V4.1.xlsx`
+5. `../book-collections/encyclopedia-of-cognition-v4.1/V2_V4.1_Crosswalk.xlsx`
+6. `../book-collections/encyclopedia-of-cognition-v4.1/Illustration_Register.xlsx`
 7. `Final_QA_Report.md`
 
 **Решение:** исправленный комплект готов к ознакомлению пользователя; полная постраничная корректура завершена. **Типографская печать с текущим портретом Тьюринга не разрешена до получения прав/правового решения либо удаления изображения.** Открытые вопросы E-86/E-91, полноты карты V2 → V4.1 и воспроизводимости внутренних данных Velantrim остаются раскрыты выше. INIT-01 не запускался и не будет начат до отдельного решения пользователя после рассмотрения V4.1.

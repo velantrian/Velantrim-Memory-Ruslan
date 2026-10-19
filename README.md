@@ -186,3 +186,7 @@ The order of reading, keeping the current task, and safe writing is maintained i
 ### Archive of the Original Discussion
 
 [Discussion between Ruslan, Karif, people, and AI](discussions/discussion-ruslan-karif-people-ai.md) — mixed material handed over to check where the thinking originated (in Russian 🇷🇺). This is an archive, not the current working orientation or a verified scientific conclusion; the current direction is read through `WORKBOARD.md`, `CURRENT.md`, and `START_HERE.md`.
+
+## Book collections
+
+[Book collections](book-collections/README.md) — издания, иллюстрации, индексы, сборочные материалы и связанные исследования; исходные статусы сохраняются.
