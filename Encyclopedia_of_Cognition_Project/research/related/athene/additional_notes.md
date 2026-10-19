@@ -1,0 +1,11 @@
+# Уточнения для синтеза
+
+pdfinfo подтверждает 21 страницу. Первая эвристика file ошибочно сказала 10; не воспроизводить как факт.
+
+Pesenti M et al (2001) Mental calculation in a prodigy is sustained by right prefrontal and medial temporal areas. Nature Neuroscience 4:103–107. https://www.nature.com/articles/nn0101_103 DOI 10.1038/82831. Прочитан abstract и подписи. Это первичный PET эксперимент одного эксперта vs non-experts; Butterworth What makes a prodigy? — комментарий, не первичное исследование. В итоговом отчете заменить атрибуцию.
+
+Marinsek N et al (2014), Divergent hemispheric reasoning strategies: reducing uncertainty versus resolving inconsistency https://pmc.ncbi.nlm.nih.gov/articles/PMC4204522/ — прочитаны релевантные разделы. Модель формирования гипотез слева и проверки справа имеет научную историю и ограниченные поддерживающие данные, а не выдумана Athene. Приводит модель Ramachandran 1996 и chicken claw/snow/shovel interpreter пример. Но авторы говорят qualitative theory, processing biases not necessarily all modules, противоречивые результаты и methodological issues. Не объявлять полное отсутствие данных; назвать частично научно мотивированной, чрезмерно генерализованной гипотезой. Gazzaniga 2000 оригинальный обзор не доступен через fetch (только paywall), ссылаться на доступный review и de Haan.
+
+Mukamel R, Ekstrom AD, Kaplan J, Iacoboni M, Fried I (2010), Single-neuron responses in humans during execution and observation of actions. https://pmc.ncbi.nlm.nih.gov/articles/PMC2904852/ — прочитаны discussion methods. 21 пациент с эпилепсией, 1177 клеток; есть matching mirror-like responses, а также противоположные возбуждение/торможение при выполнении и наблюдении. Авторы предлагают роль в self-other differentiation. Сильно опровергает blanket «mirror neuron doesn't know self-other»; не доказывает, что любой mirror neuron различает агента, и не даёт полного механизма эмпатии.
+
+Nader K, Schafe GE, LeDoux JE (2000), Fear memories require protein synthesis in the amygdala for reconsolidation after retrieval. Nature https://www.nature.com/articles/35021052 — прочитан abstract, 1 или 14 дней после conditioning, анизомицин после reactivation нарушал последующее выражение памяти, без reactivation не нарушал, delay 6h не нарушал. Животная модель страха; не автоматическая перезапись всех мыслей/эмоций у человека.
