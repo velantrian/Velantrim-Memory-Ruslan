@@ -34,6 +34,7 @@
 | [harvyrd-world-traditions-volume-ii](harvyrd-world-traditions-volume-ii/) | 3 |
 | [harvyrd-world-traditions-volume-iii](harvyrd-world-traditions-volume-iii/) | 8 |
 | [harvyrd-world-traditions-volume-iv](harvyrd-world-traditions-volume-iv/) | 13 |
+| [harvyrd-world-traditions-volume-v](harvyrd-world-traditions-volume-v/) | 11 |
 | [zauchit](zauchit/) | 57 |
 
 Каталоги cognition-catalogs описывают 12 книг, но не содержат 12 полных изданий. Заучит хранит базовую редакцию, expanded и complete-2026-10-19 отдельно; исследовательское досье — в research-dossier.
@@ -41,3 +42,9 @@
 Общие QA и исторические storage controls остаются в [Encyclopedia_of_Cognition_Project](../Encyclopedia_of_Cognition_Project/README.md). Неоднозначные исследования и Athene остаются там до решения владельца; музыка — в [media/music](../media/music/README.md).
 
 Датированные манифесты и чеки публикации являются историческими свидетельствами. Их старые пути/хеши не подменены: соответствия исходных и новых байтов зафиксированы в MIGRATION_MANIFEST.json. Исходные экспорты доступны в исходном Git-коммите; исправление URI в перенесённых DOCX/PDF — отдельная явно описанная навигационная производная, не новое издание по содержанию.
+
+## Том V: «Лес, клятва и поднятое небо»
+
+Добавлен [том V «Лес, клятва и поднятое небо»](harvyrd-world-traditions-volume-v/README.md): PDF, DOCX, Markdown и четыре иллюстрации в JPG/PNG — **11 исходных файлов** плюс README коллекции. Все 11 файлов — побайтовые копии; оригиналы сохранены. Теперь в разделе **30 коллекций**.
+
+Первоначальные поля и записи MIGRATION_MANIFEST.json описывают историческую миграцию 29 коллекций и не пересчитывались. История исходного копирования отражена отдельно в `local_review_additions`; служебный README не входит в число исходных файлов. Том V опубликован в main после отдельного одобрения владельца; исходный коммит переноса — `d7e028a`.
