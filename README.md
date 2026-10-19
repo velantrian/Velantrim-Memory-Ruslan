@@ -168,7 +168,9 @@ The order of reading, keeping the current task, and safe writing is maintained i
 
 ---
 
-## 🎵 Velantrim — Soundtrack
+<a id="-velantrim--soundtrack"></a>
+
+## <img src="assets/soundtrack/soundtrack-title.svg" alt="🎵 Velantrim — Soundtrack" height="80">
 
 ### 🎼 Heartbeat Instrumental
 ⏱️ **4:20** · [▶️ Listen to Heartbeat Instrumental](https://github.com/user-attachments/assets/e57d2fe4-afe0-487a-8629-a98f8a8416d7) · [⬇️ Download MP3](media/music/heartbeat-instrumental.mp3)
