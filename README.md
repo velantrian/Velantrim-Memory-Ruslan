@@ -8,6 +8,14 @@
 
 # 🧠 VELANTRIM MEMORY
 
+> 🧠 **One memory, many assistants: preserve the working point, decisions and sources between chats.**
+>
+> **Why:** A new assistant can lose why a decision was made or confuse an unanswered question with an approved action. This repository supplies human-readable, versioned orientation with references back to sources.
+>
+> **Example:** Open `CURRENT.md`, follow a project card and verify the original record before continuing work; do not treat summaries as authority to act.
+>
+> **Scope:** Portable Markdown/Git memory, not a self-running AI or automatically validated truth store.
+
 > **One Memory. Many Agents.**
 >
 > Independent, portable memory that preserves the working point, decisions, open questions, change history, and sources across different AIs and chats.
