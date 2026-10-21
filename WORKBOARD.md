@@ -129,6 +129,8 @@
 
 **Статус и происхождение:** предложенный ранее редакционный план, сохранён по поручению владельца 21.10.2026. Это план, а не написанные главы, не утверждение о реализованных возможностях ИИ и не разрешение на изменение кода или запуск экспериментов. Прежнее содержание рабочей доски сохраняется; этот план не заменяет другие книжные и исследовательские материалы.
 
+![Доверие и сотрудничество — человек и цифровой напарник изучают одну карту. Художественная метафора.](https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663151075911/eWYyIdrxGqMxXKMV.jpg?Expires=1824104602&Signature=og0BHWh4VL2JhSEc3d7ajRNPD537dDNfUo-z8DKexvbWJm3q9zpjfQuQMz3~2K-yBQ62~SYJ8wtOYitRw8fTL9~atisjhPqYUaYu29ufo287~9VoJF4JbKPRiyrSvil4qtcBhp8Ibd61WHrOi~-uM-~YShDIUnYXoAPSb0mOcx7qTsZNF9wu2ZWCUJCdt0rBeEwNfIZKRndbjqeJalbTHVQPfjs~BLl5N1LPkC8~wPwkEBmPm362HeTn-r~Fk4MiE1w-PCj5eiITaTsPtx6XBw6f5jZAGIBOXe8gDu3YmK1PshLuR6X7mBFDT~LdQ7DtrxZwixq3cIDQECBO-w3dpw__&Key-Pair-Id=K10M74EMLURLMC)
+
 ### Замысел и читатель
 
 Книга о надёжном цифровом напарнике — не обещание безошибочного ИИ, а способ понимать основания ответов, оспаривать выводы и исправлять последствия ошибки. Темы доверия: происхождение утверждения, основания и независимость подтверждений, применимость по времени и версии, условия пересмотра, разрешённые полномочия системы.
@@ -138,6 +140,8 @@
 ### Сквозной учебный пример
 
 **Явно синтетическая учебная история, не реальное событие:** помощник предлагает поставщика Б; пересказ превращает это в «решение пользователя»; другие агенты повторяют одну запись; позже готовится письмо без исходного подтверждения. Не представлять этот сюжет как реальное событие владельца.
+
+![Память и происхождение — повторения одного источника не становятся независимыми основаниями. Художественная метафора.](https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663151075911/RwxAhyHHZIRraSoB.jpg?Expires=1824104602&Signature=FtKVJZQX9s4mJnH5ElbtPQB0Uabekuumzw7BOIxLjCCvGWIQk-o748wiazYZyf~tXgz3WUABbYtnm497W-GZ10f4dwVEBADBihcj~GpGxpjVPDTcVwqiEN62j8jEUUDaMmTvnkgnPyLZj2ZaOTg2oYMGyP~mVBcdCKeYeER7T6JZoEBdILMSc-Dmz-w1i6OdrymhPLuIAP3lZF6Iy0iUZauGmLaC7-Zvn2ferQ0tcmsu5WfvyeieIhMGAnKpM1BY8wS7JEUfcWKLjBbQ6JoEmeBExTtxVXDmCw7QbYxZ3Ozq-P5acQVaoaswhLKcxM9MQ3ExwCyzkyq0uGRaTzYoXw__&Key-Pair-Id=K10M74EMLURLMC)
 
 ### Оглавление
 
@@ -189,6 +193,8 @@
 - [Пилот политики, действий и состояния памяти](https://github.com/velantrian/Velantrim-Memory-Ruslan/blob/main/projects/policy-action-and-memory-state-pilot-2026-10-17.md) — граница между предложением и разрешённым действием.
 
 Предложение Crystal V6 ещё не означает реализованный механизм. CLASS-1 PASS не доказывает универсальную эффективность. Надёжную память или инициативу не выдавать за доказательство сознания.
+
+![Конфликт и пересмотр — новый маршрут сохраняет связь с прежним. Художественная метафора.](https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663151075911/tWZdWHBLCodrQmnw.jpg?Expires=1824104602&Signature=T8fSdLGe62vHJj-S7lpqRNa7QVUs~2--gLmN6cUIrgRh9s8cEqbs8cZVCWcKEQNDzXmofCTQQ5W-qr~ugA2ytqjP3c9JfR0BCijfxG7BHYiqYM1gi6sXebMpyDcJIhqDsdY6ick8TGbcAAekSQ7t6O0gt1bNBhmsgRhboXpRNnd6I0N7-W8vg6~sP69I-ritHRMVmesCxPz6XkcdKW~lri7Gf3iy0gO7OKEqOzUeLYk6FLOykYttCpfZtFffoqGGCcw8avnyOxOiL9m41gVBsd5hghFJWU8JZ25taPTCB-MWkB~4kbINpTfqyF6H9tRlgQDSdudgWE390d~3VPPIog__&Key-Pair-Id=K10M74EMLURLMC)
 
 ### Что нужно до рукописи
 
