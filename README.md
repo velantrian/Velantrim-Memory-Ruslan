@@ -28,6 +28,8 @@ Memory is separated from the model and the chat: models and apps can be swapped 
 
 [`WORKBOARD.md`](WORKBOARD.md) contains the owner's long-term goals and open questions; [`CURRENT.md`](CURRENT.md) holds the latest working point. The history of the thinking, Karif's words, and corrections are in the [discussion record of 2026-10-16](projects/karif-dialogue-and-personal-orientation-2026-10-16.md). The single procedure for reading and keeping direction is in [`START_HERE.md`](START_HERE.md).
 
+Project directory: [`projects/README.md`](projects/README.md) — what each project is for, with links to its source documentation (in Russian).
+
 | Who you are | Start here |
 |---|---|
 | 👤 Human | [`WORKBOARD.md`](WORKBOARD.md) — goals and direction; [`CURRENT.md`](CURRENT.md) — working points; then the project card. |
