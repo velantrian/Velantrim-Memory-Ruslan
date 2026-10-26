@@ -4,7 +4,7 @@
 
 ## Каталог кратко
 
-Одна строка на проект: тип, зачем нужен и чему служит. Подробности, подтверждённое и задуманное — в [карточках](ecosystem-catalog.md); связи — в [отдельном файле](ecosystem-relations.md).
+Одна строка на проект: тип, зачем нужен и чему служит. Подробности, подтверждённое и задуманное — в [карточках](ecosystem-catalog.md); концептуальные связи — в карточках и в [Master Map](https://github.com/velantrian/velantrim/blob/main/docs/architecture/VELANTRIM_ECOSYSTEM_MASTER_MAP.md).
 
 <!-- ECOSYSTEM:BEGIN overview -->
 | Проект | Тип | Для чего (коротко) | Чему служит |
@@ -45,18 +45,15 @@
 Маршруты составлены по прочитанным документам проектов: проект указан там, где его собственные материалы действительно отвечают на вопрос. Более общую маршрутизацию по областям ведёт Atlas ([AGENT_MAP.md](https://github.com/velantrian/Velantrim-Atlas-App/blob/main/docs/atlas/AGENT_MAP.md), `atlas/routes.json`); здесь она не копируется.
 
 <!-- ECOSYSTEM:BEGIN routes -->
-| Вопрос | Куда идти | Маршрут Atlas |
+Это короткие примеры. Полный набор маршрутов и правила выбора владельца ведёт [Atlas](https://github.com/velantrian/Velantrim-Atlas-App/blob/main/atlas/routes.json); здесь он не повторяется.
+
+| Вопрос | Маршрут Atlas | Куда читать первоисточник |
 |---|---|---|
-| Где искать историю исследования и прежние решения? | [Velantrim-Memory-Ruslan · WORKBOARD.md](https://github.com/velantrian/Velantrim-Memory-Ruslan/blob/main/WORKBOARD.md) — цели, открытые вопросы и итоги обсуждений с пометкой, что решение владельца, а что мнение модели; [Velantrim-Memory-Ruslan · CURRENT.md](https://github.com/velantrian/Velantrim-Memory-Ruslan/blob/main/CURRENT.md) — последняя рабочая точка и датированные контрольные точки; [Velantrim-Memory-Ruslan · README-tracks.md](https://github.com/velantrian/Velantrim-Memory-Ruslan/blob/main/projects/README-tracks.md) — два трека исследования и указатели на заметки; [Eiti-Wizard-Lab](https://github.com/velantrian/Eiti-Wizard-Lab/blob/main/docs/research/EXPERIMENT_EVIDENCE_INDEX.md) — индекс экспериментов лаборатории (сам отмечает устаревшие места) | memory-understanding-scientific-donors |
-| Откуда взято утверждение и можно ли ему доверять: память, происхождение, доказательства? | [Crystal](https://github.com/velantrian/velantrim-exocortex-crystal/blob/main/README.md) — допуск в доверенное состояние: поиск, происхождение и доказательства разделены; [Native Kernel](https://github.com/velantrian/velantrim-native-kernel/blob/main/README.md) — семантические контракты происхождения, времени, пересмотра и явной потери; [Mentaury Soul](https://github.com/velantrian/velantrim-mentaury-soul/blob/main/README.md) — убеждения и доказательства в области когниции и идентичности, за которую отвечает Soul | trusted-memory-evidence, semantic-invariants, soul-owner-domain |
-| Где оркестрация, модели, провайдеры и инструменты? | [Titan](https://github.com/velantrian/Velantrim-ExoCortex-Titan/blob/main/README.md) — локальная память и оркестрация с шлюзом MCP (исследовательский прототип); [Cognitive OS](https://github.com/velantrian/Velantrim-Version-LLM-AI-Cognitive-OS/blob/main/README.md) — исследование ролей моделей и маршрутизации (не реализация); [velantrim-ai-skills](https://github.com/velantrian/velantrim-ai-skills/blob/main/README.md) — роли и методики для ИИ-аудитов и проверок | orchestration-execution, model-reasoning-routing |
-| Где исследуются понимание, опыт и индивидуальность («я»)? | [Mentaury Soul](https://github.com/velantrian/velantrim-mentaury-soul/blob/main/README.md) — история становления, убеждения и их пересмотр с явным происхождением; [CLOS](https://github.com/velantrian/Velantrim-Cognitive-Life-OS-CLOS-/blob/main/README.md) — какие различия и переходы должны сохраняться при смене технологий; [Velantrim-Memory-Ruslan](https://github.com/velantrian/Velantrim-Memory-Ruslan/blob/main/projects/track-1-neutral-cognitive-architecture.md) — трек 1: нейтральная когнитивная архитектура (указатели на заметки) | substrate-neutral-cognition, soul-owner-domain |
-| Как не потерять нить при смене чата или модели? | [Continuum](https://github.com/velantrian/Velantrim-Continuum/blob/main/README.md) — исследование минимального состояния, достаточного для продолжения процесса; [Eiti-Wizard-Lab](https://github.com/velantrian/Eiti-Wizard-Lab/blob/main/README.md) — снимки состояния, чистое возобновление и read-only мост непрерывности; [Velantrim-Memory-Ruslan](https://github.com/velantrian/Velantrim-Memory-Ruslan/blob/main/START_HERE.md) — порядок восстановления рабочего состояния для любого ИИ | process-continuity |
-| Где пользовательский интерфейс и приложение? | [velantrim-eiti](https://github.com/velantrian/velantrim-eiti/blob/main/README.md) — основное клиентское приложение (CURRENT_PRIMARY по реестру актуальности Eiti); [Eiti-Test-Notes](https://github.com/velantrian/Eiti-Test-Notes/blob/main/README.md) — тестовая копия, по версии ушедшая вперёд основного; [Atlas](https://github.com/velantrian/Velantrim-Atlas-App/blob/main/README.md) — навигатор по экосистеме (веб-приложение и контракт маршрутов) | — |
-| Где результаты конкретного эксперимента? | [Graphiti_fractal_lab](https://github.com/velantrian/Graphiti_fractal_lab/blob/experiment/falkordblite-deterministic-memory/RESEARCH_STATUS.md) — серия FM по релевантности поиска (основные результаты на отдельной ветке, не в main); [Continuum](https://github.com/velantrian/Velantrim-Continuum/blob/main/README.md) — Experiment 0: захват и перенос состояния; [State Validation Lab](https://github.com/velantrian/-Velantrim-State-Validation-Lab-/blob/main/README.md) — проверки обновления, отзыва и стирания состояния; [Eiti-Wizard-Lab](https://github.com/velantrian/Eiti-Wizard-Lab/blob/main/docs/research/EXPERIMENT_EVIDENCE_INDEX.md) — E0-A и E0-B: управление записью в память | graphiti-retrieval-relevance-research |
-| Где справочные знания и культурные принципы? | [science-core](https://github.com/velantrian/science-core/blob/main/README.md) — справочный корпус научных фактов; [science-core-english](https://github.com/velantrian/science-core-english/blob/main/README.md) — английская версия; [velantrim-culture](https://github.com/velantrian/velantrim-culture/blob/main/README.md) — текст о культурных принципах | — |
-| Какой проект владеет моим вопросом и с чего начать читать? | [Atlas](https://github.com/velantrian/Velantrim-Atlas-App/blob/main/docs/atlas/AGENT_MAP.md) — карта «проект — владелец — маршрут — границы полномочий»; [Knowledge Tree](https://github.com/velantrian/Velantrim-Knowledge-Tree/blob/main/README.md) — навигационный граф источников; [Velantrim Ecosystem — velantrim](https://github.com/velantrian/velantrim/blob/main/docs/architecture/VELANTRIM_ECOSYSTEM_MASTER_MAP.md) — карта ответственности и допустимых композиций (не доказательство интеграции) | ecosystem-system-orientation |
-| Как безопасно сохранить новое сведение в общую память? | [Velantrim-Memory-Ruslan](https://github.com/velantrian/Velantrim-Memory-Ruslan/blob/main/START_HERE.md) — процедура Safe Memory Update: читать, минимальный diff, показать владельцу, Draft PR, read-back | — |
+| Откуда взято утверждение и можно ли ему доверять: память, происхождение, доказательства? | trusted-memory-evidence, semantic-invariants, soul-owner-domain | [Crystal](https://github.com/velantrian/velantrim-exocortex-crystal/blob/main/README.md) — допуск в доверенное состояние: поиск, происхождение и доказательства разделены; [Native Kernel](https://github.com/velantrian/velantrim-native-kernel/blob/main/README.md) — семантические контракты происхождения, времени, пересмотра и явной потери; [Mentaury Soul](https://github.com/velantrian/velantrim-mentaury-soul/blob/main/README.md) — убеждения и доказательства в области когниции и идентичности, за которую отвечает Soul |
+| Где оркестрация, модели, провайдеры и инструменты? | orchestration-execution, model-reasoning-routing | [Titan](https://github.com/velantrian/Velantrim-ExoCortex-Titan/blob/main/README.md) — локальная память и оркестрация с шлюзом MCP (исследовательский прототип); [Cognitive OS](https://github.com/velantrian/Velantrim-Version-LLM-AI-Cognitive-OS/blob/main/README.md) — исследование ролей моделей и маршрутизации (не реализация); [velantrim-ai-skills](https://github.com/velantrian/velantrim-ai-skills/blob/main/README.md) — роли и методики для ИИ-аудитов и проверок |
+| Как не потерять нить при смене чата или модели? | process-continuity | [Continuum](https://github.com/velantrian/Velantrim-Continuum/blob/main/README.md) — исследование минимального состояния, достаточного для продолжения процесса; [Eiti-Wizard-Lab](https://github.com/velantrian/Eiti-Wizard-Lab/blob/main/README.md) — снимки состояния, чистое возобновление и read-only мост непрерывности; [Velantrim-Memory-Ruslan](https://github.com/velantrian/Velantrim-Memory-Ruslan/blob/main/START_HERE.md) — порядок восстановления рабочего состояния для любого ИИ |
+| Где результаты конкретного эксперимента? | graphiti-retrieval-relevance-research | [Graphiti_fractal_lab](https://github.com/velantrian/Graphiti_fractal_lab/blob/experiment/falkordblite-deterministic-memory/RESEARCH_STATUS.md) — серия FM по релевантности поиска (основные результаты на отдельной ветке, не в main); [Continuum](https://github.com/velantrian/Velantrim-Continuum/blob/main/README.md) — Experiment 0: захват и перенос состояния; [State Validation Lab](https://github.com/velantrian/-Velantrim-State-Validation-Lab-/blob/main/README.md) — проверки обновления, отзыва и стирания состояния; [Eiti-Wizard-Lab](https://github.com/velantrian/Eiti-Wizard-Lab/blob/main/docs/research/EXPERIMENT_EVIDENCE_INDEX.md) — E0-A и E0-B: управление записью в память |
+| Какой проект владеет моим вопросом и с чего начать читать? | ecosystem-system-orientation | [Atlas](https://github.com/velantrian/Velantrim-Atlas-App/blob/main/docs/atlas/AGENT_MAP.md) — карта «проект — владелец — маршрут — границы полномочий»; [Knowledge Tree](https://github.com/velantrian/Velantrim-Knowledge-Tree/blob/main/README.md) — навигационный граф источников; [Velantrim Ecosystem — velantrim](https://github.com/velantrian/velantrim/blob/main/docs/architecture/VELANTRIM_ECOSYSTEM_MASTER_MAP.md) — карта ответственности и допустимых композиций (не доказательство интеграции) |
 <!-- ECOSYSTEM:END routes -->
 
 ## Зачем это нужно
@@ -169,24 +166,9 @@
 
 ## Связи между проектами
 
-На схеме — только связи, у которых есть план, реализованный интерфейс или записанный совместный запуск. Идея и границы ответственности без плана и интерфейса названы концептуальной связью: они перечислены в карточках, но не в таблице и не на схеме, и не выдаются за рабочую интеграцию. Все связи, включая концептуальные, собраны в отдельном файле [ecosystem-relations.md](ecosystem-relations.md): там уровни разделены, и концептуальную связь нельзя спутать с планом или реализацией. Нулевые значения означают «не подтверждены в рамках этой проверки», а не доказанное отсутствие связей во всей экосистеме.
+Общая композиция проектов и границы ответственности описаны в [Master Map](https://github.com/velantrian/velantrim/blob/main/docs/architecture/VELANTRIM_ECOSYSTEM_MASTER_MAP.md); здесь схема не повторяется. В таблице — только связи, у которых есть план, реализованный интерфейс или записанный совместный запуск. Идея и границы ответственности без плана и интерфейса названы концептуальной связью: она есть в карточке проекта и не выдаётся за рабочую интеграцию. Нулевые значения означают «не подтверждены в рамках этой проверки», а не доказанное отсутствие связей во всей экосистеме.
 
 <!-- ECOSYSTEM:BEGIN relations -->
-```mermaid
-flowchart LR
-  n0["velantrim-crystal-e0-eval"]
-  n1["Crystal"]
-  n2["State Validation Lab"]
-  n3["Titan"]
-  n4["velantrim-core"]
-  n0 -.-> n1
-  n2 -.-> n1
-  n3 -.-> n1
-  n4 -.-> n1
-```
-
-Толстая линия — проверенное совместное выполнение (не подтверждены в рамках этой проверки); сплошная — реализованный интерфейс (не подтверждены в рамках этой проверки); пунктир — запланированная интеграция (в реестре: 4). Это не доказательство отсутствия таких связей во всей экосистеме. Концептуальные связи на схеме не показаны: они в отдельном файле [ecosystem-relations.md](ecosystem-relations.md) и в карточках.
-
 Уровни связи:
 
 - **Проверенное совместное выполнение** — есть записанный запуск, где обе стороны действительно работали вместе, с результатом и источником.
@@ -201,19 +183,15 @@ flowchart LR
 | Titan | Crystal | Запланированная интеграция | План v1.0 (PROPOSED): последний этап PR-SYN-09 «Crystal Admission Adapter» — только кандидаты в Pending/Observation; реализации нет, адаптера в коде нет. ([источник](https://github.com/velantrian/Velantrim-ExoCortex-Titan/blob/main/docs/SYNAPTIC_EXO_CORTEX_IMPLEMENTATION_PLAN.md)) |
 | velantrim-core | Crystal | Запланированная интеграция | INTEGRATION_GUIDE.md и адаптер в memory/memory_engine_interface.py планируют подключить HybridBiologicalMemory из Crystal, но get_status вызывает get_full_status, которого там нет (есть get_full_stats), импорт требует ручного пути, а Crystal держит модуль как RETAINED RESEARCH вне основного конвейера; совместного запуска не записано. ([источник](https://github.com/velantrian/velantrim-core/blob/main/INTEGRATION_GUIDE.md)) |
 
-Концептуальных связей (границы ответственности и общие идеи без плана и интерфейса): 141. Они вынесены в отдельный файл [ecosystem-relations.md](ecosystem-relations.md), где отделены от планов и реализации, и перечислены в карточках.
+Концептуальные связи (141: границы ответственности и общие идеи без плана и интерфейса) здесь не повторяются: общая композиция описана в [Master Map](https://github.com/velantrian/velantrim/blob/main/docs/architecture/VELANTRIM_ECOSYSTEM_MASTER_MAP.md) (§3–4), связи конкретного проекта — в его карточке.
 <!-- ECOSYSTEM:END relations -->
 
-## Что обновляется автоматически, а что требует рассмотрения
+## Что формируется автоматически, а что пишет человек
 
-**Правило обновления:** обновлять описание следует только при существенной смене замысла или роли проекта, изменении названия или ссылки либо исправлении ошибки. Незначительные изменения кода сами по себе не требуют обновления справочника. README и документация проекта остаются первичными источниками; оперативные статусы проверяются отдельно при работе над конкретной задачей.
-
-*Уточнение 2026-10-21 по поручению владельца:* прежняя формулировка «автоматическая синхронизация не нужна» заменена проверкой источников, которая **ничего не записывает**. Проверка (`python3 tools/ecosystem/ecosystem.py check`, workflow `.github/workflows/ecosystem-check.yml`) показывает, какой источник изменился, отделяет техническое от смыслового и предлагает diff; роли, связи и уровни меняет только человек после чтения первоисточника. Сейчас доступен только ручной запуск, расписание подготовлено и выключено. Подробности — в [`tools/ecosystem/README.md`](../tools/ecosystem/README.md).
-
-- Автоматически отслеживаются только: переименование, архивирование, видимость и доступность репозитория, описание на GitHub, документы о назначении и явно опубликованный статус или интерфейс. Технические коммиты справочник не обновляют.
-- Новое описание само по себе не повышает статус реализации: это повод проверить карточку, а не доказательство.
-- Если значимых изменений нет, результат — NO CHANGE, и никакого PR не создаётся.
-- Приватные репозитории автоматически не проверяются (отмечаются «не проверено»). Публичное упоминание ранее не раскрытых приватных проектов остаётся решением владельца.
+- Единственный редактируемый источник данных о проектах — [`ecosystem.json`](ecosystem.json). Из него командой `python3 tools/ecosystem/ecosystem.py render` формируются блоки этого файла между маркерами `ECOSYSTEM:BEGIN … ECOSYSTEM:END` и весь файл [`ecosystem-catalog.md`](ecosystem-catalog.md). Текст вне маркеров — ручной, команда его не трогает.
+- Команда `validate` проверяет схему, точные имена репозиториев и правила приватности; `render --check` проверяет, что файлы соответствуют реестру. Обе работают локально, без сети, секретов и платных сервисов.
+- Описание проекта меняет только человек после чтения первоисточника. Новое описание в репозитории само по себе не повышает статус реализации.
+- Приватные репозитории отмечены как «не проверено»; публичное упоминание ранее не раскрытых приватных проектов остаётся решением владельца.
 - Изменения справочника идут по процедуре Safe Memory Update из [`START_HERE.md`](../START_HERE.md): показать diff владельцу, создать Draft PR, merge — отдельным разрешением, затем read-back.
 
 ## Заимствования и лицензии
