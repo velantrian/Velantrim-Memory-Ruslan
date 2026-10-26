@@ -31,7 +31,7 @@ def sample_registry():
         "groups": [{"id": "g", "name": "Группа", "description": "", "projects": ["alpha", "beta", "secret"]}],
         "projects": [
             {"id": "alpha", "name": "Alpha", "repo": "velantrian/Alpha", "visibility": "public", "type": "component",
-             "purpose": "Делает альфу.", "why_exists": "Чтобы была альфа.", "role_in_concept": "Часть памяти.", "serves": ["exocortex"], "confirmed": [{"text": "Умеет X", "source": "https://github.com/velantrian/Alpha/blob/main/x.py", "evidenceKind": "code"}],
+             "purpose": "Делает альфу.", "why_exists": "Чтобы была альфа.", "role_in_concept": "Часть памяти.", "serves": ["exocortex"], "confirmed": [{"text": "Умеет X", "source": "https://github.com/velantrian/Alpha/blob/main/x.py", "evidenceKind": "code"}, {"text": "Запуск 2026-10-26 на abc1234: прошёл.", "source": "https://github.com/velantrian/Alpha/blob/main/run.md", "evidenceKind": "run"}],
              "planned": [], "limits": "Не готово.", "entry_doc": "https://github.com/velantrian/Alpha/blob/main/README.md", "status_doc": "",
              "history": [], "watch": {"purpose": ["README.md"], "status": ["STATUS.md"]}, "checked": {"date": "2026-10-21", "ref": "main@abc1234", "basis": ["README.md"]},
              "cross": {"atlas": "alpha"}},
@@ -120,7 +120,7 @@ class ValidateTests(Base):
         r["relations"][0]["source"] = "нет ссылки"
         errs = "\n".join(eco.validate(r))
         for needle in ("неизвестная цель", "приватного проекта не должно быть confirmed", "alpha-typo",
-                       "без первичного основания", "ровно в одну группу", "verified требует ссылку"):
+                       "без вида основания", "ровно в одну группу", "verified требует ссылку"):
             self.assertIn(needle, errs)
 
     def test_why_and_role_are_required_unless_title_only(self):
@@ -147,6 +147,9 @@ SKELETON = """# Заголовок (ручной)
 
 Ручное вступление с [ссылкой](https://example.org/manual).
 
+<!-- ECOSYSTEM:BEGIN overview -->
+<!-- ECOSYSTEM:END overview -->
+
 <!-- ECOSYSTEM:BEGIN routes -->
 старое
 <!-- ECOSYSTEM:END routes -->
@@ -162,6 +165,8 @@ SKELETON = """# Заголовок (ручной)
 
 Ручной абзац перед источниками.
 
+<!-- ECOSYSTEM:BEGIN credits -->
+<!-- ECOSYSTEM:END credits -->
 <!-- ECOSYSTEM:BEGIN sources -->
 <!-- ECOSYSTEM:END sources -->
 
@@ -173,7 +178,8 @@ class RenderTests(Base):
     def paths(self):
         rp, cp = self.t / "R.md", self.t / "C.md"
         rp.write_text(SKELETON, encoding="utf-8")
-        return rp, cp, ["--registry", str(self.reg_path), "--readme-out", str(rp), "--catalog-out", str(cp)]
+        return rp, cp, ["--registry", str(self.reg_path), "--readme-out", str(rp), "--catalog-out", str(cp),
+                        "--relations-out", str(self.t / "REL.md")]
 
     def test_render_fills_only_blocks_and_keeps_manual_text(self):
         rp, cp, base = self.paths()
@@ -239,8 +245,8 @@ class RenderTests(Base):
             self.assertIn(p["name"], blocks["projects"])
             self.assertIn('<a id="p-%s"></a>' % p["id"], catalog)
         self.assertIn("экзокортекс", blocks["projects"])
-        self.assertIn("проверенное совместное выполнение (в реестре таких связей нет)", blocks["relations"])
-        self.assertIn("реализованный интерфейс (в реестре таких связей нет)", blocks["relations"])
+        self.assertIn("проверенное совместное выполнение (не подтверждены в рамках этой проверки)", blocks["relations"])
+        self.assertIn("реализованный интерфейс (не подтверждены в рамках этой проверки)", blocks["relations"])
         self.assertIn("запланированная интеграция (в реестре: 1)", blocks["relations"])  # verified нет → не рисуем «работающую интеграцию»
         self.assertIn("-.->", blocks["relations"])  # planned — только пунктир
         self.assertNotIn("==>", blocks["relations"])
@@ -257,6 +263,35 @@ class RenderTests(Base):
         routes = eco.render_blocks(self.reg)["routes"]
         self.assertIn("[Alpha · NOTES.md](https://github.com/velantrian/Alpha/blob/main/NOTES.md)", routes)
         self.assertIn("[Alpha · README.md](https://github.com/velantrian/Alpha/blob/main/README.md)", routes)
+
+    def test_confirmed_is_split_by_kind_and_run_needs_version(self):
+        catalog = eco.render_catalog(self.reg)
+        self.assertIn("*Механизм найден в коде:*", catalog)
+        self.assertIn("*Есть запись успешного запуска с версией и условиями:*", catalog)
+        self.assertIn("одно основание не подменяет другое", catalog)
+        r = copy.deepcopy(self.reg)
+        r["projects"][0]["confirmed"][1]["text"] = "Запуск прошёл."
+        self.assertIn("запись запуска» без версии", "\n".join(eco.validate(r)))
+
+    def test_overview_is_compact_and_relations_file_separates_levels(self):
+        blocks = eco.render_blocks(self.reg)
+        self.assertIn("| Проект | Тип | Для чего (коротко) | Чему служит |", blocks["overview"])
+        self.assertIn("Делает альфу.", blocks["overview"])
+        rel = eco.render_relations(self.reg)
+        self.assertLess(rel.index("## План"), rel.index("## Концепция"))
+        self.assertIn("_Связи этого уровня не подтверждены в рамках этой проверки._", rel)
+        self.assertIn("не доказанное отсутствие связей во всей экосистеме", rel)
+
+    def test_credits_are_rendered_and_validated(self):
+        self.reg["meta"]["credits"] = [{"project": "alpha", "source": "[Upstream](https://github.com/Up/Alpha)", "kind": "fork-upstream",
+                                        "note": "лицензия родителя не установлена", "evidence": ""}]
+        self.reg["meta"]["excluded_third_party"] = [{"name": "ladybug", "url": "https://github.com/velantrian/ladybug", "note": "форк"}]
+        self.assertEqual(eco.validate(self.reg), [])
+        credits = eco.render_blocks(self.reg)["credits"]
+        self.assertIn("лицензия родителя не установлена", credits)
+        self.assertIn("исключённые из активной карты и мониторинга (не удалены", credits)
+        self.reg["meta"]["credits"][0]["project"] = "nope"
+        self.assertIn("заимствование: неизвестный проект", "\n".join(eco.validate(self.reg)))
 
     def test_purpose_markup_and_links_are_preserved_verbatim(self):
         self.reg["projects"][0]["purpose"] = "Текст с [ссылкой](https://github.com/velantrian/Beta/blob/main/README.md) и \\| уже экранированной чертой."
@@ -281,6 +316,26 @@ class CheckTests(Base):
         self.assertEqual(code, 0)
         self.assertIn("NO CHANGE", out)
         self.assertIn("приватный репозиторий", out)
+
+    def test_no_change_never_claims_full_coverage(self):
+        self.baseline()
+        code, out = self.check()
+        self.assertEqual(code, 0)
+        self.assertIn("NO CHANGE (только в проверенных источниках)", out)
+        self.assertIn("это не полный охват", out)
+        summary = self.t / "s.md"
+        self.check("--summary", str(summary))
+        text = summary.read_text()
+        self.assertIn("проверено 2 из 3 проектов", text)
+        self.assertIn("NO CHANGE не означает полного охвата", text)
+
+    def test_change_stays_visible_until_baseline_is_explicitly_accepted(self):
+        self.baseline()
+        self.edit("Alpha", "README.md", "# Alpha\n\nНовое назначение.\n")
+        for _ in range(3):
+            self.assertEqual(self.check()[0], 10)  # повторные check без baseline продолжают показывать изменение
+        self.baseline()  # только явное принятие новой базы убирает расхождение
+        self.assertEqual(self.check()[0], 0)
 
     def test_technical_commits_are_ignored(self):
         self.baseline()

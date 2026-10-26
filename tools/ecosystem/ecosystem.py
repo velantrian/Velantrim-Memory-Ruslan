@@ -37,9 +37,13 @@ REGISTRY = ROOT / "projects" / "ecosystem.json"
 BASELINE = ROOT / "projects" / "ecosystem-baseline.json"
 README_OUT = ROOT / "projects" / "README.md"
 CATALOG_OUT = ROOT / "projects" / "ecosystem-catalog.md"
+RELATIONS_OUT = ROOT / "projects" / "ecosystem-relations.md"
 
 EXIT_OK, EXIT_PROBLEM, EXIT_ERROR, EXIT_REVIEW = 0, 1, 2, 10
-EVIDENCE_OK = {"code", "test", "manifest", "report"}
+EVIDENCE_OK = {"doc", "code", "test", "run"}
+# запись успешного запуска должна называть версию (коммит, тег, дата) и условия
+RUN_HINT = re.compile(r"[0-9a-f]{7,40}|\d{4}-\d{2}-\d{2}|\bv\d|@|run_\d+|PR #\d+")
+NOT_CONFIRMED = "не подтверждены в рамках этой проверки"
 VISIBILITIES = {"public", "private"}
 GH_URL = re.compile(r"https://github\.com/([A-Za-z0-9_.-]+)/([A-Za-z0-9_.-]+)")
 OWNER = "velantrian"
@@ -149,8 +153,10 @@ def validate(reg):
                 errs.append("%s: неизвестная цель '%s'" % (pid, s))
         for c in p.get("confirmed", []):
             if c.get("evidenceKind") not in EVIDENCE_OK:
-                errs.append("%s: подтверждённое утверждение без первичного основания (code/test/manifest/report): %r"
+                errs.append("%s: подтверждённое утверждение без вида основания (doc/code/test/run): %r"
                             % (pid, c.get("text", "")[:60]))
+            elif c["evidenceKind"] == "run" and not RUN_HINT.search(c.get("text", "")):
+                errs.append("%s: «запись запуска» без версии или условий: %r" % (pid, c.get("text", "")[:60]))
             if not c.get("source"):
                 errs.append("%s: подтверждённое утверждение без источника: %r" % (pid, c.get("text", "")[:60]))
         for c in p.get("planned", []):
@@ -182,6 +188,12 @@ def validate(reg):
             errs.append("связь %s→%s: нет основания или источника" % (r.get("from"), r.get("to")))
         if r.get("level") == "verified" and "http" not in r.get("source", ""):
             errs.append("связь %s→%s: verified требует ссылку на записанный запуск" % (r.get("from"), r.get("to")))
+    for cr in reg["meta"].get("credits", []):
+        if cr.get("project") not in idset:
+            errs.append("заимствование: неизвестный проект '%s'" % cr.get("project"))
+        for key in ("source", "kind", "note"):
+            if not cr.get(key):
+                errs.append("заимствование %s: нет поля '%s'" % (cr.get("project"), key))
     external = set(reg["meta"].get("external_repos", []))
     for text in walk_strings({k: v for k, v in reg.items() if k != "meta"}):
         for m in GH_URL.finditer(text):
@@ -203,8 +215,17 @@ def short_doc(url):
     return url.rsplit("/", 1)[-1] if url else ""
 
 
+KIND_TITLES = (("doc", "Назначение или статус установлены документом"), ("code", "Механизм найден в коде"),
+               ("test", "Тест существует"), ("run", "Есть запись успешного запуска с версией и условиями"))
 BLOCK = re.compile(r"(<!-- ECOSYSTEM:BEGIN (\w+) -->\n)(.*?)(<!-- ECOSYSTEM:END \2 -->)", re.S)
-BLOCK_NAMES = ("routes", "projects", "relations", "sources")
+BLOCK_NAMES = ("overview", "routes", "projects", "relations", "credits", "sources")
+
+
+def first_sentence(text, limit=150):
+    """Первое предложение назначения без разметки ссылок (для компактного каталога)."""
+    t = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", (text or "").replace("\n", " ")).strip()
+    m = re.match(r"(.{25,%d}?[.;])(\s|$)" % limit, t)
+    return m.group(1) if m else (t[:limit].rstrip() + ("…" if len(t) > limit else ""))
 
 
 def goal_short(reg, ids):
@@ -217,6 +238,16 @@ def render_blocks(reg):
     projects = by_id(reg)
     types = {t["id"]: t["name"] for t in reg["types"]}
     out = {}
+    L = ["| Проект | Тип | Для чего (коротко) | Чему служит |", "|---|---|---|---|"]
+    for g in reg["groups"]:
+        for pid in g["projects"]:
+            p = projects[pid]
+            title = "[%s](%s)" % (p["name"], readme_url(p)) if p.get("repo") and not p.get("title_only") else p["name"]
+            if p["visibility"] == "private":
+                title += " — приватный"
+            L.append("| %s ([карточка](ecosystem-catalog.md#p-%s)) | %s | %s | %s |" % (
+                title, pid, types[p["type"]], md_cell(first_sentence(p["purpose"]) or "—"), md_cell(goal_short(reg, p["serves"]))))
+    out["overview"] = "\n".join(L) + "\n"
     L = ["| Вопрос | Куда идти | Маршрут Atlas |", "|---|---|---|"]
     for r in reg["routes"]:
         count = {}
@@ -259,10 +290,19 @@ def render_blocks(reg):
         L.append("| %s | %s | %s | %s ([источник](%s)) |" % (projects[r["from"]]["name"], projects[r["to"]]["name"],
                                                              level_names[r["level"]], md_cell(r["basis"]), r["source"]))
     if not strong:
-        L.append("| — | — | — | связей выше концептуального уровня в реестре нет |")
+        L.append("| — | — | — | связи выше концептуального уровня %s |" % NOT_CONFIRMED)
     L += ["", "Концептуальных связей (границы ответственности и общие идеи без плана и интерфейса): %d. "
-          "Они не вынесены в эту таблицу и перечислены в [карточках](ecosystem-catalog.md) у каждого проекта." % concept]
+          "Они вынесены в отдельный файл [ecosystem-relations.md](ecosystem-relations.md), где отделены от планов и реализации, и перечислены в карточках." % concept]
     out["relations"] = "\n".join(L) + "\n"
+    credits = reg["meta"].get("credits", [])
+    L = ["| Проект | Источник заимствования | Что известно о лицензии и происхождении | Где записано |", "|---|---|---|---|"]
+    for c in credits:
+        L.append("| %s | %s | %s | %s |" % (projects[c["project"]]["name"], md_cell(c["source"]), md_cell(c["note"]), md_cell(c.get("evidence", ""))))
+    ex = reg["meta"].get("excluded_third_party", [])
+    if ex:
+        L += ["", "Сторонние репозитории, исключённые из активной карты и мониторинга (не удалены; сведения об авторстве остаются в самих репозиториях):", ""]
+        L += ["- [%s](%s) — %s" % (e["name"], e["url"], e["note"]) for e in ex]
+    out["credits"] = "\n".join(L) + "\n"
     out["sources"] = "\n".join("- [%s](%s) — %s%s" % (s["label"], s["url"], s["role"], (" (%s)" % s["access"]) if s.get("access") else "")
                                for s in reg["sources"]) + "\n"
     return out
@@ -292,7 +332,7 @@ def render_diagram(reg):
     shown = [r for r in reg["relations"] if r["level"] in ("planned", "interface", "verified")]
     out = []
     if not shown:
-        return ["_Подтверждённых и планируемых связей в реестре нет._"]
+        return ["_Планируемые, реализованные и проверенные связи %s._" % NOT_CONFIRMED]
     nodes = []
     for r in shown:
         for end in (r["from"], r["to"]):
@@ -309,9 +349,9 @@ def render_diagram(reg):
     out.append("```")
     out.append("")
     count = lambda lv: sum(1 for r in shown if r["level"] == lv)
-    say = lambda n: ("в реестре: %d" % n) if n else "в реестре таких связей нет"
+    say = lambda n: ("в реестре: %d" % n) if n else NOT_CONFIRMED
     out.append("Толстая линия — проверенное совместное выполнение (%s); сплошная — реализованный интерфейс (%s); пунктир — запланированная интеграция (%s). "
-               "Концептуальные связи на схеме не показаны, они в карточках проектов." % (say(count("verified")), say(count("interface")), say(count("planned"))))
+               "Это не доказательство отсутствия таких связей во всей экосистеме. Концептуальные связи на схеме не показаны: они в отдельном файле [ecosystem-relations.md](ecosystem-relations.md) и в карточках." % (say(count("verified")), say(count("interface")), say(count("planned"))))
     return out
 
 
@@ -326,7 +366,7 @@ def render_catalog(reg):
     L.append("")
     L.append("> Сформировано из реестра [`ecosystem.json`](ecosystem.json); краткий вход — [`README.md`](README.md). "
              "Подробные статусы остаются в самих проектах: здесь только назначение, существенные ограничения и ссылки на первоисточники.")
-    kinds = {"code": "код", "test": "тест", "manifest": "манифест", "report": "отчёт", "doc-only": "заявлено в документации"}
+    kinds = {"doc-only": "заявлено в документации", "report": "отчёт проекта", "manifest": "манифест", "code": "код", "test": "тест", "doc": "документ", "run": "запись запуска"}
     for g in reg["groups"]:
         for pid in g["projects"]:
             p = projects[pid]
@@ -357,9 +397,15 @@ def render_catalog(reg):
                                                           p.get("serves_note", "")))
             if p["confirmed"]:
                 L.append("")
-                L.append("**Подтверждено** (основание — код, тест, манифест или отчёт проекта; пункты с пометкой «прогон при составлении карты» проверены составителем и записью проекта не являются):")
-                for c in p["confirmed"]:
-                    L.append("- %s ([%s](%s))" % (c["text"], kinds[c["evidenceKind"]], c["source"]))
+                L.append("**Подтверждено** (одно основание не подменяет другое: механизм в коде не значит, что он включён или запускался; "
+                         "существующий тест не значит, что он проходил; запись запуска относится к своей версии и условиям):")
+                for kind, title in KIND_TITLES:
+                    items = [c for c in p["confirmed"] if c["evidenceKind"] == kind]
+                    if items:
+                        L.append("")
+                        L.append("*%s:*" % title)
+                        for c in items:
+                            L.append("- %s ([источник](%s))" % (c["text"], c["source"]))
             if p["planned"]:
                 L.append("")
                 L.append("**Задумано, но не подтверждено:**")
@@ -405,6 +451,27 @@ def render_catalog(reg):
             if p.get("unknowns"):
                 L.append("")
                 L.append("**Не установлено:** " + "; ".join(p["unknowns"]))
+    return "\n".join(L).rstrip() + "\n"
+
+
+def render_relations(reg):
+    """Отдельный файл со всеми связями: уровни явно разделены, концептуальные не выдаются за планы и реализацию."""
+    projects = by_id(reg)
+    L = ["# Связи между проектами Velantrim", "",
+         "<!-- GENERATED: источник — projects/ecosystem.json. Не правьте вручную. -->", "",
+         "> Сформировано из реестра [`ecosystem.json`](ecosystem.json). Вход в карту — [`README.md`](README.md). "
+         "Уровни не взаимозаменяемы: концептуальная связь — не план, план — не реализация, реализация — не проверенный запуск. "
+         "Пустой уровень означает «%s», а не доказанное отсутствие связей во всей экосистеме." % NOT_CONFIRMED, ""]
+    for lv in reg["levels"]:
+        rows = sorted([r for r in reg["relations"] if r["level"] == lv["id"]], key=lambda r: (r["from"], r["to"], r["kind"]))
+        L += ["## %s" % lv["name"], "", lv["meaning"][0].upper() + lv["meaning"][1:], ""]
+        if not rows:
+            L += ["_Связи этого уровня %s._" % NOT_CONFIRMED, ""]
+            continue
+        L += ["Связей: %d." % len(rows), "", "| От | К | Тип | Основание | Источник |", "|---|---|---|---|---|"]
+        for r in rows:
+            L.append("| %s | %s | %s | %s | [источник](%s) |" % (projects[r["from"]]["name"], projects[r["to"]]["name"], r["kind"], md_cell(r["basis"]), r["source"]))
+        L.append("")
     return "\n".join(L).rstrip() + "\n"
 
 
@@ -702,18 +769,20 @@ def cross_check(reg, tr):
     return notes
 
 
-def build_report(reg, res, notes, today):
+def build_report(reg, res, notes, today, cov=None):
     review = list(res["review"])
     review_notes = [t for k, t in notes if k == "review"]
     n_review = len(review) + len(review_notes)
     L = ["# Ecosystem check — %s" % today, ""]
-    gaps_note = ""
-    if res["gaps"]:
-        gaps_note = " (без базовой отметки: %d)" % len(res["gaps"])
     if n_review:
         L.append("**Результат: ТРЕБУЕТ РАССМОТРЕНИЯ — %d.** Реестр и baseline автоматически не менялись." % n_review)
     else:
-        L.append("**Результат: NO CHANGE** — в проверенных источниках значимых изменений нет%s." % gaps_note)
+        L.append("**Результат: NO CHANGE** — только в проверенных источниках.")
+    if cov:
+        L.append("")
+        L.append("**Охват:** проверено %d из %d проектов с репозиторием; не проверено (приватные, недоступные, лимит): %d; "
+                 "источников без базовой отметки: %d. NO CHANGE не означает полного охвата: непроверенные и не имеющие базовой отметки источники "
+                 "в результат не входят." % cov)
     L += ["", "Проверяются: переименование, архивирование, видимость и описание репозитория, документы о назначении и явный статус. "
           "Коммиты, не затрагивающие эти источники, не отслеживаются. Статус реализации автоматически не повышается: "
           "новое описание — повод проверить карточку, а не доказательство.", ""]
@@ -806,7 +875,7 @@ def cmd_render(args):
         for e in errs:
             print("ОШИБКА:", safe_line(e))
         return EXIT_PROBLEM
-    readme, catalog = Path(args.readme_out), Path(args.catalog_out)
+    readme, catalog, relations = Path(args.readme_out), Path(args.catalog_out), Path(args.relations_out)
     if not readme.exists():
         print("ОШИБКА: нет %s — README с маркерами ECOSYSTEM:BEGIN/END создаётся человеком, render заполняет только блоки" % readme.name)
         return EXIT_PROBLEM
@@ -816,7 +885,9 @@ def cmd_render(args):
         for e in problems:
             print("ОШИБКА:", e)
         return EXIT_PROBLEM
-    outputs = {readme: (old_readme, new_readme), catalog: (catalog.read_text(encoding="utf-8") if catalog.exists() else None, render_catalog(reg))}
+    outputs = {readme: (old_readme, new_readme),
+               catalog: (catalog.read_text(encoding="utf-8") if catalog.exists() else None, render_catalog(reg)),
+               relations: (relations.read_text(encoding="utf-8") if relations.exists() else None, render_relations(reg))}
     bad = 0
     for path, (current, text) in outputs.items():
         if args.check:
@@ -850,7 +921,10 @@ def cmd_check(args):
     res = compare(reg, base, obs, skipped, tr)
     notes = cross_check(reg, tr) if not args.no_cross else []
     today = args.today or datetime.now(timezone.utc).strftime("%Y-%m-%d")
-    text, n_review = build_report(reg, res, notes, today)
+    total = len([p for p in reg["projects"] if p.get("repo")])
+    checked = len([pid for pid, o in obs.items() if o["meta"]["status"] == "ok"])
+    cov = (checked, total, len(res["not_checked"]), len(res["gaps"]))
+    text, n_review = build_report(reg, res, notes, today, cov)
     if args.summary:
         with open(args.summary, "a", encoding="utf-8") as f:
             f.write(text)
@@ -861,9 +935,9 @@ def cmd_check(args):
     if args.propose:
         dump_json(args.propose, proposed_baseline(reg, obs, base, today))
     # в stdout — только управляемые строки, без текста из чужих репозиториев
-    print("check: %s; на рассмотрение: %d; технических: %d; не проверено: %d; без базовой отметки: %d" % (
-        "ТРЕБУЕТ РАССМОТРЕНИЯ" if n_review else "NO CHANGE", n_review, len(res["technical"]),
-        len(res["not_checked"]), len(res["gaps"])))
+    print("check: %s; на рассмотрение: %d; технических: %d; охват: %d из %d проектов; не проверено: %d; без базовой отметки: %d%s" % (
+        "ТРЕБУЕТ РАССМОТРЕНИЯ" if n_review else "NO CHANGE (только в проверенных источниках)", n_review, len(res["technical"]),
+        checked, total, len(res["not_checked"]), len(res["gaps"]), "" if n_review else "; это не полный охват"))
     if not args.summary:
         print(text if not any(l.startswith("::") for l in text.splitlines()) else "\n".join(safe_line(l) for l in text.splitlines()))
     return EXIT_REVIEW if n_review else EXIT_OK
@@ -897,6 +971,7 @@ def main(argv=None):
     ap.add_argument("--baseline", default=str(BASELINE))
     ap.add_argument("--readme-out", default=str(README_OUT))
     ap.add_argument("--catalog-out", default=str(CATALOG_OUT))
+    ap.add_argument("--relations-out", default=str(RELATIONS_OUT))
     ap.add_argument("--check", action="store_true", help="render: только сравнить с файлами")
     ap.add_argument("--transport", choices=["api", "gh", "local"], default=os.environ.get("ECOSYSTEM_TRANSPORT", "api"))
     ap.add_argument("--local-map", help="local: JSON {'owner/name': '/путь'}")
