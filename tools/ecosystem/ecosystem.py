@@ -33,7 +33,7 @@ ATLAS_ROUTES = "https://github.com/velantrian/Velantrim-Atlas-App/blob/main/atla
 MASTER_MAP = "https://github.com/velantrian/velantrim/blob/main/docs/architecture/VELANTRIM_ECOSYSTEM_MASTER_MAP.md"
 NOT_CONFIRMED = "не подтверждены в рамках этой проверки"
 VISIBILITIES = {"public", "private"}
-GH_URL = re.compile(r"https://github\.com/([A-Za-z0-9_.-]+)/([A-Za-z0-9_.-]+)")
+GH_URL = re.compile(r"https://github\.com/([A-Za-z0-9_.-]+)/([A-Za-z0-9_.-]+)", re.I)
 OWNER = "velantrian"
 
 
@@ -102,6 +102,26 @@ TITLE_ONLY_ID = re.compile(r"[a-z][a-z0-9]{0,15}")
 
 def by_id(reg):
     return {p["id"]: p for p in reg["projects"]}
+
+
+def redact_title_only_errors(reg, errs):
+    """Mask title_only IDs and repository identifiers in validation diagnostics."""
+    ids, repos = set(), set()
+    for p in reg["projects"]:
+        if not p.get("title_only"):
+            continue
+        ids.add(p["id"])
+        if p.get("repo"):
+            repos.add(p["repo"])
+        for s in walk_strings(p):
+            for m in GH_URL.finditer(s):
+                repos.add(m.group(1) + "/" + m.group(2).rstrip("."))
+    for secret in sorted(filter(None, repos), key=len, reverse=True):
+        errs = [e.replace(secret, "[title_only]") for e in errs]
+    for pid in sorted(filter(None, ids), key=len, reverse=True):
+        pattern = re.compile(r"(?<![A-Za-z0-9_.-])" + re.escape(pid) + r"(?![A-Za-z0-9_.-])")
+        errs = [pattern.sub("[title_only]", e) for e in errs]
+    return errs
 
 
 # ---------------------------------------------------------------- validate
@@ -189,7 +209,7 @@ def validate(reg):
             for key in ("repo", "entry_doc", "status_doc", "slug", "url", "repository"):
                 if p.get(key):
                     errs.append("%s: у записи title_only не должно быть поля '%s' (только название)" % (pid, key))
-            if any(GH_URL.search(s) or OWNER + "/" in s for s in walk_strings(p)):
+            if any(GH_URL.search(s) or OWNER + "/" in s.lower() for s in walk_strings(p)):
                 errs.append("%s: у записи title_only не должно быть идентификатора или ссылки на репозиторий" % pid)
         if p.get("repo") and not re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", p["repo"]):
             errs.append("%s: некорректное имя репозитория '%s'" % (pid, p["repo"]))
@@ -216,7 +236,7 @@ def validate(reg):
             full = owner + "/" + name
             if owner == OWNER and full not in repos and full not in external:
                 errs.append("ссылка на неизвестное или неточно названное репозиторий: %s" % full)
-    return errs
+    return redact_title_only_errors(reg, errs)
 
 
 # ---------------------------------------------------------------- render

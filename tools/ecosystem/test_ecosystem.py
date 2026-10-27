@@ -268,7 +268,8 @@ class RenderTests(Base):
     def test_title_only_with_repo_id_is_rejected_by_validate(self):
         self.title_only_with_repo()
         errs = "\n".join(eco.validate(self.reg))
-        self.assertIn("hidden: у записи title_only не должно быть поля 'repo'", errs)
+        self.assertIn("у записи title_only не должно быть поля 'repo'", errs)
+        self.assertNotIn("hidden", errs)
 
     def test_title_only_rejects_other_identifiers_and_urls(self):
         self.title_only_with_repo()
@@ -352,6 +353,36 @@ class RenderTests(Base):
         after = eco.anchors(self.reg)
         self.assertEqual((after["hidden"], after["hiddenb"]), ("p-titleonly-2", "p-titleonly-1"))
         self.assertEqual(eco.validate(self.reg), [])
+
+
+    def test_title_only_group_validation_never_exposes_id(self):
+        self.title_only_with_repo()
+        self.reg["projects"][-1]["repo"] = ""
+        self.reg["groups"][0]["projects"].pop()
+        errs = "\n".join(eco.validate(self.reg))
+        self.assertIn("ровно в одну группу", errs)
+        self.assertNotIn("hidden", errs)
+
+    def test_title_only_case_variant_github_url_is_rejected_before_render(self):
+        self.title_only_with_repo()
+        self.reg["projects"][-1]["repo"] = ""
+        self.reg["projects"][-1]["limits"] = "https://GITHUB.com/VELANTRIAN/Synthetic-Private-Repo-123"
+        errs = "\n".join(eco.validate(self.reg))
+        self.assertIn("идентификатора или ссылки на репозиторий", errs)
+        self.assertNotIn("VELANTRIAN/Synthetic-Private-Repo-123", errs)
+        eco.dump_json(self.reg_path, self.reg)
+        rp, cp, base = self.paths()
+        self.assertEqual(run(["render"] + base)[0], 1)
+        self.assertFalse(cp.exists())
+
+    def test_title_only_invalid_id_does_not_enter_validation_errors(self):
+        self.title_only_with_repo()
+        p = self.reg["projects"][-1]
+        p["id"] = "synthetic-private-repo-123"
+        self.reg["groups"][0]["projects"][-1] = p["id"]
+        errs = "\n".join(eco.validate(self.reg))
+        self.assertIn("id не должен напоминать имя репозитория", errs)
+        self.assertNotIn("synthetic-private-repo-123", errs)
 
 
 if __name__ == "__main__":
