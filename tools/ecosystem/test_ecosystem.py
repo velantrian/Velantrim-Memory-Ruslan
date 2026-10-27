@@ -327,6 +327,32 @@ class RenderTests(Base):
         self.assertNotIn("по решению владельца", catalog)
         self.assertNotIn("решение владельца", catalog)
 
+    def test_title_only_anchor_cannot_collide_with_a_regular_project_id(self):
+        self.title_only_with_repo()
+        self.reg["projects"][-1]["repo"] = ""
+        regular = copy.deepcopy(self.reg["projects"][1])  # beta
+        regular["id"], regular["name"] = "titleonly-1", "Обычный проект"
+        self.reg["projects"].append(regular)
+        self.reg["groups"][0]["projects"].append("titleonly-1")
+        errs = "\n".join(eco.validate(self.reg))
+        self.assertIn("коллизия якорей карточек: 'p-titleonly-1'", errs)
+        self.assertNotIn("hidden", errs)  # сообщение не называет id записи title_only
+
+    def test_title_only_anchors_follow_registry_order(self):
+        # ограничение: нейтральные якоря нумеруются по порядку записей, перестановка меняет номера
+        self.title_only_with_repo()
+        self.reg["projects"][-1]["repo"] = ""
+        second = copy.deepcopy(self.reg["projects"][-1])
+        second["id"], second["name"] = "hiddenb", "Вторая скрытая"
+        self.reg["projects"].append(second)
+        self.reg["groups"][0]["projects"].append("hiddenb")
+        before = eco.anchors(self.reg)
+        self.assertEqual((before["hidden"], before["hiddenb"]), ("p-titleonly-1", "p-titleonly-2"))
+        self.reg["projects"][-2], self.reg["projects"][-1] = self.reg["projects"][-1], self.reg["projects"][-2]
+        after = eco.anchors(self.reg)
+        self.assertEqual((after["hidden"], after["hiddenb"]), ("p-titleonly-2", "p-titleonly-1"))
+        self.assertEqual(eco.validate(self.reg), [])
+
 
 if __name__ == "__main__":
     unittest.main()

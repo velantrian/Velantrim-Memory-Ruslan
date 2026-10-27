@@ -126,6 +126,12 @@ def validate(reg):
     ids = [p["id"] for p in reg["projects"]]
     if len(ids) != len(set(ids)):
         errs.append("повторяющиеся id проектов")
+    seen_anchors = {}
+    for pid, anchor in anchors(reg).items():
+        if anchor in seen_anchors:
+            # id title_only в сообщение не выводим: называем только якорь
+            errs.append("коллизия якорей карточек: '%s' получают две записи" % anchor)
+        seen_anchors[anchor] = pid
     idset = set(ids)
     repos = {p["repo"] for p in reg["projects"] if p.get("repo")}
     grouped = []
