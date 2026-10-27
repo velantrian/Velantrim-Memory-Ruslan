@@ -37,7 +37,7 @@
 | [velantrim-core](https://github.com/velantrian/velantrim-core/blob/main/README.md) ([карточка](ecosystem-catalog.md#p-velantrim-core)) | Исследование | Архитектурный документ Core 2.1 Crystal с рабочей и долговременной памятью, маршрутизацией, выбором действий, остановкой и восстановлением. | экзокортекс |
 | [Karif-Core](https://github.com/velantrian/Velantrim-Karif-Core/blob/main/README.md) — приватный ([карточка](ecosystem-catalog.md#p-karif-core)) | Компонент | Замысел малого ядра-загрузчика: запуск большого ядра, откат к проверенному нормальному состоянию и заводской сброс как последний рубеж. | — |
 | [Velantrim-Memory](https://github.com/velantrian/Velantrim-Memory/blob/main/README.md) — приватный ([карточка](ecosystem-catalog.md#p-velantrim-memory)) | Документация | Исходная переносимая Markdown-память для рабочей точки, решений, вопросов и источников между чатами и агентами. | экзокортекс |
-| «От памяти к пониманию» — приватный ([карточка](ecosystem-catalog.md#p-book)) | Документация | — | — |
+| «От памяти к пониманию» — приватный ([карточка](ecosystem-catalog.md#p-titleonly-1)) | Документация | — | — |
 <!-- ECOSYSTEM:END overview -->
 
 ## Как найти нужное
@@ -161,7 +161,7 @@
 | Проект | Тип | Что это и для чего нужен | Чему служит | Документы |
 |---|---|---|---|---|
 | [Velantrim-Memory](https://github.com/velantrian/Velantrim-Memory/blob/main/README.md) — приватный | Документация | Исходная переносимая Markdown-память для рабочей точки, решений, вопросов и источников между чатами и агентами. В [CURRENT.md](https://github.com/velantrian/Velantrim-Memory-Ruslan/blob/b79f20838fd5adec73e9e50188f79e47b58fdc43/CURRENT.md) Velantrim-Memory-Ruslan описан как целевая копия; [коммит от 2026-10-09](https://github.com/velantrian/Velantrim-Memory-Ruslan/commit/faa91a93c6e5b2c1b7d8a329a2c5f08abe3cf782) подтверждает адаптацию под Руслана уже к этой дате, но не устанавливает точную дату создания копии или отсутствие синхронизации. | экзокортекс | [CURRENT.md](https://github.com/velantrian/Velantrim-Memory-Ruslan/blob/main/CURRENT.md) · [карточка](ecosystem-catalog.md#p-velantrim-memory) |
-| «От памяти к пониманию» — приватный | Документация | — | — | [карточка](ecosystem-catalog.md#p-book) |
+| «От памяти к пониманию» — приватный | Документация | — | — | [карточка](ecosystem-catalog.md#p-titleonly-1) |
 <!-- ECOSYSTEM:END projects -->
 
 ## Связи между проектами

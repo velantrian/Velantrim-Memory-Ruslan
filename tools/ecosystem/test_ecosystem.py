@@ -286,7 +286,7 @@ class RenderTests(Base):
         for text in list(blocks.values()) + [catalog]:
             self.assertNotIn("Synthetic-Private-Repo-123", text)
         self.assertIn("Скрытая книга", blocks["overview"])
-        self.assertIn('<a id="p-hidden"></a>', catalog)
+        self.assertIn('<a id="p-titleonly-1"></a>', catalog)
 
     def test_title_only_render_via_cli_leaves_no_repo_id_in_files(self):
         self.title_only_with_repo()
@@ -295,6 +295,37 @@ class RenderTests(Base):
         rp, cp, base = self.paths()
         self.assertEqual(run(["render"] + base)[0], 0)
         self.assertNotIn("Synthetic-Private-Repo-123", rp.read_text() + cp.read_text())
+
+    def test_title_only_id_cannot_leak_through_anchor_or_links(self):
+        self.title_only_with_repo()
+        p = self.reg["projects"][-1]
+        p["repo"], p["id"] = "", "synthetic-private-repo-123"
+        self.reg["groups"][0]["projects"][-1] = p["id"]
+        self.reg["relations"].append({"from": "alpha", "to": p["id"], "kind": "related", "level": "conceptual", "basis": "описано",
+                                      "source": "https://github.com/velantrian/Alpha/blob/main/README.md"})
+        self.assertIn("id не должен напоминать имя репозитория", "\n".join(eco.validate(self.reg)))
+        # даже если невалидная запись дошла до рендерера, id не попадает ни в якорь, ни в ссылки, ни в текст
+        blocks, catalog = eco.render_blocks(self.reg), eco.render_catalog(self.reg)
+        for text in list(blocks.values()) + [catalog]:
+            self.assertNotIn("synthetic-private-repo-123", text)
+        self.assertIn('<a id="p-titleonly-1"></a>', catalog)
+        self.assertIn("(#p-titleonly-1)", catalog)  # ссылка из связи ведёт на нейтральный якорь
+        self.assertIn("ecosystem-catalog.md#p-titleonly-1", blocks["overview"])
+
+    def test_title_only_id_must_not_contain_repo_name(self):
+        self.title_only_with_repo()
+        p = self.reg["projects"][-1]
+        p["id"], p["repo"] = "mysyntheticrepo", "velantrian/SyntheticRepo"
+        self.reg["groups"][0]["projects"][-1] = p["id"]
+        self.assertIn("id не должен напоминать имя репозитория", "\n".join(eco.validate(self.reg)))
+
+    def test_empty_description_fallback_does_not_attribute_a_decision_to_the_owner(self):
+        self.title_only_with_repo()
+        self.reg["projects"][-1]["repo"] = ""
+        catalog = eco.render_catalog(self.reg)
+        self.assertIn("**Назначение.** описание не предоставлено", catalog)
+        self.assertNotIn("по решению владельца", catalog)
+        self.assertNotIn("решение владельца", catalog)
 
 
 if __name__ == "__main__":

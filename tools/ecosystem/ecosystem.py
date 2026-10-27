@@ -84,6 +84,22 @@ def readme_url(p):
     return repo_url(p) + "/blob/main/README.md" if shown_repo(p) else ""
 
 
+def anchors(reg):
+    """HTML-якоря карточек. У записи title_only якорь нейтральный: её id нигде не выводится."""
+    out, n = {}, 0
+    for p in reg["projects"]:
+        if p.get("title_only"):
+            n += 1
+            out[p["id"]] = "p-titleonly-%d" % n
+        else:
+            out[p["id"]] = "p-" + p["id"]
+    return out
+
+
+NO_DESCRIPTION = "описание не предоставлено"
+TITLE_ONLY_ID = re.compile(r"[a-z][a-z0-9]{0,15}")
+
+
 def by_id(reg):
     return {p["id"]: p for p in reg["projects"]}
 
@@ -160,6 +176,9 @@ def validate(reg):
         elif p.get("repo") and not p.get("checked", {}).get("date"):
             errs.append("%s: нет даты последней проверки" % pid)
         if p.get("title_only"):
+            repo_name = (p.get("repo") or "").split("/")[-1].lower()
+            if not TITLE_ONLY_ID.fullmatch(pid) or (repo_name and repo_name in pid.lower()):
+                errs.append("запись title_only: id не должен напоминать имя репозитория (допустимо: короткое нейтральное слово из латинских букв и цифр)")
             # запись «только название»: никаких идентификаторов или ссылок на репозиторий
             for key in ("repo", "entry_doc", "status_doc", "slug", "url", "repository"):
                 if p.get(key):
@@ -228,6 +247,7 @@ def render_blocks(reg):
     projects = by_id(reg)
     types = {t["id"]: t["name"] for t in reg["types"]}
     out = {}
+    anc = anchors(reg)
     L = ["| Проект | Тип | Для чего (коротко) | Чему служит |", "|---|---|---|---|"]
     for g in reg["groups"]:
         for pid in g["projects"]:
@@ -235,8 +255,8 @@ def render_blocks(reg):
             title = "[%s](%s)" % (p["name"], readme_url(p)) if shown_repo(p) else p["name"]
             if p["visibility"] == "private":
                 title += " — приватный"
-            L.append("| %s ([карточка](ecosystem-catalog.md#p-%s)) | %s | %s | %s |" % (
-                title, pid, types[p["type"]], md_cell(first_sentence(p["purpose"]) or "—"), md_cell(goal_short(reg, p["serves"]))))
+            L.append("| %s ([карточка](ecosystem-catalog.md#%s)) | %s | %s | %s |" % (
+                title, anc[pid], types[p["type"]], md_cell(first_sentence(p["purpose"]) or "—"), md_cell(goal_short(reg, p["serves"]))))
     out["overview"] = "\n".join(L) + "\n"
     L = ["Это примеры переходов к Atlas, а не отдельный маршрутизатор. Навигацию, полный набор маршрутов и правила выбора владельца ведёт [Atlas](%s); здесь они не повторяются." % ATLAS_ROUTES,
          "", "| Вопрос | Маршрут Atlas | Куда читать первоисточник |", "|---|---|---|"]
@@ -264,7 +284,7 @@ def render_blocks(reg):
             docs = []
             if p.get("entry_doc") and not p.get("title_only"):
                 docs.append("[%s](%s)" % (short_doc(p["entry_doc"]), p["entry_doc"]))
-            docs.append("[карточка](ecosystem-catalog.md#p-%s)" % pid)
+            docs.append("[карточка](ecosystem-catalog.md#%s)" % anc[pid])
             L.append("| %s | %s | %s | %s | %s |" % (title, types[p["type"]], md_cell(p["purpose"] or "—"),
                                                     md_cell(goal_short(reg, p["serves"])), " · ".join(docs)))
         L.append("")
@@ -322,6 +342,7 @@ def render_catalog(reg):
     projects = by_id(reg)
     levels = {l["id"]: l["name"] for l in reg["levels"]}
     types = {t["id"]: t["name"] for t in reg["types"]}
+    anc = anchors(reg)
     L = []
     L.append("# Карточки проектов Velantrim")
     L.append("")
@@ -334,7 +355,7 @@ def render_catalog(reg):
         for pid in g["projects"]:
             p = projects[pid]
             L.append("")
-            L.append('<a id="p-%s"></a>' % pid)
+            L.append('<a id="%s"></a>' % anc[pid])
             L.append("## %s" % p["name"])
             L.append("")
             facts = []
@@ -347,7 +368,7 @@ def render_catalog(reg):
                 L.append("")
                 L.append("Тип — %s" % p["type_note"])
             L.append("")
-            L.append("**Назначение.** %s" % (p["purpose"] or "название без описания (по решению владельца)"))
+            L.append("**Назначение.** %s" % (p["purpose"] or NO_DESCRIPTION))
             if p.get("why_exists"):
                 L.append("")
                 L.append("**Зачем существует.** %s" % p["why_exists"])
@@ -383,11 +404,11 @@ def render_catalog(reg):
                 L.append("")
                 L.append("**Связи:**")
                 for r in sorted(out_rel, key=lambda r: (r["to"], r["level"])):
-                    L.append("- → [%s](#p-%s): %s — %s ([источник](%s))" % (
-                        projects[r["to"]]["name"], r["to"], levels[r["level"]], r["basis"], r["source"]))
+                    L.append("- → [%s](#%s): %s — %s ([источник](%s))" % (
+                        projects[r["to"]]["name"], anc[r["to"]], levels[r["level"]], r["basis"], r["source"]))
                 for r in sorted(in_rel, key=lambda r: (r["from"], r["level"])):
-                    L.append("- ← [%s](#p-%s): %s — %s ([источник](%s))" % (
-                        projects[r["from"]]["name"], r["from"], levels[r["level"]], r["basis"], r["source"]))
+                    L.append("- ← [%s](#%s): %s — %s ([источник](%s))" % (
+                        projects[r["from"]]["name"], anc[r["from"]], levels[r["level"]], r["basis"], r["source"]))
             docs = []
             if p.get("entry_doc") and not p.get("title_only"):
                 docs.append("вход: [%s](%s)" % (short_doc(p["entry_doc"]), p["entry_doc"]))
