@@ -52,7 +52,7 @@
 
 **Где лежат результаты.** Основное в main. Не слиты и на remote остаются: docs/separation-plan-2026-10-19 (SEPARATION_PLAN.md, не исполнен), docs/zauchit-research-program-2026-10-18 (T1/T2, PR #21, состояние UNKNOWN), vmr-final-safety-01-draft, memory-reliability-hardening-v1, owner-checkpoint-2026-10-10 и несколько старых docs/* (последние не читались). Ветка docs/human-first-landing-20261021 с remote удалена: README.md в main совпадает с её текстом (PR #32).
 
-**Проверка.** Карточка сверена 2026-10-26 по `main@956b3d5`. Автоматически наблюдаются: `README.md`, `README.ru.md`, `START_HERE.md`, `WORKBOARD.md`, `CURRENT.md`, `Encyclopedia_of_Cognition_Project/books/zauchit/complete-2026-10-19/manifest.json`.
+**Проверка.** Карточка сверена 2026-10-26 по `main@956b3d5`. Файлы для следующей ручной сверки: `README.md`, `README.ru.md`, `START_HERE.md`, `WORKBOARD.md`, `CURRENT.md`, `Encyclopedia_of_Cognition_Project/books/zauchit/complete-2026-10-19/manifest.json`.
 
 **Не установлено:** Состояние PR #21 (T1/T2): по CURRENT.md от 2026-10-20 было OPEN/DRAFT; ветка на remote есть, API не использовался.; Решение владельца по SEPARATION_PLAN (выносить ли Encyclopedia_of_Cognition_Project и, возможно, projects/religion-spirituality): UNKNOWN; от него зависят цели world и book.; Часть коммитов 16-19.10 (книги, пилоты HARVYRD, «Заучит») без номера PR: шли ли они через Draft PR по правилу START_HERE, UNKNOWN.; Обновит ли владелец записи хаба о Crystal Volition (CURRENT.md, crystal-volition.md, блок «Самое важное» в WORKBOARD) после PR #498 в Crystal: UNKNOWN.
 
@@ -111,7 +111,7 @@
 
 **Где лежат результаты.** Не в main: claude/velantrim-source-acquisition-wkqomi (2026-09-03) — независимый аудит Google-документа Working Master (velantrim_multi_agent_independent_audit.md, audit_reports_supporting/01-08, source handoff); claude/velantrim-atlas-pr1-review-gvknv0 (2026-09-05) — независимый обзор Atlas PR #1. Файлы веток docs/* и tooling/* по содержимому уже в main.
 
-**Проверка.** Карточка сверена 2026-10-26 по `main@ac5df7a`. Автоматически наблюдаются: `README.md`, `docs/architecture/VELANTRIM_ECOSYSTEM_MASTER_MAP.md`, `docs/architecture/VELANTRIM_ECOSYSTEM_MASTER_MAP.md`, `docs/research/COGNITIVE_SYSTEM_CAPABILITY_AUDIT.md`, `tools/ecosystem-evidence/README.md`, `tools/ecosystem-evidence/ecosystem_status_index.json`, `tools/ecosystem-evidence/bindings/crystal.claims.json`, `tools/ecosystem-evidence/bindings/titan.claims.json`, `tools/ecosystem-evidence/bindings/soul.claims.json`, `tools/ecosystem-evidence/bindings/native-kernel.claims.json`, `tools/ecosystem-evidence/bindings/continuum.claims.json`.
+**Проверка.** Карточка сверена 2026-10-26 по `main@ac5df7a`. Файлы для следующей ручной сверки: `README.md`, `docs/architecture/VELANTRIM_ECOSYSTEM_MASTER_MAP.md`, `docs/architecture/VELANTRIM_ECOSYSTEM_MASTER_MAP.md`, `docs/research/COGNITIVE_SYSTEM_CAPABILITY_AUDIT.md`, `tools/ecosystem-evidence/README.md`, `tools/ecosystem-evidence/ecosystem_status_index.json`, `tools/ecosystem-evidence/bindings/crystal.claims.json`, `tools/ecosystem-evidence/bindings/titan.claims.json`, `tools/ecosystem-evidence/bindings/soul.claims.json`, `tools/ecosystem-evidence/bindings/native-kernel.claims.json`, `tools/ecosystem-evidence/bindings/continuum.claims.json`.
 
 **Не установлено:** README не ссылается на Master Map, tools/ecosystem-evidence и документ о грантах (проверено чтением); в них ведёт каталог хаба.; Протоколы раундов MV-1 и MV-3 из Epistemic Firewalls в репозитории не найдены; результат известен только как утверждение документа.; Актуальность чекпойнта Map от 2026-09-02 (ES-02 как рубеж CLOS) — UNKNOWN: CLOS docs/CURRENT_STATUS.md называет ES-02 лишь одним из кандидатов.; Записей запуска verify_ecosystem.py и тестов самого верификатора нет; Mentaury-Kernel, AI Skills, Cognitive OS и сам velantrim остаются в индексе без манифеста (index-only).
 
@@ -173,7 +173,7 @@
 
 **Где лежат результаты.** Ветки chore/atlas-baseline-maintenance-v0.1, docs/agent-memory-atlas-route-20260928, docs/velantrim-agent-map-20261001 и research/cognitive-donor-route-2026-09-24 входят в историю main (слиты PR #3–#6). Ветки docs/atlas-routing-v0.1 и feat/atlas-routing-ui-v0.1 в историю main не входят: это более ранние версии тех же файлов и коммиты, не попавшие в main как есть; файлов, которых нет в main, на них нет. Результатов вне main не найдено.
 
-**Проверка.** Карточка сверена 2026-10-26 по `main@a09012a`. Автоматически наблюдаются: `README.md`, `docs/atlas/AGENT_MAP.md`, `docs/atlas/IMPLEMENTATION_STATUS.md`, `atlas/routes.json`, `atlas/projects.json`, `atlas/sources.json`, `src/lib/atlas-routing-contract-core.ts`.
+**Проверка.** Карточка сверена 2026-10-26 по `main@a09012a`. Файлы для следующей ручной сверки: `README.md`, `docs/atlas/AGENT_MAP.md`, `docs/atlas/IMPLEMENTATION_STATUS.md`, `atlas/routes.json`, `atlas/projects.json`, `atlas/sources.json`, `src/lib/atlas-routing-contract-core.ts`.
 
 **Не установлено:** Развёрнуто ли приложение и где: адрес в репозитории не указан, закоммичена только сборка .vercel/output.; Проходят ли typecheck, lint и остальные тесты (scripts/**/*.test.mjs) на текущем main: не запускались, CI в репозитории нет.; Что показывает /routing сейчас: по загрузчику контракт невалиден и страница покажет «contract unavailable»; в браузере не проверялось.; Как назначения unified-cognitive-architecture, system-os, memory-understanding-research и gsj-research-journal соотносятся со списком проектов реестра: отдельных записей для них нет.
 
@@ -231,7 +231,7 @@
 
 **Где лежат результаты.** Ветки knowledge-tree/curated-population-batch-3, batch-7, gaps-audit-batch-8 и scaffold/knowledge-tree-v0 входят в историю main. Ветки batch-1, 2, 4, 5, 6 и docs/external-research-intake-protocol в историю main не входят (причина не выяснена), но файлов, которых нет в main, на них не найдено. Результатов вне main не обнаружено.
 
-**Проверка.** Карточка сверена 2026-10-26 по `main@b87fbfe`. Автоматически наблюдаются: `README.md`, `docs/PURPOSE.md`, `AGENTS.md`, `README.md`, `docs/BATCH8_NAVIGATION_GAP_AUDIT.md`, `schema/node.schema.json`, `schema/edge.schema.json`, `indexes/neighbors.json`, `.github/workflows/ci.yml`.
+**Проверка.** Карточка сверена 2026-10-26 по `main@b87fbfe`. Файлы для следующей ручной сверки: `README.md`, `docs/PURPOSE.md`, `AGENTS.md`, `README.md`, `docs/BATCH8_NAVIGATION_GAP_AUDIT.md`, `schema/node.schema.json`, `schema/edge.schema.json`, `indexes/neighbors.json`, `.github/workflows/ci.yml`.
 
 **Не установлено:** Проходит ли CI на GitHub на текущем main: записей запусков нет; локально в копии всё прошло.; Актуальны ли узлы: у всех, кроме трёх без даты, last_verified = 2026-09-11; сверка с владельцами после этой даты не записана. Узел atlas-implementation-status повторяет устаревшую формулировку Atlas («UI контракт не использует»).; Соответствует ли корневой узел velantrim репозиторию velantrim: у узла нет URL.; Будет ли охват расширяться: README называет данные PARTIAL / BOOTSTRAP, плана пополнения проектами вне охвата не найдено.
 
@@ -313,7 +313,7 @@
 
 **Где лежат результаты.** Результаты в main. Остальные 33 ветки (agent/*, claude/*, docs/*, cursor/*, copilot/*, research/*, audit-hardening-2026-06-06; самая свежая от 2026-08-23) — рабочие ветки PR и старые черновики (прототип essence-workdesk, native-kernel-compatibility, i18n-инструменты, аудит документации). Проект сам считает ветки и открытые PR неавторитетными (AGENTS.md, раздел 14). Сверены только списки уникальных файлов.
 
-**Проверка.** Карточка сверена 2026-10-26 по `main@8dfea14`. Автоматически наблюдаются: `README.md`, `docs/ai/README.md`, `docs/VELANTRIM_ECOSYSTEM.md`, `ECOSYSTEM_RELATIONS.md`, `docs/STATUS.md`, `docs/IMPLEMENTATION_STATUS.md`, `docs/status/implementation-manifest.json`, `docs/status/current-lifecycle-overlay.json`.
+**Проверка.** Карточка сверена 2026-10-26 по `main@8dfea14`. Файлы для следующей ручной сверки: `README.md`, `docs/ai/README.md`, `docs/VELANTRIM_ECOSYSTEM.md`, `ECOSYSTEM_RELATIONS.md`, `docs/STATUS.md`, `docs/IMPLEMENTATION_STATUS.md`, `docs/status/implementation-manifest.json`, `docs/status/current-lifecycle-overlay.json`.
 
 **Не установлено:** Использует ли другой проект Crystal в рабочем коде: в Crystal интерфейсов к ним нет (кроме порта salience из EITI); чужие репозитории здесь не проверялись.; Состояние CI на 8dfea14 и текущее число тестов: документы статуса датированы 2026-08-15…2026-09-07, CI на GitHub не просматривался.; Был ли PR #498 тем первым шагом «V6», который владелец имел в виду: хаб об этом молчит.; Качество поиска вне малых замороженных наборов оценки — UNKNOWN.
 
@@ -384,7 +384,7 @@
 
 **Где лежат результаты.** Все ссылки записи ведут на main. На origin около 219 голов (18 agent/*, claude/*, docs/*, test/*, feat/* и др.). Известные ветки датированы июлем–августом 2026 (последняя: 2026-08-28). Неслитые ветки просмотрены только по деревьям: research/eiti-learning-patch-shadow (core/learning_patch.py, RFC-0083; на main лишь docs/research/LEARNING_PROPOSAL_RFC0084_RECONCILIATION.md). Слитость каждой ветки по истории не проверялась (клон неглубокий), результатов вне main не найдено.
 
-**Проверка.** Карточка сверена 2026-10-26 по `main@f442166` (прочитано: `README.md`, `AGENTS.md`, `docs/ai/README.md`, `docs/project_status/FOR_AI.json`, `docs/PROJECT_STATUS.md`, `docs/TITAN_V1_CLOSURE.ru.md`, `docs/RUN.ru.md`, `docs/VELANTRIM_ECOSYSTEM.md`, `docs/RELATED_PROJECTS.ru.md`, `ECOSYSTEM_RELATIONS.md`, `research/SMART_CONTEXT_HANDOFF_V0_1.md`, `research/FUTURE_COMPONENTS.md`). Автоматически наблюдаются: `README.md`, `docs/VELANTRIM_ECOSYSTEM.md`, `docs/project_status/FOR_AI.json`, `docs/state/project_state.json`, `docs/PROJECT_STATUS.md`, `docs/ai/CURRENT_STATE.md`, `CHANGELOG.md`.
+**Проверка.** Карточка сверена 2026-10-26 по `main@f442166` (прочитано: `README.md`, `AGENTS.md`, `docs/ai/README.md`, `docs/project_status/FOR_AI.json`, `docs/PROJECT_STATUS.md`, `docs/TITAN_V1_CLOSURE.ru.md`, `docs/RUN.ru.md`, `docs/VELANTRIM_ECOSYSTEM.md`, `docs/RELATED_PROJECTS.ru.md`, `ECOSYSTEM_RELATIONS.md`, `research/SMART_CONTEXT_HANDOFF_V0_1.md`, `research/FUTURE_COMPONENTS.md`). Файлы для следующей ручной сверки: `README.md`, `docs/VELANTRIM_ECOSYSTEM.md`, `docs/project_status/FOR_AI.json`, `docs/state/project_state.json`, `docs/PROJECT_STATUS.md`, `docs/ai/CURRENT_STATE.md`, `CHANGELOG.md`.
 
 **Не установлено:** UNKNOWN: результат CI и тестов на main@e75980f. Тесты не запускались; CURRENT_STATE сам пишет, что post-merge CI для #461 напрямую не наблюдался.; Даты статусных документов расходятся: project_state.json — 2026-08-10, FOR_AI.json — 2026-09-08 (verified_main_sha 70bc34f), CURRENT_STATE.md, KNOWN_RISKS.md и WORK_LOG.md — 2026-09-23, head main — 2026-10-25. Отмена LLM-вызова и обновления зависимостей после 2026-10-18 в них не отражены.; Публичное противоречие внутри репозитория: docs/CONTINUITY_STATUS.md («15 open draft PRs · not merged», база main@0d07bc9) и docs/TITAN_EXECUTION_STATUS.md (база 2026-08-02) устарели относительно project_state.json и CURRENT_STATE.md (Continuity 12/12).; UNKNOWN: каким именно PR добавлен вводный блок README (определено только по разнице 2170fb1..e75980f).
 
@@ -436,7 +436,7 @@
 
 **Где лежат результаты.** Работа идёт в main (PR #2–#52 слиты). Не слито: PR #53 (ветка fix/persist-partial-document-truthful-20261026, 2026-10-26) и ветка claude/documentation-analysis-owkx58 (аудит документации). Fractal-Memory-old — снимок апстрима. Всего 55 веток, остальные названы как PR-ветки; содержимое каждой не сверял.
 
-**Проверка.** Карточка сверена 2026-10-26 по `main@92dfabd`. Автоматически наблюдаются: `README.md`, `docs/ai/README.md`, `SYSTEM_OVERVIEW.md`, `docs/BACKUP_RECOVERY_STATUS.md`, `.github/workflows/ci.yml`.
+**Проверка.** Карточка сверена 2026-10-26 по `main@92dfabd`. Файлы для следующей ручной сверки: `README.md`, `docs/ai/README.md`, `SYSTEM_OVERVIEW.md`, `docs/BACKUP_RECOVERY_STATUS.md`, `.github/workflows/ci.yml`.
 
 **Не установлено:** UNKNOWN: используется ли сервис в повседневной работе владельца; по коду виден только пользователь по умолчанию velan, записей использования нет.; UNKNOWN: лицензия апстрима и условия использования его кода (репозиторий апстрима недоступен этой сессии).; UNKNOWN: какая именно копия «Graphiti_fractal-main» описана в журнале Titan от 2026-05-31 (196 py-файлов) и совпадает ли она с апстримом форка.
 
@@ -504,7 +504,7 @@
 
 **Где лежат результаты.** Не слиты 4 ветки. docs/internal-cause-2026-10-25 (2026-10-25, новая): трек 2, вопросы IC-01…IC-03, результатов нет. research/gsj-v0.4-package (2026-09-14): пакет GSJ v0.4, DESIGN_ONLY, RUN = NOT AUTHORIZED. agent/soul-v1-stage3-terminal-lineage-contract: контракт TRL-v0.1 FROZEN_DOCS_CANDIDATE, реализация NOT_STARTED. cursor/tier-a-enforcement-test-432c: технический маркер. Результатов экспериментов нет ни в одной.
 
-**Проверка.** Карточка сверена 2026-10-26 по `main@e9f8543` (прочитано: `AGENTS.md`, `docs/ai/README.md`, `docs/ai/project_manifest.json`, `docs/ai/KNOWN_RISKS.md`, `docs/state/project_state.json`, `docs/CURRENT_STATUS.md`, `docs/V1_FINAL_STATUS.md`, `docs/VELANTRIM_ECOSYSTEM.md`, `ECOSYSTEM_RELATIONS.md`, `LICENSE`, `tests/test_v1_epistemic_e2e_acceptance.py`). Автоматически наблюдаются: `README.md`, `SYSTEM_OVERVIEW.md`, `docs/CURRENT_STATUS.md`, `docs/state/project_state.json`, `docs/ai/project_manifest.json`, `docs/V1_FINAL_STATUS.md`.
+**Проверка.** Карточка сверена 2026-10-26 по `main@e9f8543` (прочитано: `AGENTS.md`, `docs/ai/README.md`, `docs/ai/project_manifest.json`, `docs/ai/KNOWN_RISKS.md`, `docs/state/project_state.json`, `docs/CURRENT_STATUS.md`, `docs/V1_FINAL_STATUS.md`, `docs/VELANTRIM_ECOSYSTEM.md`, `ECOSYSTEM_RELATIONS.md`, `LICENSE`, `tests/test_v1_epistemic_e2e_acceptance.py`). Файлы для следующей ручной сверки: `README.md`, `SYSTEM_OVERVIEW.md`, `docs/CURRENT_STATUS.md`, `docs/state/project_state.json`, `docs/ai/project_manifest.json`, `docs/V1_FINAL_STATUS.md`.
 
 **Не установлено:** UNKNOWN: живое состояние GitHub (открытые PR и issues, результат CI на main@e9f8543): клон только для чтения, а docs/CURRENT_STATUS.md сам отсылает к живому GitHub.; UNKNOWN: есть ли записанный совместный запуск Soul с Native Kernel, Mentaury-Kernel, Crystal, Titan или EITI; в прочитанных файлах такого нет.; UNKNOWN: актуальность GSJ после ветки research/gsj-v0.4-package; в Atlas GSJ ведёт в отдельное назначение gsj-research-journal.; UNKNOWN: принял ли владелец перенос идей экспериментов H-QS-1 / H-BM-1 в Soul; хаб фиксирует, что такое решение не принималось.
 
@@ -572,7 +572,7 @@
 
 **Где лежат результаты.** Ветка experiments (не main, 3238d30, без изменений): H-QS-1 (кворум независимости) и H-BM-1 (пересмотр по изменению доказательств), CLASS-1 PASS только по собственным предрегистрированным критериям; мало данных (12 вопросов, 6 синтетических сценариев), CLASS-2 не проводился, рецензия хаба нашла P0/P1-контрпримеры; отчёты сами пишут: не канон, не runtime. Новая ветка docs/ru-readme-parity-20261022: правка README.ru.md. Остальные ветки повторяют слитые PR, кроме DOCUMENTATION_AUDIT_2026-08-23.md в claude/documentation-analysis-owkx58.
 
-**Проверка.** Карточка сверена 2026-10-26 по `main@485ac07` (прочитано: `AGENTS.md`, `ECOSYSTEM_RELATIONS.md`, `docs/AI_CONTEXT.md`, `docs/CURRENT_STATUS.md`, `docs/FOUNDER_ORIGIN_AND_LINEAGE.md`, `docs/spec/CAPABILITY_PORT_EXECUTABLE_PROFILE_V0.md`, `conformance/capability_port.py`, `tests/test_capability_port.py`, `.github/workflows/conformance.yml`). Автоматически наблюдаются: `README.md`, `docs/AI_CONTEXT.md`, `docs/ARCHITECTURE.md`, `docs/CURRENT_STATUS.md`, `docs/spec/CAPABILITY_PORT_EXECUTABLE_PROFILE_V0.md`, `.github/workflows/conformance.yml`.
+**Проверка.** Карточка сверена 2026-10-26 по `main@485ac07` (прочитано: `AGENTS.md`, `ECOSYSTEM_RELATIONS.md`, `docs/AI_CONTEXT.md`, `docs/CURRENT_STATUS.md`, `docs/FOUNDER_ORIGIN_AND_LINEAGE.md`, `docs/spec/CAPABILITY_PORT_EXECUTABLE_PROFILE_V0.md`, `conformance/capability_port.py`, `tests/test_capability_port.py`, `.github/workflows/conformance.yml`). Файлы для следующей ручной сверки: `README.md`, `docs/AI_CONTEXT.md`, `docs/ARCHITECTURE.md`, `docs/CURRENT_STATUS.md`, `docs/spec/CAPABILITY_PORT_EXECUTABLE_PROFILE_V0.md`, `.github/workflows/conformance.yml`.
 
 **Не установлено:** UNKNOWN: живое состояние GitHub (открытые PR и issues, защита main, результат CI на main@485ac07): клон только для чтения.; docs/CURRENT_STATUS.md (на 2026-10-01) отстаёт от main: PR #19 там указан как открытый, а в истории main он слит (bf2d758).; Пины Native Kernel и Soul (NK-01, SOUL-01, SOUL-02) проверены 2026-08-16; пересверка (MK-FW-004) открыта, актуальность UNKNOWN.; UNKNOWN: что будет с результатами H-QS-1 / H-BM-1: CLASS-2 не проведён, перенос в Soul владельцем не решался (по заметке хаба).
 
@@ -645,7 +645,7 @@
 
 **Где лежат результаты.** Результаты исследования лежат в main. 9 не влитых веток (разбор 2026-09-23, evidence/branch-semantic-disposition-v1.json) сохранены как закрытые или исторические предложения и не служат источником текущей истины и связей. Клон мелкий (1 коммит), состав удалённых голов (18) тот же, что 2026-10-21; сами ветки не читались.
 
-**Проверка.** Карточка сверена 2026-10-26 по `main@c9048bc` (прочитано: `README.md`, `STATUS.md`, `ROADMAP.md`, `docs/ai/README.md`, `docs/ai/CURRENT_STATE.md`, `docs/ai/KNOWN_RISKS.md`, `project-state.json`, `docs/research/H11_EXECUTION_ADMISSION.json`, `docs/research/H11_REVIEWER_REPRODUCER_QUALIFICATION.json`, `docs/INTEGRATION_BOUNDARIES.md`, `docs/VELANTRIM_ECOSYSTEM.md`, `docs/A1_KERNEL_PURPOSE_AND_NON_GOALS.md`, `docs/FOUNDER_INTENT_MEMORY_INFORMATION_LIFECYCLE.md`, `docs/research/EITI_DERIVED_INVARIANTS.md`, `docs/MEMORY_UTILIZATION_RESEARCH_CANDIDATES_V0_1.md`, `docs/research/ES02_BOUNDED_VIEW_CONFORMANCE_2026_09_02.md`, `docs/research/AGENT_MEMORY_ATLAS_DONOR_RECONCILIATION_2026_09_28.md`, `docs/research/MEMORY_EVALUATION_SPECIMENS_V0_1.md`, `evidence/branch-semantic-disposition-v1.json`, `experiments/bpv1/BPV1-001/results/d5-r1/evaluation-summary.json`, `docs/governance/operator-decisions-v1.json`). Автоматически наблюдаются: `README.md`, `PROJECT_OVERVIEW.md`, `docs/ai/README.md`, `docs/A1_KERNEL_PURPOSE_AND_NON_GOALS.md`, `docs/INTEGRATION_BOUNDARIES.md`, `project-state.json`, `docs/ai/CURRENT_STATE.md`, `docs/research/H11_EXECUTION_ADMISSION.json`, `docs/research/H11_REVIEWER_REPRODUCER_QUALIFICATION.json`, `profiles/operational-validation-v0/c5-manifest.json`.
+**Проверка.** Карточка сверена 2026-10-26 по `main@c9048bc` (прочитано: `README.md`, `STATUS.md`, `ROADMAP.md`, `docs/ai/README.md`, `docs/ai/CURRENT_STATE.md`, `docs/ai/KNOWN_RISKS.md`, `project-state.json`, `docs/research/H11_EXECUTION_ADMISSION.json`, `docs/research/H11_REVIEWER_REPRODUCER_QUALIFICATION.json`, `docs/INTEGRATION_BOUNDARIES.md`, `docs/VELANTRIM_ECOSYSTEM.md`, `docs/A1_KERNEL_PURPOSE_AND_NON_GOALS.md`, `docs/FOUNDER_INTENT_MEMORY_INFORMATION_LIFECYCLE.md`, `docs/research/EITI_DERIVED_INVARIANTS.md`, `docs/MEMORY_UTILIZATION_RESEARCH_CANDIDATES_V0_1.md`, `docs/research/ES02_BOUNDED_VIEW_CONFORMANCE_2026_09_02.md`, `docs/research/AGENT_MEMORY_ATLAS_DONOR_RECONCILIATION_2026_09_28.md`, `docs/research/MEMORY_EVALUATION_SPECIMENS_V0_1.md`, `evidence/branch-semantic-disposition-v1.json`, `experiments/bpv1/BPV1-001/results/d5-r1/evaluation-summary.json`, `docs/governance/operator-decisions-v1.json`). Файлы для следующей ручной сверки: `README.md`, `PROJECT_OVERVIEW.md`, `docs/ai/README.md`, `docs/A1_KERNEL_PURPOSE_AND_NON_GOALS.md`, `docs/INTEGRATION_BOUNDARIES.md`, `project-state.json`, `docs/ai/CURRENT_STATE.md`, `docs/research/H11_EXECUTION_ADMISSION.json`, `docs/research/H11_REVIEWER_REPRODUCER_QUALIFICATION.json`, `profiles/operational-validation-v0/c5-manifest.json`.
 
 **Не установлено:** Клон мелкий (1 коммит): разницу между 9e0b3f4 и c9048bc получить нельзя; изменения определены по содержимому и сообщению коммита PR #200.; project-state.json датирован 2026-09-06, CURRENT_STATE 2026-10-01, HEAD от 2026-10-21; живой статус Issue #178 и результаты Actions на текущем HEAD без API не проверялись.; Архивы C5 относятся к коммитам 675aa4b3 и ab7a203c; CI на текущем HEAD не проверялся. Тесты PostgreSQL без NK_TEST_POSTGRES_DSN пропускаются: локально проверен только узкий слой P1.; UNKNOWN: появится ли независимый рецензент H11 и когда.
 
@@ -718,7 +718,7 @@
 
 **Где лежат результаты.** Материалы CONT-E0T (предрегистрация v2.2, кандидаты фикстур, EVIDENCE_MANIFEST.json) лежат только в ветках research/cont-e0t-*; самая полная research/cont-e0t-prereg-v22 (6847eb7). Записи о результате запуска в репозитории нет, только Notion и заметка хаба. Новая неслитая ветка fix/e0-orphaned-attempt-classifier-20261026 (9670bf1): классификатор осиротевших попыток Pilot.
 
-**Проверка.** Карточка сверена 2026-10-26 по `main@61c867a` (прочитано: `README.md`, `AGENTS.md`, `STATUS.md`, `project-state.json`, `docs/ai/README.md`, `docs/ai/CURRENT_STATE.md`, `ECOSYSTEM_RELATIONS.md`, `docs/research/README.md`, `docs/research/OD_PILOT_01_PREP_DECISION.md`, `docs/research/EITI_CONTINUITY_RESEARCH_INPUT.md`, `docs/research/E0B_CAPTURE_TYPING_CROSS_PROJECT_INPUT_2026_09_23.md`, `docs/research/SMART_CONTEXT_HANDOFF_MAPPING.md`, `docs/research/OPENCLAW_CONTINUITY_CANDIDATE_V0_1.md`, `docs/research/COGNITIVE_AI_COMPARATIVE_BASELINES_2026_08_22.md`, `docs/research/OFF_MAIN_BRANCH_LIFECYCLE_REGISTRY.md`, `docs/architecture/SUBSTRATE_NEUTRAL_PROJECTION.md`, `experiments/e0/README.md`). Автоматически наблюдаются: `README.md`, `docs/ai/README.md`, `AGENTS.md`, `project-state.json`, `STATUS.md`, `docs/ai/CURRENT_STATE.md`, `experiments/e0/approval/human-reference-approval.v0.2.json`.
+**Проверка.** Карточка сверена 2026-10-26 по `main@61c867a` (прочитано: `README.md`, `AGENTS.md`, `STATUS.md`, `project-state.json`, `docs/ai/README.md`, `docs/ai/CURRENT_STATE.md`, `ECOSYSTEM_RELATIONS.md`, `docs/research/README.md`, `docs/research/OD_PILOT_01_PREP_DECISION.md`, `docs/research/EITI_CONTINUITY_RESEARCH_INPUT.md`, `docs/research/E0B_CAPTURE_TYPING_CROSS_PROJECT_INPUT_2026_09_23.md`, `docs/research/SMART_CONTEXT_HANDOFF_MAPPING.md`, `docs/research/OPENCLAW_CONTINUITY_CANDIDATE_V0_1.md`, `docs/research/COGNITIVE_AI_COMPARATIVE_BASELINES_2026_08_22.md`, `docs/research/OFF_MAIN_BRANCH_LIFECYCLE_REGISTRY.md`, `docs/architecture/SUBSTRATE_NEUTRAL_PROJECTION.md`, `experiments/e0/README.md`). Файлы для следующей ручной сверки: `README.md`, `docs/ai/README.md`, `AGENTS.md`, `project-state.json`, `STATUS.md`, `docs/ai/CURRENT_STATE.md`, `experiments/e0/approval/human-reference-approval.v0.2.json`.
 
 **Не установлено:** project-state.json и STATUS.md привязаны к PR #34 (2026-08-24); слитые позже PR #59–#66 (адаптер, UNKNOWN_OUTCOME) в машинном статусе не отражены: UNKNOWN, намеренно ли.; Результаты CI в репозитории не записаны: UNKNOWN, зелёные ли проверки на текущем main.; Закреплённый в docs HEAD ветки E0-B (8a85577) устарел: у exp/e0b-typing-reliability сейчас b14fbd7.
 
@@ -778,7 +778,7 @@
 
 **Где лежат результаты.** Ни одна из пяти веток с результатами не влита в main; кончики те же, что 2026-10-21. E6-01..05 (старые записи): claude/svl-e6-restore-resurrection (a82a590). SEM-REV-E0: заморозка research/sem-rev-e0-pre-freeze-2026-09-13 (3492437), код experiment/sem-rev-e0-v1-implementation (6e523aa), прогон experiment/sem-rev-e0-v1-run-1 (0705130): RESULT.json = SEM_REV_E0_CORE_PASS, стадии S0–S5 и scorer PASS, жёстких провалов 0, SQLite 3.53.4, см. https://github.com/velantrian/-Velantrim-State-Validation-Lab-/blob/070513004b4e71a8bd788c532c95a0952613444f/docs/research/sem_rev_e0/runs/e0-v1/e0-v1-20260915T065633Z-dd69520c/RESULT.json . Оговорки: встроенный scorer пишет IMPLEMENTATION_TEST_ONLY и core_result_produced=false, скрипт, записавший RESULT.json, в репозитории не найден, на main результата нет, не воспроизведён. SEM-REV-E1: research/sem-rev-e1-prereg-v0.1 (32f7fc8).
 
-**Проверка.** Карточка сверена 2026-10-26 по `main@cf42cb4` (прочитано: `README.md`, `docs/EXECUTION_STATUS.md`, `docs/E6_NATIVE_KERNEL_CROSS_CHECK.md`, `evidence/E6/README.md`, `evidence/E6/fixtures.json`, `src/state_validation_lab/model.py`, `src/state_validation_lab/run_e6.py`, `tests/test_e6_restore_resurrection.py`, `tools/relation_integrity/pre_run_contracts.py`, `tests/relation_integrity/test_pre_run_contracts.py`, `docs/PP009_R1_REDERIVATION_LAUNDERING_PREREGISTRATION.md`, `docs/RELATION_INTEGRITY_PREFLIGHT_2026_09_25.md`, `docs/RELATION_INTEGRITY_EXECUTION_EVIDENCE_PLAN_2026_09_25.md`, `docs/RELATION_INTEGRITY_PRE_RUN_ACCEPTANCE_EVIDENCE_2026_09_26.md`, `docs/research/AGENT_MEMORY_ATLAS_FALSIFICATION_SEEDS_2026_09_28.md`, `.github/workflows/e6-research.yml`). Автоматически наблюдаются: `README.md`, `docs/ARCHITECTURE.md`, `docs/EXECUTION_STATUS.md`, `docs/E6_NATIVE_KERNEL_CROSS_CHECK.md`, `.github/workflows/e6-research.yml`.
+**Проверка.** Карточка сверена 2026-10-26 по `main@cf42cb4` (прочитано: `README.md`, `docs/EXECUTION_STATUS.md`, `docs/E6_NATIVE_KERNEL_CROSS_CHECK.md`, `evidence/E6/README.md`, `evidence/E6/fixtures.json`, `src/state_validation_lab/model.py`, `src/state_validation_lab/run_e6.py`, `tests/test_e6_restore_resurrection.py`, `tools/relation_integrity/pre_run_contracts.py`, `tests/relation_integrity/test_pre_run_contracts.py`, `docs/PP009_R1_REDERIVATION_LAUNDERING_PREREGISTRATION.md`, `docs/RELATION_INTEGRITY_PREFLIGHT_2026_09_25.md`, `docs/RELATION_INTEGRITY_EXECUTION_EVIDENCE_PLAN_2026_09_25.md`, `docs/RELATION_INTEGRITY_PRE_RUN_ACCEPTANCE_EVIDENCE_2026_09_26.md`, `docs/research/AGENT_MEMORY_ATLAS_FALSIFICATION_SEEDS_2026_09_28.md`, `.github/workflows/e6-research.yml`). Файлы для следующей ручной сверки: `README.md`, `docs/ARCHITECTURE.md`, `docs/EXECUTION_STATUS.md`, `docs/E6_NATIVE_KERNEL_CROSS_CHECK.md`, `.github/workflows/e6-research.yml`.
 
 **Не установлено:** Результат E6 в CI на точном HEAD не проверен: workflow срабатывает только на pull_request и workflow_dispatch, артефакт живёт 30 дней; результат 5/5 получен локальным запуском.; Тесты в tests/relation_integrity не находятся командой из README (unittest discover -s tests) и не запускаются в e6-research.yml.; Классификацию SEM_REV_E0_CORE_PASS нельзя воспроизвести из репозитория: скрипт, записавший RESULT.json, не найден, встроенный scorer пишет IMPLEMENTATION_TEST_ONLY; runtime.py требует SQLite 3.53.4 через LD_PRELOAD (в этой среде не воспроизводилось).; UNKNOWN: будут ли ветки SEM-REV-E0 и SEM-REV-E1 влиты в main и как они связаны со статусом SVL.
 
@@ -835,7 +835,7 @@
 
 **Где лежат результаты.** Новая неслитая ветка docs/ru-non-claims-20261022 (f6883a6): в README.ru.md добавлен раздел non-claims, как в README.md. Результаты исследований лежат в main.
 
-**Проверка.** Карточка сверена 2026-10-26 по `main@f48fc82` (прочитано: `README.md`, `AGENTS.md`, `docs/CURRENT_STATUS.md`, `docs/ECOSYSTEM_CROSSWALK.md`, `docs/RESEARCH_SURFACES.md`, `docs/MEMORY_EXPERIENCE_UNDERSTANDING_CHECKPOINT_2026_09_26.md`). Автоматически наблюдаются: `README.md`, `AGENTS.md`, `docs/CLOS_BLUEPRINT.md`, `docs/ECOSYSTEM_CROSSWALK.md`, `docs/CURRENT_STATUS.md`, `docs/EVIDENCE_LEDGER.md`.
+**Проверка.** Карточка сверена 2026-10-26 по `main@f48fc82` (прочитано: `README.md`, `AGENTS.md`, `docs/CURRENT_STATUS.md`, `docs/ECOSYSTEM_CROSSWALK.md`, `docs/RESEARCH_SURFACES.md`, `docs/MEMORY_EXPERIENCE_UNDERSTANDING_CHECKPOINT_2026_09_26.md`). Файлы для следующей ручной сверки: `README.md`, `AGENTS.md`, `docs/CLOS_BLUEPRINT.md`, `docs/ECOSYSTEM_CROSSWALK.md`, `docs/CURRENT_STATUS.md`, `docs/EVIDENCE_LEDGER.md`.
 
 **Не установлено:** Утверждения о Titan и Crystal взяты из записей CLOS; в Titan проверено лишь существование тестов, результаты их запуска не проверялись.; Какое именно состояние Crystal main (кроме закреплённого 7509be1) соответствует записанной сверке: UNKNOWN.; Явного статуса IR-01 после «черновик предрегистрации» нет: UNKNOWN, будет ли он запущен.
 
@@ -889,7 +889,7 @@
 
 **Где лежат результаты.** Боковые ветки (agent/ecosystem-relations, docs/*) сверены с main по git diff: это более старые версии, своего содержимого, которого нет в main, не нашлось. Результаты в main.
 
-**Проверка.** Карточка сверена 2026-10-26 по `main@c19b96f` (прочитано: `README.md`, `ECOSYSTEM_RELATIONS.md`, `docs/SUBSTRATE_NEUTRAL_BOUNDARY.md`, `docs/EITI_IMPLEMENTATION_REFERENCE.md`, `docs/RESEARCH_ROADMAP.md`). Автоматически наблюдаются: `README.md`, `docs/ARCHITECTURE.md`, `docs/SUBSTRATE_NEUTRAL_BOUNDARY.md`, `ECOSYSTEM_RELATIONS.md`, `docs/RESEARCH_ROADMAP.md`.
+**Проверка.** Карточка сверена 2026-10-26 по `main@c19b96f` (прочитано: `README.md`, `ECOSYSTEM_RELATIONS.md`, `docs/SUBSTRATE_NEUTRAL_BOUNDARY.md`, `docs/EITI_IMPLEMENTATION_REFERENCE.md`, `docs/RESEARCH_ROADMAP.md`). Файлы для следующей ручной сверки: `README.md`, `docs/ARCHITECTURE.md`, `docs/SUBSTRATE_NEUTRAL_BOUNDARY.md`, `ECOSYSTEM_RELATIONS.md`, `docs/RESEARCH_ROADMAP.md`.
 
 **Не установлено:** Явного документа статуса нет; статус — раздел «Research status» в README и отмеченная фаза 0 в docs/RESEARCH_ROADMAP.md, поэтому statusDoc пустой.; Реализованы ли какие-либо фазы 1–8 дорожной карты в Titan или EITI: UNKNOWN, в этом репозитории связи с кодом нет.; Достоверность описаний релизов и характеристик моделей в MODEL_CATALOG, MODEL_FAMILY_EVOLUTION и GROK_VOICE_EVOLUTION не проверялась.
 
@@ -958,7 +958,7 @@
 
 **Где лежат результаты.** Реализация и документы на main. В этот проход ветки (более 50, claude/esm-*, claude/v14-*, copilot/audit-*, feat/*, fix/*) не читались: клон мелкий. main=e8667fd подтверждён через git ls-remote. Прежний проход считал esm/v14/copilot-ветки предками main; не перепроверено.
 
-**Проверка.** Карточка сверена 2026-10-26 по `main@e8667fd` (прочитано: `README.md`, `AGENTS.md`, `manifest.json`, `sw.js`, `docs/EITI_CURRENTNESS_REGISTRY.md`, `docs/CURRENT_RESEARCH_MAP.md`, `docs/sprint-3-memory-response-patterns.md`, `data/sprint3_memory_response_contract_v1.json`, `velantrim_core/registry/collected.json`). Автоматически наблюдаются: `README.md`, `AGENTS.md`, `docs/EITI_CURRENTNESS_REGISTRY.md`, `docs/CURRENT_RESEARCH_MAP.md`, `manifest.json`, `data/sprint3_memory_response_contract_v1.json`.
+**Проверка.** Карточка сверена 2026-10-26 по `main@e8667fd` (прочитано: `README.md`, `AGENTS.md`, `manifest.json`, `sw.js`, `docs/EITI_CURRENTNESS_REGISTRY.md`, `docs/CURRENT_RESEARCH_MAP.md`, `docs/sprint-3-memory-response-patterns.md`, `data/sprint3_memory_response_contract_v1.json`, `velantrim_core/registry/collected.json`). Файлы для следующей ручной сверки: `README.md`, `AGENTS.md`, `docs/EITI_CURRENTNESS_REGISTRY.md`, `docs/CURRENT_RESEARCH_MAP.md`, `manifest.json`, `data/sprint3_memory_response_contract_v1.json`.
 
 **Не установлено:** Результаты прогонов тестов (CI, Playwright, pytest) в репозитории не записаны; сами тесты в ходе проверки не запускались.; Доступность https://velantrian.github.io/velantrim-eiti/ не проверялась.; Связь с Eiti-Wizard-Lab, Eiti-Wizard-Lab-2, Velantrim-Eiti-6, Velan-Eiti-3 и Eiti-Test-Notes в документах velantrim-eiti не описана, кроме общего правила «NAME ≠ CURRENTNESS»; Eiti-Test-Notes (v14.13.0) здесь не упомянут.; velantrim_core (collect.py, validate.py, build_graph.py, schema.json) — отдельный Python-инструментарий Core KB; README PWA его не описывает, registry/collected.json показывает total_facts=0.
 
@@ -1016,7 +1016,7 @@
 
 **Где лежат результаты.** Результаты вне main (40 веток; головы ключевых веток те же, что 2026-10-21). lab/continuity-carrier-m1 (a52b416, расходится с main): OBSERVED-журнал M2.1 (PR #14), M2.1.1 (PR #18/#20), M2.2a (PR #21, #22, #24, #25); Ruslan Experimental Memory с записанным CROSS_SESSION_AI_RESUME_TEST=PASS, 10/10, без независимого повтора (PR #28, experiments/ruslan-experimental-memory/tests/results/cross-session-v01/result.md); синтетический PDP полномочий (PR #27); предложение рабочего исследовательского пространства (PR #30); слиты в carrier 2026-10-18, в main нет. lab/memory-admission-review-v0.1 (105b880, PR #10): контроллер допуска REVIEW, финальный аудит ждёт. experiment/simple-memory-resume-v0.1 (7fbabd2): Simple Memory на Python+SQLite.
 
-**Проверка.** Карточка сверена 2026-10-26 по `main@8bfe503`. Автоматически наблюдаются: `README.md`, `AGENT_START_HERE.md`, `AGENTS.md`, `docs/memory/manifest.json`, `docs/memory/README.md`, `docs/research/EXPERIMENT_EVIDENCE_INDEX.md`, `docs/working-memory/WORKING_MEMORY_B1_AGENT_READ_BRIDGE.md`, `experiments/memory-governance-e0b/RESEARCH_TRAJECTORY_AND_CURRENT_STATE.md`.
+**Проверка.** Карточка сверена 2026-10-26 по `main@8bfe503`. Файлы для следующей ручной сверки: `README.md`, `AGENT_START_HERE.md`, `AGENTS.md`, `docs/memory/manifest.json`, `docs/memory/README.md`, `docs/research/EXPERIMENT_EVIDENCE_INDEX.md`, `docs/working-memory/WORKING_MEMORY_B1_AGENT_READ_BRIDGE.md`, `experiments/memory-governance-e0b/RESEARCH_TRAJECTORY_AND_CURRENT_STATE.md`.
 
 **Не установлено:** Живая работа чата по каждому провайдеру, PWA на устройствах, снимков и Clean Resume на реальном чате: в репозитории не записана (UNKNOWN).; Браузерные наборы (puppeteer) не запускались; PASS по ним взят только из отчётов проекта.; Состояние PR #10 (контроллер допуска) сегодня UNKNOWN; будет ли линия lab/continuity-carrier-m1 влита в main: UNKNOWN.; Что именно значит «Velantrim» в сообщениях «port from Velantrim» (velantrim-eiti или другой проект) и какие функции перенесены дословно: код не сопоставлялся.
 
@@ -1083,7 +1083,7 @@
 
 **Где лежат результаты.** Не в main: feat/eiti-voice-p1-1-fallback (b35b615, 2026-10-26, 1 коммит поверх main) — этап P1-1 плана голоса. content/kb-en-rich: 2 коммита (gen_en.py, EN-ответы для 51 раздела) в main нет, файла kb/gen/gen_en.py на main нет. content/folklore-verification-2 отстаёт по содержанию (README ветки: 166 перепроверенных против 169 в main). cursor/chat-save-ai-voice и cursor/notes-undo-redo слиты в main под теми же названиями (v13.7.22, v13.7.23, #20, #21). Остальные ветки — предки main.
 
-**Проверка.** Карточка сверена 2026-10-26 по `main@309ff70` (прочитано: `AGENTS.md`, `docs/PWA_LIMITS.md`, `docs/EITI_VOICE_PLAN.md`, `docs/l3_memory_inventory.md`). Автоматически наблюдаются: `README.md`, `AGENTS.md`, `docs/EITI_CURRENTNESS_REGISTRY.md`, `docs/ARCHITECTURE.md`, `docs/EITI_VOICE_PLAN.md`, `docs/l3_memory_inventory.md`, `folklore/README.md`, `manifest.json`, `kb/index.json`, `data/eiti_voice_contract_v1.json`.
+**Проверка.** Карточка сверена 2026-10-26 по `main@309ff70` (прочитано: `AGENTS.md`, `docs/PWA_LIMITS.md`, `docs/EITI_VOICE_PLAN.md`, `docs/l3_memory_inventory.md`). Файлы для следующей ручной сверки: `README.md`, `AGENTS.md`, `docs/EITI_CURRENTNESS_REGISTRY.md`, `docs/ARCHITECTURE.md`, `docs/EITI_VOICE_PLAN.md`, `docs/l3_memory_inventory.md`, `folklore/README.md`, `manifest.json`, `kb/index.json`, `data/eiti_voice_contract_v1.json`.
 
 **Не установлено:** Нужен ли отдельный репозиторий или изменения вернутся в velantrim-eiti: нигде не записано; в velantrim-eiti о Eiti-Test-Notes нет ни слова.; Зачем создан отдельный репозиторий, а не ветка: README и AGENTS.md не объясняют, это только следует из первого коммита.; Версии не согласованы: EITI_VERSION и README 14.13.0, а в коде и тестах есть пометки v14.14.0/v14.15.0 и IndexedDB v18 (memkv), хотя README и ARCHITECTURE описывают v17.; README и ARCHITECTURE §17 называют PR #45 черновиком и пишут, что Pages публикует весь репозиторий; при этом PR слит и pages.yml уже собирает allowlist: документы отстают от кода.
 
@@ -1140,7 +1140,7 @@
 
 **Где лежат результаты.** Главные результаты лежат в ветке experiment/falkordblite-deterministic-memory (55 коммитов, tip 2cb28b0 от 2026-09-12; общее основание c1c401f). Ветка не слита, main её не упоминает, её документы пишут «DO NOT MERGE», CI-запусков на ней нет; Atlas указывает её как первичный источник. RESEARCH_STATUS.md в main датирован 2026-09-09 и устарел относительно ветки.
 
-**Проверка.** Карточка сверена 2026-10-26 по `main@aecb3da`. Автоматически наблюдаются: `README.md`, `docs/ai/README.md`, `AGENTS.md`, `RESEARCH_STATUS.md`, `docs/LAB_GRAPH_BACKEND_CAPABILITY_MATRIX.md`, `pyproject.toml`.
+**Проверка.** Карточка сверена 2026-10-26 по `main@aecb3da`. Файлы для следующей ручной сверки: `README.md`, `docs/ai/README.md`, `AGENTS.md`, `RESEARCH_STATUS.md`, `docs/LAB_GRAPH_BACKEND_CAPABILITY_MATRIX.md`, `pyproject.toml`.
 
 **Не установлено:** UNKNOWN: какие результаты ветки владелец считает окончательными и будет ли ветка слита или останется отдельной линией.; UNKNOWN: где лежат артефакты ORNT-E1-PILOT и CONT-E0T: в лаборатории их нет, документ ветки сам это пишет.; UNKNOWN: содержимое Google-документа с длинной историей из Atlas: нужен вход, не прочитано.; UNKNOWN: планируется ли синхронизировать зеркало с текущим Fractal или оставить снимок 2437244 как зафиксированную базу экспериментов (run_007 ссылается на него как upstream_sha).
 
@@ -1179,7 +1179,7 @@
 
 **Где лежат результаты.** Результаты в main. Ветка forge/rc9-order-invariance-9mjn2tmv слита (PR #1). Ветка docs/nlnet-decision-docs-20261022 (15237f5, 2026-10-22) не слита: она добавляет датированную пометку о решении NLnet в 102 .md-файла. Ветка форка Forge (PR #2) в этом клоне отсутствует; её содержимое слито в main.
 
-**Проверка.** Карточка сверена 2026-10-26 по `main@9123fee`. Автоматически наблюдаются: `README.md`, `FORGE_LAB_PROVENANCE.md`, `FORGE_LAB_PROVENANCE.md`.
+**Проверка.** Карточка сверена 2026-10-26 по `main@9123fee`. Файлы для следующей ручной сверки: `README.md`, `FORGE_LAB_PROVENANCE.md`, `FORGE_LAB_PROVENANCE.md`.
 
 **Не установлено:** Перенесены ли добавленные тесты в основной Crystal: в upstream их нет, решения нет.; Проходит ли копия на Python 3.11/3.12: CI нет, выборочный прогон был на 3.13.
 
@@ -1212,7 +1212,7 @@
 
 **Где лежат результаты.** Всё, кроме README, LICENSE и .gitignore, лежит на неслитой ветке feat/crystal-e0-initial-harness (4 коммита 2026-09-19, head 65832d4): requirements.txt, requirements-dev.txt, render.yaml, crystal_eval/__init__.py. Ссылки на файлы ветки даны постоянными ссылками на коммит, потому что в main этих путей нет. Наблюдатель по main слияния ветки не увидит.
 
-**Проверка.** Карточка сверена 2026-10-26 по `main@22e8f98`. Автоматически наблюдаются: `README.md`, `README.md`.
+**Проверка.** Карточка сверена 2026-10-26 по `main@22e8f98`. Файлы для следующей ручной сверки: `README.md`, `README.md`.
 
 **Не установлено:** По какому протоколу будет обеспечена слепота A/B и какая «обычная RAG» будет базовой: документа нет.; Развёрнут ли сервис на Render: render.yaml есть, app.py нет.; Будет ли ветка слита и обновлена до нынешнего Crystal main.
 
@@ -1257,7 +1257,7 @@
 
 **Где лежат результаты.** Ветка claude/audit-emoji-summary-dA0Zf (tip ebe80f6, 2026-05-30) слита PR #1; git diff с main пуст, отдельных результатов в ней нет.
 
-**Проверка.** Карточка сверена 2026-10-26 по `main@15450fd`. Автоматически наблюдаются: `README.md`, `TZ_CORE_00_MASTER.md`, `schema.json`.
+**Проверка.** Карточка сверена 2026-10-26 по `main@15450fd`. Файлы для следующей ручной сверки: `README.md`, `TZ_CORE_00_MASTER.md`, `schema.json`.
 
 **Не установлено:** Какой компонент Velantrim читает эту базу — в документах не сказано; загрузчика её данных в velantrim-eiti не найдено.; Что первично: velantrim-eiti/velantrim_core/tz или science-core/TZ_* (файлы идентичны; клон Eiti мелкий, порядок создания не установлен).; Лицензия UNKNOWN (файла нет). Источники в tier_extensions.source (Strunz Classification 9th ed — 124 факта, Britannica/National Geographic 2024 — 99, Ethnologue 2024 — 38 и др.) и ссылки спецификации на Wikipedia «List of paradoxes» и Cognitive Bias Codex сохранены как есть; соответствие их лицензиям не проверялось.; Контрольный прогон check_links при проверке: 1751 prereq и 3 derives_from указывают на id вне данных, найдено 4 цикла.
 
@@ -1297,7 +1297,7 @@
 
 **История и основания:** [Коммит 49c886b: инициализация оболочки английской редакции (2026-06-25)](https://github.com/velantrian/science-core-english/commit/49c886b706e613c76b8ef030e039c80f7cc6dc8a); [Коммит abaf24e: выравнивание статуса схемы с зеркалом v3.2 (2026-06-26)](https://github.com/velantrian/science-core-english/commit/abaf24ed14ccfb08548c3c544692eeb59c871348)
 
-**Проверка.** Карточка сверена 2026-10-26 по `main@abaf24e`. Автоматически наблюдаются: `README.md`, `SOURCE_POLICY.md`, `DATA_STATUS.md`, `schema.json`.
+**Проверка.** Карточка сверена 2026-10-26 по `main@abaf24e`. Файлы для следующей ручной сверки: `README.md`, `SOURCE_POLICY.md`, `DATA_STATUS.md`, `schema.json`.
 
 **Не установлено:** Почему нужна отдельная английская редакция, а не перевод, репозиторий не объясняет.; Когда откроется приём данных: чек-лист DATA_STATUS не отмечен, main не менялся с 2026-06-26.; Намеренно ли id.pattern строже, чем в science-core, или это ошибка зеркала (changelog говорит «изменён только id.description»).; Совпадёт ли состав фактов с science-core, если цепочки источников независимы, — данных нет.
 
@@ -1320,7 +1320,7 @@
 
 **История и основания:** [Коммит 693935c: расширенная интерпретация манифеста в README (2025-07-10)](https://github.com/velantrian/velantrim-culture/commit/693935ce258296a96438a30817be649095f478fb); [Knowledge Tree: узел репозитория living-culture-github (CURRENT, REFERENCE)](https://github.com/velantrian/Velantrim-Knowledge-Tree/blob/main/registry/nodes/projects.json)
 
-**Проверка.** Карточка сверена 2026-10-26 по `main@693935c`. Автоматически наблюдаются: `README.md`.
+**Проверка.** Карточка сверена 2026-10-26 по `main@693935c`. Файлы для следующей ручной сверки: `README.md`.
 
 **Не установлено:** Кто автор расширенной интерпретации (владелец или ИИ-помощник) и откуда эпиграфы в кавычках „…“ — не указано; лицензии нет.; README называет себя «книгой»; связь с целью владельца «Книга» не установлена.; Анализ идей сторонних авторов заявлен в предисловии, но в тексте не найден.
 
@@ -1359,7 +1359,7 @@
 
 **История и основания:** [Коммит d521267 — создание репозитория (2026-08-17)](https://github.com/velantrian/velantrim-ai-skills/commit/d521267253f9c6ca99593f6feb59e0e02d91b974); [Коммит 5ea0d5e — границы маршрутизации ролей в AGENTS.md (2026-08-17)](https://github.com/velantrian/velantrim-ai-skills/commit/5ea0d5ee269bdfbd1b30c4ec1ab83d0305f755aa); [PR #1 — польза проекта перед техническими деталями в README (2026-10-21)](https://github.com/velantrian/velantrim-ai-skills/pull/1); [Master Map в velantrim, §2 и §5 — роль Skills в замысле экосистемы](https://github.com/velantrian/velantrim/blob/main/docs/architecture/VELANTRIM_ECOSYSTEM_MASTER_MAP.md)
 
-**Проверка.** Карточка сверена 2026-10-26 по `main@3121989`. Автоматически наблюдаются: `README.md`, `docs/ai/README.md`, `docs/ai/README.md`, `AGENTS.md`, `roles/README.md`, `skills/README.md`.
+**Проверка.** Карточка сверена 2026-10-26 по `main@3121989`. Файлы для следующей ручной сверки: `README.md`, `docs/ai/README.md`, `docs/ai/README.md`, `AGENTS.md`, `roles/README.md`, `skills/README.md`.
 
 **Не установлено:** Применялась ли методика аудита на реальных проектах и какого качества результат — записей нет, UNKNOWN.; Будет ли выбрана лицензия и какая — решение владельца; сейчас лицензии нет.; Появится ли Cognitive Inquiry Skill v0 в этом репозитории — только кандидат по Master Map.
 
@@ -1404,7 +1404,7 @@
 
 **История и основания:** [Коммит 29b65c8 — добавлена реализация Core 2.1 Crystal (2026-04-16)](https://github.com/velantrian/velantrim-core/commit/29b65c8432722b0ab9ea1bc1203699e2e6f4092b); [Коммит 88766c8 — Memory Engine Interface, RFC0074 (2026-05-11)](https://github.com/velantrian/velantrim-core/commit/88766c8efc078a613ed35030db731eb8907a5d1b); [Коммит eba083b — Memory Engine Integration Guide (2026-05-11)](https://github.com/velantrian/velantrim-core/commit/eba083b176aecf73025e2b5c3d0b53c588cd9251); [PR #1 — вводный блок README «Зачем / Пример / Границы», оригинальный текст сохранён (2026-10-21)](https://github.com/velantrian/velantrim-core/pull/1)
 
-**Проверка.** Карточка сверена 2026-10-26 по `main@44f0811`. Автоматически наблюдаются: `README.md`, `INTEGRATION_GUIDE.md`.
+**Проверка.** Карточка сверена 2026-10-26 по `main@44f0811`. Файлы для следующей ручной сверки: `README.md`, `INTEGRATION_GUIDE.md`.
 
 **Не установлено:** Связь «Crystal» в Core 2.1 (граф-заготовка) с репозиторием velantrim-exocortex-crystal по документам не установлена, кроме черновика адаптера.; Соотношение с каталогом velantrim_core/ в velantrim-eiti и со строкой project_id по умолчанию «velantrim-core» в Titan (core/sleep_time_worker.py): по именам считать один проект нельзя; UNKNOWN.; Используется ли Core 2.1 где-либо сейчас — не найдено (кроме упоминаний по имени в списке репозиториев Native Kernel); последний коммит кода 2026-05-11.; RFC0074 упомянут только в коммите этого репозитория; в Crystal prototypes/README.md названы RFC0070–0073.
 
@@ -1432,7 +1432,7 @@
 
 **Зачем существует.** Исходная переносимая Markdown-память: сохранять рабочую точку, решения, вопросы и источники между чатами и агентами (по тексту каталога и CURRENT.md хаба).
 
-**Роль в замысле.** Предшественник хаба Velantrim-Memory-Ruslan; по решению владельца не удаляется и не объявляется архивом.
+**Роль в замысле.** Предшественник хаба Velantrim-Memory-Ruslan. Проект включён в каталог; его текущий архивный статус отдельно не установлен.
 
 **Обслуживаемые цели.** Личный экзокортекс. 
 

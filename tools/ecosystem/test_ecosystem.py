@@ -91,7 +91,7 @@ class ValidateTests(Base):
         self.assertIn("пустое поле 'why_exists'", errs)
         self.assertIn("пустое поле 'role_in_concept'", errs)
         r = copy.deepcopy(self.reg)
-        r["projects"][2].update(title_only=True, purpose="", why_exists="", role_in_concept="")
+        r["projects"][2].update(title_only=True, repo="", purpose="", why_exists="", role_in_concept="")
         self.assertEqual(eco.validate(r), [])
 
     def test_private_may_not_record_sha_or_watch(self):
@@ -236,7 +236,7 @@ class RenderTests(Base):
         self.assertIn("Делает альфу.", blocks["overview"])
         self.assertIn("Atlas", blocks["routes"])
         self.assertIn("atlas/routes.json", blocks["routes"])
-        self.assertIn("здесь он не повторяется", blocks["routes"])
+        self.assertIn("не отдельный маршрутизатор", blocks["routes"])
 
     def test_credits_are_rendered_and_validated(self):
         self.reg["meta"]["credits"] = [{"project": "alpha", "source": "[Upstream](https://github.com/Up/Alpha)", "kind": "fork-upstream",
@@ -255,6 +255,46 @@ class RenderTests(Base):
         self.assertIn("[ссылкой](https://github.com/velantrian/Beta/blob/main/README.md)", blocks["projects"])
         self.assertIn("\\| уже экранированной", blocks["projects"])
         self.assertNotIn("\\\\|", blocks["projects"])
+
+    def title_only_with_repo(self):
+        # синтетический идентификатор: настоящих приватных slug в тестах нет
+        self.reg["projects"].append({
+            "id": "hidden", "name": "Скрытая книга", "repo": "velantrian/Synthetic-Private-Repo-123", "visibility": "private",
+            "type": "docs", "title_only": True, "purpose": "", "why_exists": "", "role_in_concept": "", "serves": [], "confirmed": [],
+            "planned": [], "limits": "", "entry_doc": "", "status_doc": "", "history": [], "watch": {"purpose": [], "status": []},
+            "checked": {"date": "2026-10-21", "ref": "", "basis": []}})
+        self.reg["groups"][0]["projects"].append("hidden")
+
+    def test_title_only_with_repo_id_is_rejected_by_validate(self):
+        self.title_only_with_repo()
+        errs = "\n".join(eco.validate(self.reg))
+        self.assertIn("hidden: у записи title_only не должно быть поля 'repo'", errs)
+
+    def test_title_only_rejects_other_identifiers_and_urls(self):
+        self.title_only_with_repo()
+        p = self.reg["projects"][-1]
+        p["repo"] = ""
+        p["limits"] = "см. https://github.com/velantrian/Synthetic-Private-Repo-123"
+        self.assertIn("идентификатора или ссылки на репозиторий", "\n".join(eco.validate(self.reg)))
+        p["limits"], p["entry_doc"] = "", "https://example.org/x"
+        self.assertIn("не должно быть поля 'entry_doc'", "\n".join(eco.validate(self.reg)))
+
+    def test_title_only_never_renders_repo_id_even_if_it_reaches_renderer(self):
+        self.title_only_with_repo()
+        self.reg["projects"][-1]["entry_doc"] = "https://github.com/velantrian/Synthetic-Private-Repo-123/blob/main/README.md"
+        blocks, catalog = eco.render_blocks(self.reg), eco.render_catalog(self.reg)
+        for text in list(blocks.values()) + [catalog]:
+            self.assertNotIn("Synthetic-Private-Repo-123", text)
+        self.assertIn("Скрытая книга", blocks["overview"])
+        self.assertIn('<a id="p-hidden"></a>', catalog)
+
+    def test_title_only_render_via_cli_leaves_no_repo_id_in_files(self):
+        self.title_only_with_repo()
+        self.reg["projects"][-1]["repo"] = ""  # валидная запись; идентификатор не должен появиться и в файлах
+        eco.dump_json(self.reg_path, self.reg)
+        rp, cp, base = self.paths()
+        self.assertEqual(run(["render"] + base)[0], 0)
+        self.assertNotIn("Synthetic-Private-Repo-123", rp.read_text() + cp.read_text())
 
 
 if __name__ == "__main__":

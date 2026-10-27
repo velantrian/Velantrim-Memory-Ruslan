@@ -70,13 +70,18 @@ def md_cell(text):
     return re.sub(r"(?<!\\)\|", r"\\|", (text or "")).replace("\n", " ")
 
 
+def shown_repo(p):
+    """Репозиторий для вывода: у записи title_only идентификатор не показывается никогда."""
+    return "" if p.get("title_only") else p.get("repo", "")
+
+
 def repo_url(p):
-    return "https://github.com/" + p["repo"] if p.get("repo") else ""
+    return "https://github.com/" + shown_repo(p) if shown_repo(p) else ""
 
 
 def readme_url(p):
     """Имя проекта в таблицах ведёт к README репозитория (как в прежнем справочнике)."""
-    return repo_url(p) + "/blob/main/README.md" if p.get("repo") else ""
+    return repo_url(p) + "/blob/main/README.md" if shown_repo(p) else ""
 
 
 def by_id(reg):
@@ -154,6 +159,13 @@ def validate(reg):
                 errs.append("%s: у приватного проекта не записываем SHA" % pid)
         elif p.get("repo") and not p.get("checked", {}).get("date"):
             errs.append("%s: нет даты последней проверки" % pid)
+        if p.get("title_only"):
+            # запись «только название»: никаких идентификаторов или ссылок на репозиторий
+            for key in ("repo", "entry_doc", "status_doc", "slug", "url", "repository"):
+                if p.get(key):
+                    errs.append("%s: у записи title_only не должно быть поля '%s' (только название)" % (pid, key))
+            if any(GH_URL.search(s) or OWNER + "/" in s for s in walk_strings(p)):
+                errs.append("%s: у записи title_only не должно быть идентификатора или ссылки на репозиторий" % pid)
         if p.get("repo") and not re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", p["repo"]):
             errs.append("%s: некорректное имя репозитория '%s'" % (pid, p["repo"]))
     for r in reg["relations"]:
@@ -220,13 +232,13 @@ def render_blocks(reg):
     for g in reg["groups"]:
         for pid in g["projects"]:
             p = projects[pid]
-            title = "[%s](%s)" % (p["name"], readme_url(p)) if p.get("repo") and not p.get("title_only") else p["name"]
+            title = "[%s](%s)" % (p["name"], readme_url(p)) if shown_repo(p) else p["name"]
             if p["visibility"] == "private":
                 title += " — приватный"
             L.append("| %s ([карточка](ecosystem-catalog.md#p-%s)) | %s | %s | %s |" % (
                 title, pid, types[p["type"]], md_cell(first_sentence(p["purpose"]) or "—"), md_cell(goal_short(reg, p["serves"]))))
     out["overview"] = "\n".join(L) + "\n"
-    L = ["Это короткие примеры. Полный набор маршрутов и правила выбора владельца ведёт [Atlas](%s); здесь он не повторяется." % ATLAS_ROUTES,
+    L = ["Это примеры переходов к Atlas, а не отдельный маршрутизатор. Навигацию, полный набор маршрутов и правила выбора владельца ведёт [Atlas](%s); здесь они не повторяются." % ATLAS_ROUTES,
          "", "| Вопрос | Маршрут Atlas | Куда читать первоисточник |", "|---|---|---|"]
     for r in reg["routes"]:
         count = {}
@@ -245,12 +257,12 @@ def render_blocks(reg):
         for pid in g["projects"]:
             p = projects[pid]
             title = p["name"]
-            if p.get("repo"):
+            if shown_repo(p):
                 title = "[%s](%s)" % (p["name"], readme_url(p))
             if p["visibility"] == "private":
                 title += " — приватный"
             docs = []
-            if p.get("entry_doc"):
+            if p.get("entry_doc") and not p.get("title_only"):
                 docs.append("[%s](%s)" % (short_doc(p["entry_doc"]), p["entry_doc"]))
             docs.append("[карточка](ecosystem-catalog.md#p-%s)" % pid)
             L.append("| %s | %s | %s | %s | %s |" % (title, types[p["type"]], md_cell(p["purpose"] or "—"),
@@ -326,8 +338,8 @@ def render_catalog(reg):
             L.append("## %s" % p["name"])
             L.append("")
             facts = []
-            if p.get("repo"):
-                facts.append("репозиторий: [%s](%s)" % (p["repo"], repo_url(p)))
+            if shown_repo(p):
+                facts.append("репозиторий: [%s](%s)" % (shown_repo(p), repo_url(p)))
             facts.append("видимость: %s" % ("приватный" if p["visibility"] == "private" else "публичный"))
             facts.append("тип: %s" % types[p["type"]])
             L.append("; ".join(facts))
@@ -377,9 +389,9 @@ def render_catalog(reg):
                     L.append("- ← [%s](#p-%s): %s — %s ([источник](%s))" % (
                         projects[r["from"]]["name"], r["from"], levels[r["level"]], r["basis"], r["source"]))
             docs = []
-            if p.get("entry_doc"):
+            if p.get("entry_doc") and not p.get("title_only"):
                 docs.append("вход: [%s](%s)" % (short_doc(p["entry_doc"]), p["entry_doc"]))
-            if p.get("status_doc"):
+            if p.get("status_doc") and not p.get("title_only"):
                 docs.append("статус проекта: [%s](%s)" % (short_doc(p["status_doc"]), p["status_doc"]))
             if docs:
                 L.append("")
@@ -397,7 +409,7 @@ def render_catalog(reg):
             else:
                 basis = ", ".join("`%s`" % b for b in c.get("basis", []))
                 auto = ", ".join("`%s`" % w for w in p["watch"]["purpose"] + p["watch"]["status"]) or "—"
-                L.append("**Проверка.** Карточка сверена %s по `%s`%s. Автоматически наблюдаются: %s." % (
+                L.append("**Проверка.** Карточка сверена %s по `%s`%s. Файлы для следующей ручной сверки: %s." % (
                     c["date"], c.get("ref", ""), (" (прочитано: %s)" % basis) if basis else "", auto))
             if p.get("unknowns"):
                 L.append("")

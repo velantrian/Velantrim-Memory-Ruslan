@@ -42,10 +42,10 @@
 
 ## Как найти нужное
 
-Маршруты составлены по прочитанным документам проектов: проект указан там, где его собственные материалы действительно отвечают на вопрос. Более общую маршрутизацию по областям ведёт Atlas ([AGENT_MAP.md](https://github.com/velantrian/Velantrim-Atlas-App/blob/main/docs/atlas/AGENT_MAP.md), `atlas/routes.json`); здесь она не копируется.
+Таблица ниже — примеры переходов к Atlas и к документам проектов, а не отдельный маршрутизатор: проект указан там, где его собственные материалы отвечают на вопрос. Навигацию по вопросам и источникам ведёт Atlas ([AGENT_MAP.md](https://github.com/velantrian/Velantrim-Atlas-App/blob/main/docs/atlas/AGENT_MAP.md), `atlas/routes.json`), общую композицию проектов — [Master Map](https://github.com/velantrian/velantrim/blob/main/docs/architecture/VELANTRIM_ECOSYSTEM_MASTER_MAP.md); здесь они не копируются.
 
 <!-- ECOSYSTEM:BEGIN routes -->
-Это короткие примеры. Полный набор маршрутов и правила выбора владельца ведёт [Atlas](https://github.com/velantrian/Velantrim-Atlas-App/blob/main/atlas/routes.json); здесь он не повторяется.
+Это примеры переходов к Atlas, а не отдельный маршрутизатор. Навигацию, полный набор маршрутов и правила выбора владельца ведёт [Atlas](https://github.com/velantrian/Velantrim-Atlas-App/blob/main/atlas/routes.json); здесь они не повторяются.
 
 | Вопрос | Маршрут Atlas | Куда читать первоисточник |
 |---|---|---|
