@@ -30,7 +30,7 @@
 | 05 🧠 | Three memory layers | Episode, revisable lesson, applicability boundary |
 | 06 🔗 | Four relations | Authorship, provenance, warrant, authority separately |
 | 07 📚 | Two histories | Human decisions and agent operations remain distinct |
-| 08 🔄 | End-to-end cycle | Experience affects later behavior after restart |
+| 08 🔄 | End-to-end cycle | Research target: test whether experience affects later behavior after restart; NOT ESTABLISHED HERE |
 | 09 🛡️ | Freedom and boundaries | Explore hypotheses; act only within granted authority |
 | 10 🧪 | Verification | Model agreement is not independent evidence |
 | 11 🌱 | Utility | Reduce human burden without reducing quality or safety |
