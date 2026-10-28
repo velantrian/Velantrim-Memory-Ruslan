@@ -181,6 +181,8 @@ ActionReceipt (proposed v0)
 | [MemTrapBench, arXiv:2608.20202](https://arxiv.org/abs/2608.20202) | Retrieved memories can cause reasoning fixation and belief distortion; no-memory baselines can outperform memory | Direct motivation for negative transfer and “when **not** to use experience” tests |
 | [Existing Digital Soul architecture research](https://github.com/velantrian/digital-soul/blob/main/README.md) (private) | Separate owner-led exploration of a small world, developing character and model-based action | Do not duplicate private plans publicly; **verify** grounded world-model updating rather than inferring personhood |
 
+**Bibliographic attribution correction (checked against the primary record, 2026-10-28):** The linked 27 October Notion consolidation attributes [Portable Agent Memory (arXiv:2605.11032)](https://arxiv.org/abs/2605.11032) to *Microsoft*. The arXiv record identifies **Santhosh Kumar Ravindran** as its author; a Microsoft authorship or endorsement is **NOT ESTABLISHED** by that source. Do not propagate the corporate attribution or infer that cross-agent memory portability is universally solved merely from the protocol's reported reference implementation. This correction does not modify the originating Notion page.
+
 **Suggested scientific comparison, NOT an approved run:**
 - Preserve the manifest's **A–E** idea as a *proposal*: no history; equal information as text; structured history; similar history with changed preconditions; outdated lesson plus correction.
 - Add an **episode-free matched-rule control** (present in EXP-LT-01's design) to separate experience-specific effects from mere instructions.
