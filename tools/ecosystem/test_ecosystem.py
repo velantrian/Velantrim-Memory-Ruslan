@@ -91,7 +91,7 @@ class ValidateTests(Base):
         self.assertIn("пустое поле 'why_exists'", errs)
         self.assertIn("пустое поле 'role_in_concept'", errs)
         r = copy.deepcopy(self.reg)
-        r["projects"][2].update(title_only=True, repo="", purpose="", why_exists="", role_in_concept="")
+        r["projects"][2].update(title_only=True, anchor="p-t-5e1f", repo="", purpose="", why_exists="", role_in_concept="")
         self.assertEqual(eco.validate(r), [])
 
     def test_private_may_not_record_sha_or_watch(self):
@@ -260,7 +260,7 @@ class RenderTests(Base):
         # синтетический идентификатор: настоящих приватных slug в тестах нет
         self.reg["projects"].append({
             "id": "hidden", "name": "Скрытая книга", "repo": "velantrian/Synthetic-Private-Repo-123", "visibility": "private",
-            "type": "docs", "title_only": True, "purpose": "", "why_exists": "", "role_in_concept": "", "serves": [], "confirmed": [],
+            "type": "docs", "title_only": True, "anchor": "p-t-5e1f", "purpose": "", "why_exists": "", "role_in_concept": "", "serves": [], "confirmed": [],
             "planned": [], "limits": "", "entry_doc": "", "status_doc": "", "history": [], "watch": {"purpose": [], "status": []},
             "checked": {"date": "2026-10-21", "ref": "", "basis": []}})
         self.reg["groups"][0]["projects"].append("hidden")
@@ -287,7 +287,7 @@ class RenderTests(Base):
         for text in list(blocks.values()) + [catalog]:
             self.assertNotIn("Synthetic-Private-Repo-123", text)
         self.assertIn("Скрытая книга", blocks["overview"])
-        self.assertIn('<a id="p-titleonly-1"></a>', catalog)
+        self.assertIn('<a id="p-t-5e1f"></a>', catalog)
 
     def test_title_only_render_via_cli_leaves_no_repo_id_in_files(self):
         self.title_only_with_repo()
@@ -309,9 +309,9 @@ class RenderTests(Base):
         blocks, catalog = eco.render_blocks(self.reg), eco.render_catalog(self.reg)
         for text in list(blocks.values()) + [catalog]:
             self.assertNotIn("synthetic-private-repo-123", text)
-        self.assertIn('<a id="p-titleonly-1"></a>', catalog)
-        self.assertIn("(#p-titleonly-1)", catalog)  # ссылка из связи ведёт на нейтральный якорь
-        self.assertIn("ecosystem-catalog.md#p-titleonly-1", blocks["overview"])
+        self.assertIn('<a id="p-t-5e1f"></a>', catalog)
+        self.assertIn("(#p-t-5e1f)", catalog)  # ссылка из связи ведёт на нейтральный якорь
+        self.assertIn("ecosystem-catalog.md#p-t-5e1f", blocks["overview"])
 
     def test_title_only_id_must_not_contain_repo_name(self):
         self.title_only_with_repo()
@@ -332,28 +332,114 @@ class RenderTests(Base):
         self.title_only_with_repo()
         self.reg["projects"][-1]["repo"] = ""
         regular = copy.deepcopy(self.reg["projects"][1])  # beta
-        regular["id"], regular["name"] = "titleonly-1", "Обычный проект"
+        regular["id"], regular["name"] = "t-5e1f", "Обычный проект"
         self.reg["projects"].append(regular)
-        self.reg["groups"][0]["projects"].append("titleonly-1")
+        self.reg["groups"][0]["projects"].append("t-5e1f")
         errs = "\n".join(eco.validate(self.reg))
-        self.assertIn("коллизия якорей карточек: 'p-titleonly-1'", errs)
+        self.assertIn("коллизия якорей карточек: 'p-t-5e1f'", errs)
         self.assertNotIn("hidden", errs)  # сообщение не называет id записи title_only
 
-    def test_title_only_anchors_follow_registry_order(self):
-        # ограничение: нейтральные якоря нумеруются по порядку записей, перестановка меняет номера
+    def add_second_title_only(self, anchor="p-t-9c20"):
         self.title_only_with_repo()
         self.reg["projects"][-1]["repo"] = ""
         second = copy.deepcopy(self.reg["projects"][-1])
-        second["id"], second["name"] = "hiddenb", "Вторая скрытая"
+        second["id"], second["name"], second["anchor"] = "hiddenb", "Вторая скрытая", anchor
         self.reg["projects"].append(second)
         self.reg["groups"][0]["projects"].append("hiddenb")
+
+    def test_title_only_anchors_survive_reordering(self):
+        self.add_second_title_only()
         before = eco.anchors(self.reg)
-        self.assertEqual((before["hidden"], before["hiddenb"]), ("p-titleonly-1", "p-titleonly-2"))
+        self.assertEqual((before["hidden"], before["hiddenb"]), ("p-t-5e1f", "p-t-9c20"))
         self.reg["projects"][-2], self.reg["projects"][-1] = self.reg["projects"][-1], self.reg["projects"][-2]
+        g = self.reg["groups"][0]["projects"]
+        g[-2], g[-1] = g[-1], g[-2]
+        self.assertEqual(eco.anchors(self.reg), before)
+        self.assertEqual(eco.validate(self.reg), [])
+        catalog = eco.render_catalog(self.reg)
+        # тот же якорь по-прежнему стоит над той же карточкой
+        self.assertIn('<a id="p-t-5e1f"></a>\n## Скрытая книга', catalog)
+        self.assertIn('<a id="p-t-9c20"></a>\n## Вторая скрытая', catalog)
+
+    def test_title_only_anchors_survive_inserting_an_entry_before_them(self):
+        self.add_second_title_only()
+        before = eco.anchors(self.reg)
+        newcomer = copy.deepcopy(self.reg["projects"][-1])
+        newcomer["id"], newcomer["name"], newcomer["anchor"] = "fresh", "Новая скрытая", "p-t-0d4e"
+        self.reg["projects"].insert(0, newcomer)
+        self.reg["groups"][0]["projects"].insert(0, "fresh")
         after = eco.anchors(self.reg)
-        self.assertEqual((after["hidden"], after["hiddenb"]), ("p-titleonly-2", "p-titleonly-1"))
+        self.assertEqual({k: after[k] for k in before}, before)
+        self.assertEqual(after["fresh"], "p-t-0d4e")
         self.assertEqual(eco.validate(self.reg), [])
 
+    def test_title_only_missing_anchor_fails_validation_without_leaking_id(self):
+        self.title_only_with_repo()
+        self.reg["projects"][-1]["repo"] = ""
+        del self.reg["projects"][-1]["anchor"]
+        errs = "\n".join(eco.validate(self.reg))
+        self.assertIn("нет поля 'anchor'", errs)
+        self.assertNotIn("hidden", errs)
+        # рендерер и без якоря не выводит id: только временный нейтральный якорь
+        catalog = eco.render_catalog(self.reg)
+        self.assertIn('<a id="p-titleonly-unassigned-1"></a>', catalog)
+        self.assertNotIn("p-hidden", catalog)
+        eco.dump_json(self.reg_path, self.reg)
+        rp, cp, base = self.paths()
+        self.assertEqual(run(["render"] + base)[0], 1)
+
+    def test_title_only_duplicate_anchor_fails_validation(self):
+        self.add_second_title_only(anchor="p-t-5e1f")
+        errs = "\n".join(eco.validate(self.reg))
+        self.assertIn("коллизия якорей карточек: 'p-t-5e1f'", errs)
+        self.assertNotIn("hidden", errs)
+
+    def test_title_only_anchor_must_be_neutral_and_well_formed(self):
+        self.title_only_with_repo()
+        p = self.reg["projects"][-1]
+        p["repo"] = ""
+        for bad in ("p-hidden", "p-t-hidden", "p-titleonly-hidden", "P-T-5E1F", "p-t-5e", "p-t-5e1f-x", "", 7):
+            p["anchor"] = bad
+            errs = "\n".join(eco.validate(self.reg))
+            self.assertIn("запись title_only: ", errs, bad)
+            self.assertNotIn("hidden", errs, bad)
+            self.assertNotIn('<a id="%s"></a>' % bad, eco.render_catalog(self.reg)) if bad else None
+        p["id"], p["anchor"] = "beef", "p-t-00beef"  # hex-якорь, содержащий id записи
+        self.reg["groups"][0]["projects"][-1] = "beef"
+        errs = "\n".join(eco.validate(self.reg))
+        self.assertIn("напоминает id или имя репозитория", errs)
+        self.assertNotIn("beef", errs)
+        self.assertNotIn("p-t-00beef", eco.render_catalog(self.reg))
+
+    def test_title_only_anchor_must_not_contain_repo_name(self):
+        self.title_only_with_repo()
+        p = self.reg["projects"][-1]
+        p["repo"], p["anchor"] = "velantrian/cafe", "p-t-cafe01"
+        self.assertIn("напоминает id или имя репозитория", "\n".join(eco.validate(self.reg)))
+        self.assertNotIn("cafe", "\n".join(eco.validate(self.reg)))
+
+    def test_legacy_published_anchor_is_kept_verbatim(self):
+        # «p-titleonly-1» уже опубликован в #38: явное поле сохраняет ту же ссылку на ту же карточку
+        self.title_only_with_repo()
+        p = self.reg["projects"][-1]
+        p["repo"], p["anchor"] = "", "p-titleonly-1"
+        self.assertEqual(eco.validate(self.reg), [])
+        self.reg["projects"].insert(0, self.reg["projects"].pop())
+        self.assertEqual(eco.anchors(self.reg)["hidden"], "p-titleonly-1")
+        self.assertIn('<a id="p-titleonly-1"></a>\n## Скрытая книга', eco.render_catalog(self.reg))
+
+    def test_anchor_field_only_for_title_only(self):
+        self.reg["projects"][0]["anchor"] = "p-t-1234"
+        self.assertIn("alpha: поле 'anchor' допустимо только у записи title_only", "\n".join(eco.validate(self.reg)))
+        self.assertEqual(eco.anchors(self.reg)["alpha"], "p-alpha")
+
+    def test_retired_anchor_cannot_be_reissued(self):
+        self.title_only_with_repo()
+        self.reg["projects"][-1]["repo"] = ""
+        self.reg["meta"]["retired_anchors"] = ["p-t-5e1f"]
+        self.assertIn("выведен из употребления", "\n".join(eco.validate(self.reg)))
+        self.reg["meta"]["retired_anchors"] = ["p-t-dead"]
+        self.assertEqual(eco.validate(self.reg), [])
 
     def test_title_only_group_validation_never_exposes_id(self):
         self.title_only_with_repo()

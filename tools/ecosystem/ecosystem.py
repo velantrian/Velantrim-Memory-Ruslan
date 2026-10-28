@@ -84,13 +84,47 @@ def readme_url(p):
     return repo_url(p) + "/blob/main/README.md" if shown_repo(p) else ""
 
 
+# Якорь записи title_only задаётся явно полем "anchor" и после публикации не меняется:
+# вставка или перестановка записей не переводит старые ссылки на другую карточку.
+# Новые якоря: "p-t-" + 4–12 шестнадцатеричных символов (например, p-t-7f3a).
+# Формат "p-titleonly-N" оставлен только для уже опубликованных ссылок (#38).
+TITLE_ONLY_ANCHOR = re.compile(r"p-(?:t-[0-9a-f]{4,12}|titleonly-[1-9][0-9]{0,3})")
+
+
+def anchor_suffix(anchor):
+    return anchor[len("p-t-"):] if anchor.startswith("p-t-") else anchor[len("p-"):]
+
+
+def title_only_anchor_problem(p):
+    """Почему явный якорь записи title_only непригоден (None — пригоден). Текст без id и имени репозитория."""
+    a = p.get("anchor")
+    if not a:
+        return "нет поля 'anchor' (нейтральный постоянный якорь, например p-t-7f3a)"
+    if not isinstance(a, str) or not TITLE_ONLY_ANCHOR.fullmatch(a):
+        return "поле 'anchor' не в формате p-t-<4–12 hex> (или прежнем p-titleonly-N)"
+    suffix = anchor_suffix(a).lower()
+    pid = str(p.get("id", "")).lower()
+    repo = p.get("repo") or ""
+    secrets = {pid, repo.lower(), repo.split("/")[-1].lower()}
+    if any(s and s in suffix for s in secrets):
+        return "поле 'anchor' напоминает id или имя репозитория (якорь должен быть нейтральным)"
+    return None
+
+
 def anchors(reg):
-    """HTML-якоря карточек. У записи title_only якорь нейтральный: её id нигде не выводится."""
+    """HTML-якоря карточек. У записи title_only якорь явный и нейтральный: её id нигде не выводится.
+
+    Если явный якорь отсутствует или непригоден (validate такую запись отклонит), рендерер всё равно
+    не выводит id: подставляется временный p-titleonly-unassigned-N, на который нельзя полагаться.
+    """
     out, n = {}, 0
     for p in reg["projects"]:
         if p.get("title_only"):
-            n += 1
-            out[p["id"]] = "p-titleonly-%d" % n
+            if title_only_anchor_problem(p) is None:
+                out[p["id"]] = p["anchor"]
+            else:
+                n += 1
+                out[p["id"]] = "p-titleonly-unassigned-%d" % n
         else:
             out[p["id"]] = "p-" + p["id"]
     return out
@@ -152,6 +186,9 @@ def validate(reg):
             # id title_only в сообщение не выводим: называем только якорь
             errs.append("коллизия якорей карточек: '%s' получают две записи" % anchor)
         seen_anchors[anchor] = pid
+    retired = set(reg["meta"].get("retired_anchors", []))
+    for anchor in sorted(set(seen_anchors) & retired):
+        errs.append("якорь '%s' выведен из употребления (meta.retired_anchors) и не может быть выдан снова" % anchor)
     idset = set(ids)
     repos = {p["repo"] for p in reg["projects"] if p.get("repo")}
     grouped = []
@@ -201,7 +238,12 @@ def validate(reg):
                 errs.append("%s: у приватного проекта не записываем SHA" % pid)
         elif p.get("repo") and not p.get("checked", {}).get("date"):
             errs.append("%s: нет даты последней проверки" % pid)
+        if p.get("anchor") and not p.get("title_only"):
+            errs.append("%s: поле 'anchor' допустимо только у записи title_only (у остальных якорь p-<id>)" % pid)
         if p.get("title_only"):
+            problem = title_only_anchor_problem(p)
+            if problem:
+                errs.append("запись title_only: " + problem)
             repo_name = (p.get("repo") or "").split("/")[-1].lower()
             if not TITLE_ONLY_ID.fullmatch(pid) or (repo_name and repo_name in pid.lower()):
                 errs.append("запись title_only: id не должен напоминать имя репозитория (допустимо: короткое нейтральное слово из латинских букв и цифр)")
