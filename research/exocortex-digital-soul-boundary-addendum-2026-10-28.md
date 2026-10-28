@@ -18,11 +18,13 @@
 | Success criterion | Reduced human reconstruction burden without degrading evidence, task quality, privacy or control | Causal, reproducible change in later **in-world choice** after experience, under fair controls; not fluent autobiographical narration |
 | What it is not | A person, an autonomous decision owner, or a truth oracle | A compliant task agent, a human child, proven consciousness, or a new authority over user systems |
 
-**Correction to the v1.1 diagram:** its two histories (human and assistant) are sufficient for an exocortex's basic audit, but **insufficient as a joint ontology** if a separate digital character is studied. Add a third *typed, separately owned* history; **do not merge the three into one identity.** “Same storage technology” or “shared retrieval” cannot imply “same author,” “same experience,” “same identity,” or “same authority.”
+**Proposed extension for a joint exocortex/persona study:** the v1.1 map distinguishes human and assistant histories. A separate digital character would require a third *typed, separately owned* history; **do not merge the three into one identity.** “Same storage technology” or “shared retrieval” cannot imply “same author,” “same experience,” “same identity,” or “same authority.”
 
 **Adult versus developing character:** maturity and behavioral parameters belong to the character-study hypotheses, not to the exocortex's policy or permission system. A young-character scenario is not “an adult with fewer facts”; neither a scripted age nor child-language prompting establishes developmental learning. A mature-character description must not be installed as the young character's inevitable endpoint.
 
-## 2. Architecture diagram — shared primitives, independent owners
+## 2. Conceptual architecture proposal — shared primitives, independent owners
+
+**Conceptual proposal; arrows do not establish implemented or connected data flows.**
 
 ```mermaid
 flowchart TB
@@ -68,7 +70,7 @@ The dotted interfaces are a **proposal**, not existing endpoints. A common schem
 | [Eiti Test Notes Draft #56](https://github.com/velantrian/Eiti-Test-Notes/pull/56) | Documented pending-write/deletion resurrection and premature success acknowledgment risks | Test the failure class before promising durable correction/erasure; no automatic adoption of another storage layer |
 | Private [digital-soul](https://github.com/velantrian/digital-soul/blob/main/README.md) | Separate research mission, not a deployed verified digital person | Keep private source materials and persona-specific methods private by default; cross-reference high-level mission only, not copy its corpus |
 
-**Evidence discipline:** This mapping is a static read of linked README/status/contract/code-path materials on 2026-10-28, with some project statuses older than today. It does **not** certify current deployment, the behavior of every file, passing tests, or integration compatibility. `implemented` ≠ `tested` ≠ `wired` ≠ `enabled` ≠ `observed`. Confirm exact owning revision, interface and negative tests before reuse.
+**Evidence discipline:** This mapping is a static read of linked README/status/contract/code-path materials on 2026-10-28, with some project statuses older than today. Exact source revisions were not recorded; claims about current interfaces and status require verification against the owning revisions before reuse. It does **not** certify current deployment, the behavior of every file, passing tests, or integration compatibility. `implemented` ≠ `tested` ≠ `wired` ≠ `enabled` ≠ `observed`. Confirm exact owning revision, interface and negative tests before reuse.
 
 ### What must NOT be built a second time without a demonstrated gap
 - A new universal provenance engine beside Crystal/Native Kernel contracts.
@@ -80,7 +82,7 @@ The dotted interfaces are a **proposal**, not existing endpoints. A common schem
 
 **Potential remaining gap:** a **bounded, evidence-linked applicability decision** that abstains when a past lesson no longer fits; and, for a separate persona, a **ground-truthed world-model update → changed later choice**. Neither is established just by existing memory, retrieval, or schema descriptions. First prove a residual gap against the named owners; only then propose an adapter.
 
-## 4. Proposed read-only interop contracts — types, not APIs
+## 4. Proposed interop vocabulary — types, not APIs
 
 The following names are **design vocabulary only**, not new modules/endpoints or authority grants. Keep owners distinct.
 
