@@ -6,6 +6,7 @@
 
 | Коллекция | Файлов исходного комплекта |
 |---|---:|
+| [HARVYRD](HARVYRD/) — Ginza Rabba v0.1 | 9 |
 | [cognition-catalogs](cognition-catalogs/) | 14 |
 | [encyclopedia-of-cognition-v4.1](encyclopedia-of-cognition-v4.1/) | 6 |
 | [harvyrd-advaita-vedanta-v0.1](harvyrd-advaita-vedanta-v0.1/) | 15 |
@@ -42,6 +43,9 @@
 Общие QA и исторические storage controls остаются в [Encyclopedia_of_Cognition_Project](../Encyclopedia_of_Cognition_Project/README.md). Неоднозначные исследования и Athene остаются там до решения владельца; музыка — в [media/music](../media/music/README.md).
 
 Датированные манифесты и чеки публикации являются историческими свидетельствами. Их старые пути/хеши не подменены: соответствия исходных и новых байтов зафиксированы в MIGRATION_MANIFEST.json. Исходные экспорты доступны в исходном Git-коммите; исправление URI в перенесённых DOCX/PDF — отдельная явно описанная навигационная производная, не новое издание по содержанию.
+
+## HARVYRD — Ginza Rabba v0.1
+Добавлен [русскоязычный читательский путеводитель Ginza Rabba](HARVYRD/README.md): PDF, DOCX, полный Markdown, ZIP-пакет, предпросмотр обложки и четыре оригинальные иллюстрации — **9 исходных файлов** плюс README и проверочные манифесты. Все девять исходных файлов перенесены побайтово; SHA-256 и соответствие исходных/назначенных путей приведены в комплекте.
 
 ## Том V: «Лес, клятва и поднятое небо»
 
