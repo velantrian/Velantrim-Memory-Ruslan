@@ -24,6 +24,7 @@
 | [harvyrd-mormon-v0.1](harvyrd-mormon-v0.1/) | 15 |
 | [harvyrd-mystical-v0.1](harvyrd-mystical-v0.1/) | 19 |
 | [harvyrd-pearl-v0.1](harvyrd-pearl-v0.1/) | 15 |
+| [harvyrd-popol-wuj-v0.1](harvyrd-popol-wuj-v0.1/) | 11 |
 | [harvyrd-quran-v0.4-pilot](harvyrd-quran-v0.4-pilot/) | 45 |
 | [harvyrd-ramayana-v0.1](harvyrd-ramayana-v0.1/) | 10 |
 | [harvyrd-science-and-health-v0.1](harvyrd-science-and-health-v0.1/) | 55 |
@@ -45,6 +46,12 @@
 
 ## Том V: «Лес, клятва и поднятое небо»
 
-Добавлен [том V «Лес, клятва и поднятое небо»](harvyrd-world-traditions-volume-v/README.md): PDF, DOCX, Markdown и четыре иллюстрации в JPG/PNG — **11 исходных файлов** плюс README коллекции. Все 11 файлов — побайтовые копии; оригиналы сохранены. Теперь в разделе **30 коллекций**.
+Добавлен [том V «Лес, клятва и поднятое небо»](harvyrd-world-traditions-volume-v/README.md): PDF, DOCX, Markdown и четыре иллюстрации в JPG/PNG — **11 исходных файлов** плюс README коллекции. Все 11 файлов — побайтовые копии; оригиналы сохранены. На момент его добавления в разделе было **30 коллекций**.
 
 Первоначальные поля и записи MIGRATION_MANIFEST.json описывают историческую миграцию 29 коллекций и не пересчитывались. История исходного копирования отражена отдельно в `local_review_additions`; служебный README не входит в число исходных файлов. Том V опубликован в main после отдельного одобрения владельца; исходный коммит переноса — `d7e028a`.
+
+
+
+## Popol Wuj / Popol Vuh — v0.1
+
+В этой публичной draft-ветке добавлен одобренный владельцем комплект [`harvyrd-popol-wuj-v0.1`](harvyrd-popol-wuj-v0.1/README.md): PDF, DOCX, полный Markdown, исходный ZIP, пять иллюстраций, README и edition manifest — 11 файлов. Копии проверены по SHA-256; исходники не менялись. Таблица ветки теперь включает 31 коллекцию. Изменение находится в публичном черновом PR и ждёт review/merge владельцем; исторический `MIGRATION_MANIFEST.json` не переписывался.
