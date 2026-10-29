@@ -8,6 +8,7 @@
 |---|---:|
 | [cognition-catalogs](cognition-catalogs/) | 14 |
 | [encyclopedia-of-cognition-v4.1](encyclopedia-of-cognition-v4.1/) | 6 |
+| [HARVYRD](HARVYRD/) | 7 |
 | [harvyrd-advaita-vedanta-v0.1](harvyrd-advaita-vedanta-v0.1/) | 15 |
 | [harvyrd-avesta-v0.1](harvyrd-avesta-v0.1/) | 17 |
 | [harvyrd-bahai-v0.1](harvyrd-bahai-v0.1/) | 15 |
@@ -36,6 +37,10 @@
 | [harvyrd-world-traditions-volume-iv](harvyrd-world-traditions-volume-iv/) | 13 |
 | [harvyrd-world-traditions-volume-v](harvyrd-world-traditions-volume-v/) | 11 |
 | [zauchit](zauchit/) | 57 |
+
+## Каноническая коллекция HARVYRÐ
+
+В [`HARVYRD/`](HARVYRD/) добавлена [«Ригведа: семь голосов у истока» v0.1](HARVYRD/harvyrd-rigveda-v0.1/README.md): семь гимнов, PDF, DOCX, полный Markdown и три оригинальные иллюстрации. В таблице указаны **7 исходных файлов** (четыре файла книги и три отдельные иллюстрации); README к комплекту, источниковый индекс, манифест, контрольные суммы и JPEG-превью — сопроводительные материалы. Оригиналы сохранены побайтно. Вместе с этой новой верхнеуровневой папкой в каталоге сейчас **31 коллекция**. Исторические записи `MIGRATION_MANIFEST.json` не пересчитывались: эта книга добавлена как отдельное издание, а не как часть прежней миграции.
 
 Каталоги cognition-catalogs описывают 12 книг, но не содержат 12 полных изданий. Заучит хранит базовую редакцию, expanded и complete-2026-10-19 отдельно; исследовательское досье — в [research-dossier](zauchit/research-dossier/), включая [дополнение о причинной атрибуции источника в мультисенсорном восприятии (29.10.2026)](zauchit/research-dossier/zauchit-multisensory-causal-inference-addendum-2026-10-29-v1.md) и [проект протокола бенчмарка DCA-01—03 (29.10.2026, v1; PROPOSED / NOT RUN)](zauchit/research-dossier/zauchit-delayed-credit-assignment-benchmark-protocol-2026-10-29-v1.md).
 
