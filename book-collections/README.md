@@ -35,7 +35,9 @@
 | [harvyrd-world-traditions-volume-iii](harvyrd-world-traditions-volume-iii/) | 8 |
 | [harvyrd-world-traditions-volume-iv](harvyrd-world-traditions-volume-iv/) | 13 |
 | [harvyrd-world-traditions-volume-v](harvyrd-world-traditions-volume-v/) | 11 |
+| [HARVYRÐ — Книга мёртвых](HARVYRD/README.md) | 9 |
 | [zauchit](zauchit/) | 57 |
+Каноническая подколлекция [HARVYRÐ](HARVYRD/README.md) содержит отдельную редакцию «Выходя к дневному свету: Книга мёртвых Древнего Египта» с оригинальными экспортами, изображениями и манифестами.
 
 Каталоги cognition-catalogs описывают 12 книг, но не содержат 12 полных изданий. Заучит хранит базовую редакцию, expanded и complete-2026-10-19 отдельно; исследовательское досье — в [research-dossier](zauchit/research-dossier/), включая [дополнение о причинной атрибуции источника в мультисенсорном восприятии (29.10.2026)](zauchit/research-dossier/zauchit-multisensory-causal-inference-addendum-2026-10-29-v1.md), [проект протокола бенчмарка DCA-01—03 (29.10.2026, v1; PROPOSED / NOT RUN)](zauchit/research-dossier/zauchit-delayed-credit-assignment-benchmark-protocol-2026-10-29-v1.md) и [проект протокола бенчмарка OBJ-01—05 (29.10.2026, v1; PROPOSED / NOT RUN)](zauchit/research-dossier/zauchit-object-identity-occlusion-benchmark-protocol-2026-10-29-v1.md).
 
