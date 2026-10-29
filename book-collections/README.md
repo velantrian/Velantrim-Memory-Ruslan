@@ -24,7 +24,7 @@
 | [harvyrd-mormon-v0.1](harvyrd-mormon-v0.1/) | 15 |
 | [harvyrd-mystical-v0.1](harvyrd-mystical-v0.1/) | 19 |
 | [harvyrd-pearl-v0.1](harvyrd-pearl-v0.1/) | 15 |
-| [harvyrd-popol-wuj-v0.1](harvyrd-popol-wuj-v0.1/) | 11 |
+| [HARVYRD/harvyrd-popol-wuj-v0.1](HARVYRD/harvyrd-popol-wuj-v0.1/) | 14 current files, 11 history |
 | [harvyrd-quran-v0.4-pilot](harvyrd-quran-v0.4-pilot/) | 45 |
 | [harvyrd-ramayana-v0.1](harvyrd-ramayana-v0.1/) | 10 |
 | [harvyrd-science-and-health-v0.1](harvyrd-science-and-health-v0.1/) | 55 |
@@ -52,6 +52,6 @@
 
 
 
-## Popol Wuj / Popol Vuh — v0.1
+## Popol Wuj / Popol Vuh — текущая редакция v0.2
 
-В этой публичной draft-ветке добавлен одобренный владельцем комплект [`harvyrd-popol-wuj-v0.1`](harvyrd-popol-wuj-v0.1/README.md): PDF, DOCX, полный Markdown, исходный ZIP, пять иллюстраций, README и edition manifest — 11 файлов. Копии проверены по SHA-256; исходники не менялись. Таблица ветки теперь включает 31 коллекцию. Изменение находится в публичном черновом PR и ждёт review/merge владельцем; исторический `MIGRATION_MANIFEST.json` не переписывался.
+В этой публичной draft-ветке текущей стала редакция v0.2 комплекта [`HARVYRD/harvyrd-popol-wuj-v0.1`](HARVYRD/harvyrd-popol-wuj-v0.1/README.md): PDF, DOCX, полный Markdown, ZIP-пакет, отдельный ZIP иллюстраций, пять изображений, README, манифест, SHA-256 и указатель источников — 14 файлов текущей редакции и 11 файлов в `history/v0.1/`. Оглавление перенесено на страницу примечания, чтобы убрать почти пустую страницу; PDF и DOCX проверены, каждый содержит 19 страниц. Проза и источники сохранены. Предыдущая v0.1 хранится в `history/v0.1/` и в истории Git. Таблица ветки по-прежнему включает 31 коллекцию; PR #44 остаётся открытым draft для review/слияния владельцем, `main` и видимость репозитория не менялись. Исторический `MIGRATION_MANIFEST.json` не переписывался.

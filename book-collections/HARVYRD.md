@@ -39,16 +39,19 @@
 
 Лианжа и Нсонго, Пабуджи, Нареау: авторские пересказы и источниковые очерки с обозначенными границами. Комплект опубликован после отдельного одобрения владельца; исходные файлы книги и иллюстрации перенесены без изменения.
 
-### HARVYRÐ — Popol Wuj / Popol Vuh, v0.1
+### HARVYRÐ — Popol Wuj / Popol Vuh, текущая редакция v0.2
 
-- [Описание, состав, источники и ограничения](harvyrd-popol-wuj-v0.1/README.md)
-- [Иллюстрированная PDF-редакция](harvyrd-popol-wuj-v0.1/Popol-Vuh-RU.pdf)
-- [Редактируемый DOCX](harvyrd-popol-wuj-v0.1/Popol-Vuh-RU.docx)
-- [Полный русский текст Markdown](harvyrd-popol-wuj-v0.1/Popol-Vuh-RU.md)
-- [Исходный ZIP-пакет](harvyrd-popol-wuj-v0.1/Popol-Vuh-RU-package.zip)
-- [Пять иллюстраций](harvyrd-popol-wuj-v0.1/images/optimized/)
+- [Описание, состав, источники и ограничения](HARVYRD/harvyrd-popol-wuj-v0.1/README.md)
+- [Иллюстрированная PDF-редакция](HARVYRD/harvyrd-popol-wuj-v0.1/Popol-Vuh-RU.pdf)
+- [Редактируемый DOCX](HARVYRD/harvyrd-popol-wuj-v0.1/Popol-Vuh-RU.docx)
+- [Полный русский текст Markdown](HARVYRD/harvyrd-popol-wuj-v0.1/Popol-Vuh-RU.md)
+- [Полный ZIP-пакет](HARVYRD/harvyrd-popol-wuj-v0.1/Popol-Vuh-RU-package.zip)
+- [Отдельный архив иллюстраций](HARVYRD/harvyrd-popol-wuj-v0.1/Popol-Vuh-RU-illustrations.zip)
+- [SHA-256 и манифест редакции](HARVYRD/harvyrd-popol-wuj-v0.1/SHA256SUMS)
+- [Указатель источников](HARVYRD/harvyrd-popol-wuj-v0.1/sources/SOURCE_INDEX.md)
+- [История v0.1](HARVYRD/harvyrd-popol-wuj-v0.1/history/v0.1/README.md)
 
-13 авторских глав и краткое исследовательское приложение. Это самостоятельный русский пересказ, не полный перевод рукописи Франсиско Хименеса. Публичная ветка подготовлена по одобрению владельца; черновой PR ждёт проверки и слияния владельцем.
+13 авторских глав и краткое исследовательское приложение. Это самостоятельный русский пересказ, не полный перевод рукописи Франсиско Хименеса. В v0.2 оглавление следует сразу за примечанием, устраняя почти пустую страницу 3; PDF и DOCX содержат по 19 страниц. Содержательный текст, источники и иллюстрации сохранены. Публичная ветка подготовлена по одобрению владельца; PR #44 остаётся черновиком до review и слияния владельцем.
 
 ## Навигация по всем папкам проектов
 
