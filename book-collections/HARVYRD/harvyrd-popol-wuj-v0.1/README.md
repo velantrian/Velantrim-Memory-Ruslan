@@ -1,25 +1,23 @@
-# Popol Wuj / Popol Vuh — текущая редакция v0.2
+# Popol Wuj / Popol Vuh — текущая редакция v0.2 (исправленная, 18 страниц)
 
-**Текущая редакция:** иллюстрированная книга «Голоса, испытания и память K’iche’» · 29 октября 2026 года. Канонический путь текущей редакции: `book-collections/HARVYRD/harvyrd-popol-wuj-v0.1/`. Эта папка содержит актуальные PDF, DOCX, полный Markdown и ZIP-пакет.
+**Текущая редакция:** иллюстрированная книга «Голоса, испытания и память K’iche’». Канонический путь: `book-collections/HARVYRD/harvyrd-popol-wuj-v0.1/`.
 
-## Что изменилось в v0.2
+## Исправление макета
 
-Исправлена верстка начальных страниц: оглавление теперь следует сразу за примечанием к изданию и занимает свободное место на странице 3 вместо почти пустой отдельной страницы. Исправление применено и к PDF, и к DOCX. Фон «бумаги», типографика, декоративное оформление и пять иллюстраций сохранены. Содержательный текст, источники и порядок разделов не менялись; в Markdown обновлены только относительные пути к изображениям.
-
-PDF и экспорт DOCX содержат по 19 страниц. Все страницы просмотрены после пересборки; других сопоставимых больших пустот, вызванных разрывами, не обнаружено.
+Редакторская заметка оформлена форматированным callout над страницей содержания; первая иллюстрация главы скорректирована, чтобы убрать большой пустой участок. Исправленная PDF-редакция содержит 18 страниц. DOCX соответствует тому же макету. Проза, источники и порядок разделов сохранены.
 
 ## Файлы текущей редакции
 
 | Файл | Назначение |
 |---|---|
-| [Popol-Vuh-RU.pdf](./Popol-Vuh-RU.pdf) | Иллюстрированная книга |
+| [Popol-Vuh-RU.pdf](./Popol-Vuh-RU.pdf) | Исправленная иллюстрированная книга, 18 страниц |
 | [Popol-Vuh-RU.docx](./Popol-Vuh-RU.docx) | Редактируемая версия |
 | [Popol-Vuh-RU.md](./Popol-Vuh-RU.md) | Полный исходный текст |
-| [Popol-Vuh-RU-package.zip](./Popol-Vuh-RU-package.zip) | PDF, DOCX, Markdown и пять иллюстраций |
-| [Popol-Vuh-RU-illustrations.zip](./Popol-Vuh-RU-illustrations.zip) | Отдельный архив иллюстраций |
+| [Popol-Vuh-RU-package.zip](./Popol-Vuh-RU-package.zip) | Полный пакет: PDF, DOCX, Markdown и иллюстрации |
+| [Popol-Vuh-RU-illustrations.zip](./Popol-Vuh-RU-illustrations.zip) | Отдельный архив пяти иллюстраций |
 | [illustrations/](./illustrations/) | Пять исходных изображений |
-| [SHA256SUMS](./SHA256SUMS) | Контрольные суммы текущих файлов |
-| [edition_manifest.json](./edition_manifest.json) | Версия, границы редакции и состав |
+| [SHA256SUMS](./SHA256SUMS) | SHA-256 текущих файлов и изображений |
+| [edition_manifest.json](./edition_manifest.json) | Версия, границы редакции, состав и проверка макета |
 | [Указатель источников](./sources/SOURCE_INDEX.md) | Ссылки и их роль в книге |
 
 ## О книге и её границах
@@ -30,10 +28,10 @@ PDF и экспорт DOCX содержат по 19 страниц. Все ст�
 
 ## История редакций
 
-Редакция v0.2 заменяет v0.1 как текущую. Прежние PDF, DOCX, Markdown, ZIP-пакет, README и манифест сохранены в [history/v0.1/](./history/v0.1/); предыдущие файлы также остаются в истории Git-коммитов.
+Исправленная v0.2 заменяет прежнюю 19-страничную вёрстку v0.2. Точная копия прежних файлов, манифеста, README, источников и иллюстраций сохранена в [history/v0.2-pre-correction/](./history/v0.2-pre-correction/); исходные v0.1 файлы остаются в [history/v0.1/](./history/v0.1/). Обе версии остаются в истории Git.
 
 ## Размещение и статус
 
-Файлы находятся в публичной ветке [docs/popol-wuj-v0.1-20261029](https://github.com/velantrian/Velantrim-Memory-Ruslan/tree/docs/popol-wuj-v0.1-20261029/book-collections/HARVYRD/harvyrd-popol-wuj-v0.1). Черновой [PR #44](https://github.com/velantrian/Velantrim-Memory-Ruslan/pull/44) остаётся открыт для проверки и слияния владельцем; он не слит в `main`, видимость репозитория не менялась.
+Файлы находятся в публичной ветке [docs/popol-wuj-v0.1-20261029](https://github.com/velantrian/Velantrim-Memory-Ruslan/tree/docs/popol-wuj-v0.1-20261029/book-collections/HARVYRD/harvyrd-popol-wuj-v0.1). Черновой [PR #44](https://github.com/velantrian/Velantrim-Memory-Ruslan/pull/44) остаётся открытым для проверки владельцем; он не слит в `main`, видимость репозитория не менялась.
 
 [Страница книги в Notion](https://app.notion.com/p/408ac84d054781d0a3bdec5bb04132c9) · [Хаб коллекции](https://app.notion.com/p/3fdac84d05478107b14ad90c751c7e05)

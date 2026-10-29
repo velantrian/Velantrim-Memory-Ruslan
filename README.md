@@ -174,7 +174,7 @@ The order of reading, keeping the current task, and safe writing is maintained i
 | [`projects/mentaury-quorum-revision.md`](projects/mentaury-quorum-revision.md) | Card for the Mentaury Quorum Revision line. |
 | [`projects/self-experience-consciousness.md`](projects/self-experience-consciousness.md) | Card for self-experience and consciousness research. |
 | [`projects/syn-01.md`](projects/syn-01.md) | Card for the VELANTRIM-SYN-01 research proposal. |
-| [HARVYRD — Popol Wuj / Popol Vuh, current v0.2](book-collections/HARVYRD/harvyrd-popol-wuj-v0.1/README.md) | Owner-approved illustrated Russian retelling in 13 chapters; corrected front-matter flow, with sources, PDF, DOCX, Markdown, ZIP and five illustrations; not a complete translation. |
+| [HARVYRD — Popol Wuj / Popol Vuh, corrected v0.2](book-collections/HARVYRD/harvyrd-popol-wuj-v0.1/README.md) | Owner-approved 18-page illustrated Russian retelling in 13 chapters; corrected note/callout and first-chapter illustration layout; complete files and checksums; not a complete translation. |
 | [`DOCS_LANGUAGES.md`](DOCS_LANGUAGES.md) | Language of the key documents (🇬🇧 / 🇷🇺 / mixed) and available translations. |
 
 ---

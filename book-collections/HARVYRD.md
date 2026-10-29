@@ -39,47 +39,17 @@
 
 Лианжа и Нсонго, Пабуджи, Нареау: авторские пересказы и источниковые очерки с обозначенными границами. Комплект опубликован после отдельного одобрения владельца; исходные файлы книги и иллюстрации перенесены без изменения.
 
-### HARVYRÐ — Popol Wuj / Popol Vuh, текущая редакция v0.2
+### HARVYRÐ — Popol Wuj / Popol Vuh, исправленная редакция v0.2 (18 страниц)
 
 - [Описание, состав, источники и ограничения](HARVYRD/harvyrd-popol-wuj-v0.1/README.md)
-- [Иллюстрированная PDF-редакция](HARVYRD/harvyrd-popol-wuj-v0.1/Popol-Vuh-RU.pdf)
+- [Исправленная иллюстрированная PDF-редакция · 18 страниц](HARVYRD/harvyrd-popol-wuj-v0.1/Popol-Vuh-RU.pdf)
 - [Редактируемый DOCX](HARVYRD/harvyrd-popol-wuj-v0.1/Popol-Vuh-RU.docx)
 - [Полный русский текст Markdown](HARVYRD/harvyrd-popol-wuj-v0.1/Popol-Vuh-RU.md)
 - [Полный ZIP-пакет](HARVYRD/harvyrd-popol-wuj-v0.1/Popol-Vuh-RU-package.zip)
 - [Отдельный архив иллюстраций](HARVYRD/harvyrd-popol-wuj-v0.1/Popol-Vuh-RU-illustrations.zip)
 - [SHA-256 и манифест редакции](HARVYRD/harvyrd-popol-wuj-v0.1/SHA256SUMS)
 - [Указатель источников](HARVYRD/harvyrd-popol-wuj-v0.1/sources/SOURCE_INDEX.md)
-- [История v0.1](HARVYRD/harvyrd-popol-wuj-v0.1/history/v0.1/README.md)
+- [Архив прежней 19-страничной вёрстки v0.2](HARVYRD/harvyrd-popol-wuj-v0.1/history/v0.2-pre-correction/ARCHIVE_NOTICE.md)
+- [Архив редакции v0.1](HARVYRD/harvyrd-popol-wuj-v0.1/history/v0.1/README.md)
 
-13 авторских глав и краткое исследовательское приложение. Это самостоятельный русский пересказ, не полный перевод рукописи Франсиско Хименеса. В v0.2 оглавление следует сразу за примечанием, устраняя почти пустую страницу 3; PDF и DOCX содержат по 19 страниц. Содержательный текст, источники и иллюстрации сохранены. Публичная ветка подготовлена по одобрению владельца; PR #44 остаётся черновиком до review и слияния владельцем.
-
-## Навигация по всем папкам проектов
-
-Ниже перечислены все 26 папок проектов, перенесённые из `projects/religion-spirituality/` в `book-collections/`. Ссылки повторяют имена папок; где внутри есть `README.md`, он добавлен отдельной ссылкой. Для папок без README здесь не предполагаются название, охват или статус сверх того, что следует из самого каталога.
-
-- [`harvyrd-advaita-vedanta-v0.1/`](harvyrd-advaita-vedanta-v0.1/)
-- [`harvyrd-avesta-v0.1/`](harvyrd-avesta-v0.1/)
-- [`harvyrd-bahai-v0.1/`](harvyrd-bahai-v0.1/)
-- [`harvyrd-bhagavad-gita-v0.1/`](harvyrd-bhagavad-gita-v0.1/) — [README](harvyrd-bhagavad-gita-v0.1/README.md)
-- [`harvyrd-bible-v0.1-pilot/`](harvyrd-bible-v0.1-pilot/) — [README](harvyrd-bible-v0.1-pilot/README.md)
-- [`harvyrd-buddhist-schools-v0.1/`](harvyrd-buddhist-schools-v0.1/)
-- [`harvyrd-confucian-v0.1/`](harvyrd-confucian-v0.1/)
-- [`harvyrd-covenants-v0.1/`](harvyrd-covenants-v0.1/)
-- [`harvyrd-daoism-v0.1/`](harvyrd-daoism-v0.1/)
-- [`harvyrd-dhammapada-v0.1/`](harvyrd-dhammapada-v0.1/)
-- [`harvyrd-granth-v0.1/`](harvyrd-granth-v0.1/)
-- [`harvyrd-jain-v0.1/`](harvyrd-jain-v0.1/)
-- [`harvyrd-mahabharata-v0.1-pilot/`](harvyrd-mahabharata-v0.1-pilot/) — [README](harvyrd-mahabharata-v0.1-pilot/README.md)
-- [`harvyrd-mormon-v0.1/`](harvyrd-mormon-v0.1/)
-- [`harvyrd-mystical-v0.1/`](harvyrd-mystical-v0.1/)
-- [`harvyrd-pearl-v0.1/`](harvyrd-pearl-v0.1/)
-- [`harvyrd-quran-v0.4-pilot/`](harvyrd-quran-v0.4-pilot/) — [README](harvyrd-quran-v0.4-pilot/README.md)
-- [`harvyrd-ramayana-v0.1/`](harvyrd-ramayana-v0.1/) — [README](harvyrd-ramayana-v0.1/README.md)
-- [`harvyrd-science-and-health-v0.1/`](harvyrd-science-and-health-v0.1/) — [README](harvyrd-science-and-health-v0.1/README.md)
-- [`harvyrd-shinto-v0.1/`](harvyrd-shinto-v0.1/)
-- [`harvyrd-stoicism-v1/`](harvyrd-stoicism-v1/)
-- [`harvyrd-torah-v0.1/`](harvyrd-torah-v0.1/)
-- [`harvyrd-world-traditions-volume-i/`](harvyrd-world-traditions-volume-i/)
-- [`harvyrd-world-traditions-volume-ii/`](harvyrd-world-traditions-volume-ii/)
-- [`harvyrd-world-traditions-volume-iii/`](harvyrd-world-traditions-volume-iii/)
-- [`harvyrd-world-traditions-volume-iv/`](harvyrd-world-traditions-volume-iv/)
+В v0.2 редакторская заметка теперь находится в форматированном callout над содержанием, а первая иллюстрация главы скорректирована, чтобы избежать большого пустого участка. PDF содержит 18 страниц. Это самостоятельный русский пересказ в 13 главах, не полный перевод рукописи Франсиско Хименеса. Предыдущая 19-страничная вёрстка и v0.1 сохранены в истории; PR #44 остаётся открытым черновиком до проверки владельцем и не слит в `main`.
