@@ -37,7 +37,7 @@
 | [harvyrd-world-traditions-volume-v](harvyrd-world-traditions-volume-v/) | 11 |
 | [zauchit](zauchit/) | 57 |
 
-Каталоги cognition-catalogs описывают 12 книг, но не содержат 12 полных изданий. Заучит хранит базовую редакцию, expanded и complete-2026-10-19 отдельно; исследовательское досье — в research-dossier.
+Каталоги cognition-catalogs описывают 12 книг, но не содержат 12 полных изданий. Заучит хранит базовую редакцию, expanded и complete-2026-10-19 отдельно; исследовательское досье — в [research-dossier](zauchit/research-dossier/), включая [дополнение о причинной атрибуции источника в мультисенсорном восприятии (29.10.2026)](zauchit/research-dossier/zauchit-multisensory-causal-inference-addendum-2026-10-29-v1.md).
 
 Общие QA и исторические storage controls остаются в [Encyclopedia_of_Cognition_Project](../Encyclopedia_of_Cognition_Project/README.md). Неоднозначные исследования и Athene остаются там до решения владельца; музыка — в [media/music](../media/music/README.md).
 
