@@ -1,8 +1,18 @@
 # Религия и духовность
 
-Раздел для материалов о религиозных и духовных традициях, источниках и связанных исследовательских проектах. Каждый проект хранится отдельно; статус, охват и ограничения указаны в его README.
+Раздел для материалов о религиозных и духовных традициях, источниках и связанных исследовательских проектов. Каждый проект хранится отдельно; статус, охват и ограничения указаны в его README.
 
 ## Проекты
+
+### HARVYRÐ — «Кефалайи Учителя», читательская редакция v0.1
+
+- [Описание, состав и ограничения](harvyrd-manichaean-kephalaia-v0.1/README.md)
+- [PDF — 16 страниц](harvyrd-manichaean-kephalaia-v0.1/kephalaia_reader_ru.pdf)
+- [Редактируемый DOCX](harvyrd-manichaean-kephalaia-v0.1/kephalaia_reader_ru.docx)
+- [Полный текст Markdown с источниками](harvyrd-manichaean-kephalaia-v0.1/kephalaia_reader_ru.md)
+- [Оригинальный ZIP иллюстраций](harvyrd-manichaean-kephalaia-v0.1/illustration_bundle.zip)
+
+Это 16-страничное читательское введение, а не полный перевод «Кефалай», манихейского Писания или канона. Текст различает берлинский 1Ke и дублинский 2Ke, а также рукописное свидетельство, редакторскую реконструкцию, перевод и интерпретацию; неопределённости и источники перечислены в книге.
 
 ### HARVYRÐ — «Писание первое: Коран», пилот v0.4
 
@@ -41,7 +51,7 @@
 
 ## Навигация по всем папкам проектов
 
-Ниже перечислены все 26 папок проектов, перенесённые из `projects/religion-spirituality/` в `book-collections/`. Ссылки повторяют имена папок; где внутри есть `README.md`, он добавлен отдельной ссылкой. Для папок без README здесь не предполагаются название, охват или статус сверх того, что следует из самого каталога.
+Ниже перечислены все 27 папок проектов, перенесённые из `projects/religion-spirituality/` в `book-collections/`. Ссылки повторяют имена папок; где внутри есть `README.md`, он добавлен отдельной ссылкой. Для папок без README здесь не предполагаются название, охват или статус сверх того, что следует из самого каталога.
 
 - [`harvyrd-advaita-vedanta-v0.1/`](harvyrd-advaita-vedanta-v0.1/)
 - [`harvyrd-avesta-v0.1/`](harvyrd-avesta-v0.1/)
@@ -56,6 +66,7 @@
 - [`harvyrd-granth-v0.1/`](harvyrd-granth-v0.1/)
 - [`harvyrd-jain-v0.1/`](harvyrd-jain-v0.1/)
 - [`harvyrd-mahabharata-v0.1-pilot/`](harvyrd-mahabharata-v0.1-pilot/) — [README](harvyrd-mahabharata-v0.1-pilot/README.md)
+- [`harvyrd-manichaean-kephalaia-v0.1/`](harvyrd-manichaean-kephalaia-v0.1/) — [README](harvyrd-manichaean-kephalaia-v0.1/README.md)
 - [`harvyrd-mormon-v0.1/`](harvyrd-mormon-v0.1/)
 - [`harvyrd-mystical-v0.1/`](harvyrd-mystical-v0.1/)
 - [`harvyrd-pearl-v0.1/`](harvyrd-pearl-v0.1/)
