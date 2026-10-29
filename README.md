@@ -200,3 +200,5 @@ The order of reading, keeping the current task, and safe writing is maintained i
 ## Book collections
 
 [Book collections](book-collections/README.md) — издания, иллюстрации, индексы, сборочные материалы и связанные исследования; исходные статусы сохраняются.
+
+The canonical [HARVYRÐ collection](book-collections/HARVYRD/README.md) now includes the completed Russian reader *Coming Forth by Day: The Book of the Dead of Ancient Egypt* (v0.1), with the unchanged source files, illustrations, citations and SHA-256 manifests.
