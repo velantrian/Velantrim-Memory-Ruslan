@@ -21,6 +21,7 @@
 | [harvyrd-granth-v0.1](harvyrd-granth-v0.1/) | 13 |
 | [harvyrd-jain-v0.1](harvyrd-jain-v0.1/) | 13 |
 | [harvyrd-mahabharata-v0.1-pilot](harvyrd-mahabharata-v0.1-pilot/) | 13 |
+| [harvyrd-manichaean-kephalaia-v0.1](harvyrd-manichaean-kephalaia-v0.1/) | 11 |
 | [harvyrd-mormon-v0.1](harvyrd-mormon-v0.1/) | 15 |
 | [harvyrd-mystical-v0.1](harvyrd-mystical-v0.1/) | 19 |
 | [harvyrd-pearl-v0.1](harvyrd-pearl-v0.1/) | 15 |
@@ -45,6 +46,10 @@
 
 ## Том V: «Лес, клятва и поднятое небо»
 
-Добавлен [том V «Лес, клятва и поднятое небо»](harvyrd-world-traditions-volume-v/README.md): PDF, DOCX, Markdown и четыре иллюстрации в JPG/PNG — **11 исходных файлов** плюс README коллекции. Все 11 файлов — побайтовые копии; оригиналы сохранены. Теперь в разделе **30 коллекций**.
+Добавлен [том V «Лес, клятва и поднятое небо»](harvyrd-world-traditions-volume-v/README.md): PDF, DOCX, Markdown и четыре иллюстрации в JPG/PNG — **11 исходных файлов** плюс README коллекции. Все 11 файлов — побайтовые копии; оригиналы сохранены. Теперь в разделе **31 коллекция**.
+
+## HARVYRÐ — «Кефалайи Учителя» v0.1
+
+Добавлена [читательская редакция о коптских «Кефалайях»](harvyrd-manichaean-kephalaia-v0.1/README.md): 16-страничный PDF, DOCX и полный Markdown с источниками, исходный ZIP иллюстраций, три полноразмерных PNG и три оптимизированных JPEG. Это краткое введение, не полный перевод или полный манихейский корпус; README описывает ограничения, а `SOURCE_MANIFEST.md` и `SHA256SUMS` фиксируют происхождение, размеры и точные хэши 11 исходных файлов.
 
 Первоначальные поля и записи MIGRATION_MANIFEST.json описывают историческую миграцию 29 коллекций и не пересчитывались. История исходного копирования отражена отдельно в `local_review_additions`; служебный README не входит в число исходных файлов. Том V опубликован в main после отдельного одобрения владельца; исходный коммит переноса — `d7e028a`.
