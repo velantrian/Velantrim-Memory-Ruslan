@@ -82,6 +82,13 @@ No other translation pairs were found. Note: `projects/self-experience-conscious
 | [`book-collections/harvyrd-quran-v0.4-pilot/README_v0.4_pilot.md`](book-collections/harvyrd-quran-v0.4-pilot/README_v0.4_pilot.md) | 🇷🇺 Russian | 78% |  |
 | [`book-collections/harvyrd-ramayana-v0.1/README.md`](book-collections/harvyrd-ramayana-v0.1/README.md) | 🇷🇺 Russian | 67% |  |
 | [`book-collections/harvyrd-science-and-health-v0.1/README.md`](book-collections/harvyrd-science-and-health-v0.1/README.md) | 🇷🇺 Russian | 89% |  |
+| [`book-collections/HARVYRD/harvyrd-popol-wuj-v0.1/README.md`](book-collections/HARVYRD/harvyrd-popol-wuj-v0.1/README.md) | 🇷🇺 Russian | 71% | Current corrected v0.2 edition, 18 pages, source index, with previous 19-page layout and v0.1 archived. |
+
+## 📖 Full book texts
+
+| Document | Language | Cyrillic share | Translations / notes |
+|---|---|---|---|
+| [`book-collections/HARVYRD/harvyrd-popol-wuj-v0.1/Popol-Vuh-RU.md`](book-collections/HARVYRD/harvyrd-popol-wuj-v0.1/Popol-Vuh-RU.md) | 🇷🇺 Russian | 87% | Current corrected v0.2 full 13-chapter retelling with sources; prose unchanged, not a complete translation of the Ximénez manuscript. |
 
 ## 🔤 Other documents that are not primarily Russian
 
