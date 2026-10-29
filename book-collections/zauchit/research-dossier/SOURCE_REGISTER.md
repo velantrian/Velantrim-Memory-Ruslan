@@ -293,10 +293,10 @@
 - https://github.com/velantrian/Velantrim-ExoCortex-Titan/blob/ef134c324ef08c1a5f7f011433b8e2424e40ecea/docs/research/RECOVERY_AUTHORITY_PLACEMENT.md#L150-L171
   - research/zauchit/zauchit-full-dossier-2026-10-18.md
 
-- https://github.com/velantrian/Velantrim-Memory-Ruslan/blob/main/Encyclopedia_of_Cognition_Project/Bibliography_Audit_V4.1.xlsx
+- https://github.com/velantrian/Velantrim-Memory-Ruslan/blob/main/book-collections/encyclopedia-of-cognition-v4.1/Bibliography_Audit_V4.1.xlsx
   - Книги_о_познании_аннотированный_каталог.md; Книги_о_познании_иллюстрированный_каталог.md; Книги_о_познании_расширенный_каталог.md
 
-- https://github.com/velantrian/Velantrim-Memory-Ruslan/blob/main/Encyclopedia_of_Cognition_Project/Encyclopedia_of_Cognition_V4.1.docx
+- https://github.com/velantrian/Velantrim-Memory-Ruslan/blob/main/book-collections/encyclopedia-of-cognition-v4.1/Encyclopedia_of_Cognition_V4.1.docx
   - Книги_о_познании_аннотированный_каталог.md; Книги_о_познании_иллюстрированный_каталог.md; Книги_о_познании_расширенный_каталог.md
 
 - https://github.com/velantrian/Velantrim-Memory-Ruslan/blob/main/START_HERE.md

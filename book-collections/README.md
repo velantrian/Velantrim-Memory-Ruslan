@@ -1,0 +1,43 @@
+# Коллекции книг
+
+Единый раздел внутри репозитория памяти: издания, иллюстрации, индексы, сборочные материалы, происхождение и прямо связанные исследования. Статусы пилотов, ограничения охвата, PROPOSED / NOT RUN и вопросы прав не меняются.
+
+[Подробный индекс HARVYRD](HARVYRD.md) · [Точные соответствия путей и хешей](MIGRATION_MANIFEST.json)
+
+| Коллекция | Файлов исходного комплекта |
+|---|---:|
+| [cognition-catalogs](cognition-catalogs/) | 14 |
+| [encyclopedia-of-cognition-v4.1](encyclopedia-of-cognition-v4.1/) | 6 |
+| [harvyrd-advaita-vedanta-v0.1](harvyrd-advaita-vedanta-v0.1/) | 15 |
+| [harvyrd-avesta-v0.1](harvyrd-avesta-v0.1/) | 17 |
+| [harvyrd-bahai-v0.1](harvyrd-bahai-v0.1/) | 15 |
+| [harvyrd-bhagavad-gita-v0.1](harvyrd-bhagavad-gita-v0.1/) | 9 |
+| [harvyrd-bible-v0.1-pilot](harvyrd-bible-v0.1-pilot/) | 46 |
+| [harvyrd-buddhist-schools-v0.1](harvyrd-buddhist-schools-v0.1/) | 17 |
+| [harvyrd-confucian-v0.1](harvyrd-confucian-v0.1/) | 15 |
+| [harvyrd-covenants-v0.1](harvyrd-covenants-v0.1/) | 15 |
+| [harvyrd-daoism-v0.1](harvyrd-daoism-v0.1/) | 15 |
+| [harvyrd-dhammapada-v0.1](harvyrd-dhammapada-v0.1/) | 13 |
+| [harvyrd-granth-v0.1](harvyrd-granth-v0.1/) | 13 |
+| [harvyrd-jain-v0.1](harvyrd-jain-v0.1/) | 13 |
+| [harvyrd-mahabharata-v0.1-pilot](harvyrd-mahabharata-v0.1-pilot/) | 13 |
+| [harvyrd-mormon-v0.1](harvyrd-mormon-v0.1/) | 15 |
+| [harvyrd-mystical-v0.1](harvyrd-mystical-v0.1/) | 19 |
+| [harvyrd-pearl-v0.1](harvyrd-pearl-v0.1/) | 15 |
+| [harvyrd-quran-v0.4-pilot](harvyrd-quran-v0.4-pilot/) | 45 |
+| [harvyrd-ramayana-v0.1](harvyrd-ramayana-v0.1/) | 10 |
+| [harvyrd-science-and-health-v0.1](harvyrd-science-and-health-v0.1/) | 55 |
+| [harvyrd-shinto-v0.1](harvyrd-shinto-v0.1/) | 15 |
+| [harvyrd-stoicism-v1](harvyrd-stoicism-v1/) | 5 |
+| [harvyrd-torah-v0.1](harvyrd-torah-v0.1/) | 13 |
+| [harvyrd-world-traditions-volume-i](harvyrd-world-traditions-volume-i/) | 3 |
+| [harvyrd-world-traditions-volume-ii](harvyrd-world-traditions-volume-ii/) | 3 |
+| [harvyrd-world-traditions-volume-iii](harvyrd-world-traditions-volume-iii/) | 8 |
+| [harvyrd-world-traditions-volume-iv](harvyrd-world-traditions-volume-iv/) | 13 |
+| [zauchit](zauchit/) | 57 |
+
+Каталоги cognition-catalogs описывают 12 книг, но не содержат 12 полных изданий. Заучит хранит базовую редакцию, expanded и complete-2026-10-19 отдельно; исследовательское досье — в research-dossier.
+
+Общие QA и исторические storage controls остаются в [Encyclopedia_of_Cognition_Project](../Encyclopedia_of_Cognition_Project/README.md). Неоднозначные исследования и Athene остаются там до решения владельца; музыка — в [media/music](../media/music/README.md).
+
+Датированные манифесты и чеки публикации являются историческими свидетельствами. Их старые пути/хеши не подменены: соответствия исходных и новых байтов зафиксированы в MIGRATION_MANIFEST.json. Исходные экспорты доступны в исходном Git-коммите; исправление URI в перенесённых DOCX/PDF — отдельная явно описанная навигационная производная, не новое издание по содержанию.
