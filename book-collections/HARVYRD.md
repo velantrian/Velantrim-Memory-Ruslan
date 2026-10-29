@@ -39,6 +39,16 @@
 
 Лианжа и Нсонго, Пабуджи, Нареау: авторские пересказы и источниковые очерки с обозначенными границами. Комплект опубликован после отдельного одобрения владельца; исходные файлы книги и иллюстрации перенесены без изменения.
 
+### HARVYRÐ — «Самаритянское Пятикнижие: у горы Гаризим», читательский том v0.1
+
+- [Описание, состав и ограничения](HARVYRD/harvyrd-samaritan-pentateuch-v0.1/README.md)
+- [PDF](HARVYRD/harvyrd-samaritan-pentateuch-v0.1/Samaritan_Pentateuch_HARVYRD_v0.1.pdf)
+- [Редактируемый DOCX](HARVYRD/harvyrd-samaritan-pentateuch-v0.1/Samaritan_Pentateuch_HARVYRD_v0.1.docx)
+- [Полный текст Markdown](HARVYRD/harvyrd-samaritan-pentateuch-v0.1/Samaritan_Pentateuch_HARVYRD_v0.1.md)
+- [Архив пяти иллюстраций](HARVYRD/harvyrd-samaritan-pentateuch-v0.1/Samaritan_Pentateuch_HARVYRD_Illustration_Bundle_v0.1.zip)
+
+Девять глав, заключение, краткий словарь и источники. Авторский читательский пересказ, не новый перевод; спорные места и ограничения датировки рукописей оговорены в книге и README. Оригиналы скопированы без изменений; контрольные суммы — в `edition_manifest.json` и `SHA256SUMS`.
+
 ## Навигация по всем папкам проектов
 
 Ниже перечислены все 26 папок проектов, перенесённые из `projects/religion-spirituality/` в `book-collections/`. Ссылки повторяют имена папок; где внутри есть `README.md`, он добавлен отдельной ссылкой. Для папок без README здесь не предполагаются название, охват или статус сверх того, что следует из самого каталога.

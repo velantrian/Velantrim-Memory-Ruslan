@@ -25,6 +25,7 @@
 | [harvyrd-mystical-v0.1](harvyrd-mystical-v0.1/) | 19 |
 | [harvyrd-pearl-v0.1](harvyrd-pearl-v0.1/) | 15 |
 | [harvyrd-quran-v0.4-pilot](harvyrd-quran-v0.4-pilot/) | 45 |
+| [harvyrd-samaritan-pentateuch-v0.1](HARVYRD/harvyrd-samaritan-pentateuch-v0.1/) | 12 |
 | [harvyrd-ramayana-v0.1](harvyrd-ramayana-v0.1/) | 10 |
 | [harvyrd-science-and-health-v0.1](harvyrd-science-and-health-v0.1/) | 55 |
 | [harvyrd-shinto-v0.1](harvyrd-shinto-v0.1/) | 15 |
@@ -48,3 +49,7 @@
 Добавлен [том V «Лес, клятва и поднятое небо»](harvyrd-world-traditions-volume-v/README.md): PDF, DOCX, Markdown и четыре иллюстрации в JPG/PNG — **11 исходных файлов** плюс README коллекции. Все 11 файлов — побайтовые копии; оригиналы сохранены. Теперь в разделе **30 коллекций**.
 
 Первоначальные поля и записи MIGRATION_MANIFEST.json описывают историческую миграцию 29 коллекций и не пересчитывались. История исходного копирования отражена отдельно в `local_review_additions`; служебный README не входит в число исходных файлов. Том V опубликован в main после отдельного одобрения владельца; исходный коммит переноса — `d7e028a`.
+
+## Самаритянское Пятикнижие: у горы Гаризим
+
+Добавлен завершённый читательский том HARVYRÐ v0.1: PDF, DOCX, полный Markdown, архив иллюстраций и пять JPEG, а также README, манифест состава и SHA-256. Девять исходных файлов книги и иллюстраций перенесены побайтно; текущий каталог содержит 31 коллекцию. Содержание и ограничения изложены в [описании тома](HARVYRD/harvyrd-samaritan-pentateuch-v0.1/README.md) и [индексе HARVYRÐ](HARVYRD.md).
