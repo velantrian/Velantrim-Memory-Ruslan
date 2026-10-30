@@ -4,6 +4,8 @@
 
 [Подробный индекс HARVYRD](HARVYRD.md) · [Точные соответствия путей и хешей](MIGRATION_MANIFEST.json)
 
+**Новые читательские издания HARVYRÐ:** технический путь `HARVYRD/<edition-slug>/` (ASCII `D`), тогда как название серии в тексте — `HARVYRÐ`. Исторические папки `harvyrd-*` остаются непосредственно в `book-collections/`; `MIGRATION_MANIFEST.json` фиксирует прежнюю миграцию и не изменяется. Для новых изданий счётчик в таблице отражает оригинальные файлы книги и иллюстраций без служебных копий для Notion.
+
 | Коллекция | Файлов исходного комплекта |
 |---|---:|
 | [cognition-catalogs](cognition-catalogs/) | 14 |
@@ -25,6 +27,7 @@
 | [harvyrd-mystical-v0.1](harvyrd-mystical-v0.1/) | 19 |
 | [harvyrd-pearl-v0.1](harvyrd-pearl-v0.1/) | 15 |
 | [harvyrd-quran-v0.4-pilot](harvyrd-quran-v0.4-pilot/) | 45 |
+| [HARVYRD/harvyrd-qolasta-v0.1](HARVYRD/harvyrd-qolasta-v0.1/README.md) | 9 |
 | [harvyrd-ramayana-v0.1](harvyrd-ramayana-v0.1/) | 10 |
 | [harvyrd-science-and-health-v0.1](harvyrd-science-and-health-v0.1/) | 55 |
 | [harvyrd-shinto-v0.1](harvyrd-shinto-v0.1/) | 15 |
@@ -34,7 +37,6 @@
 | [harvyrd-world-traditions-volume-ii](harvyrd-world-traditions-volume-ii/) | 3 |
 | [harvyrd-world-traditions-volume-iii](harvyrd-world-traditions-volume-iii/) | 8 |
 | [harvyrd-world-traditions-volume-iv](harvyrd-world-traditions-volume-iv/) | 13 |
-| [harvyrd-qolasta-v0.1](HARVYRD/harvyrd-qolasta-v0.1/) | 32 |
 | [harvyrd-world-traditions-volume-v](harvyrd-world-traditions-volume-v/) | 11 |
 | [zauchit](zauchit/) | 57 |
 
@@ -46,11 +48,6 @@
 
 ## Том V: «Лес, клятва и поднятое небо»
 
-Добавлен [том V «Лес, клятва и поднятое небо»](harvyrd-world-traditions-volume-v/README.md): PDF, DOCX, Markdown и четыре иллюстрации в JPG/PNG — **11 исходных файлов** плюс README коллекции. Все 11 файлов — побайтовые копии; оригиналы сохранены. Теперь в разделе **31 коллекция**.
+Добавлен [том V «Лес, клятва и поднятое небо»](harvyrd-world-traditions-volume-v/README.md): PDF, DOCX, Markdown и четыре иллюстрации в JPG/PNG — **11 исходных файлов** плюс README коллекции. Все 11 файлов — побайтовые копии; оригиналы сохранены. Теперь в разделе **30 коллекций**.
 
 Первоначальные поля и записи MIGRATION_MANIFEST.json описывают историческую миграцию 29 коллекций и не пересчитывались. История исходного копирования отражена отдельно в `local_review_additions`; служебный README не входит в число исходных файлов. Том V опубликован в main после отдельного одобрения владельца; исходный коммит переноса — `d7e028a`.
-
-
-## HARVYRÐ: Qolasta v0.1
-
-Добавлен [читательский путеводитель «Qolasta: книга, которая живёт между рукописью и молитвой»](HARVYRD/harvyrd-qolasta-v0.1/README.md): 24-страничный PDF, DOCX, полный Markdown, исходный ZIP и пять PNG-иллюстраций. Большие файлы снабжены ZIP_STORED-частями для переноса в Notion; порядок восстановления и SHA-256 приведены в README и `SHA256SUMS`.

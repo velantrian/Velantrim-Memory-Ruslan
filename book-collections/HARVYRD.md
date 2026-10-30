@@ -14,6 +14,16 @@
 
 Это ограниченный пилот, а не завершённая обработка всего Корана. Охват и нерешённые вопросы описаны на странице проекта и в приложенных отчётах.
 
+### HARVYRÐ — «Qolasta: книга, которая живёт между рукописью и молитвой», v0.1
+
+- [Состав, источники и редакционные границы](HARVYRD/harvyrd-qolasta-v0.1/README.md)
+- [PDF, 24 страницы](HARVYRD/harvyrd-qolasta-v0.1/HARVYRD_Qolasta_reader_guide_ru.pdf)
+- [Редактируемый DOCX](HARVYRD/harvyrd-qolasta-v0.1/HARVYRD_Qolasta_reader_guide_ru.docx)
+- [Полный текст Markdown](HARVYRD/harvyrd-qolasta-v0.1/HARVYRD_Qolasta_reader_guide_ru.md)
+- [Оригинальный ZIP пяти иллюстраций](HARVYRD/harvyrd-qolasta-v0.1/HARVYRD_Qolasta_original_illustrations.zip) · [оригинальные PNG](HARVYRD/harvyrd-qolasta-v0.1/illustrations/)
+
+Читательское руководство о рукописной истории, жанрах и литургической функции Qolasta; это не перевод и не инструкция к обряду. Сохраняются различия между конкретным свидетелем, редакторским решением, живой общиной и научной интерпретацией. В комплект входят пять оригинальных авторских визуальных метафор и проверяемые контрольные суммы.
+
 
 ### HARVYRÐ — «Писание второе: Библия», пилот v0.2
 
@@ -69,14 +79,3 @@
 - [`harvyrd-world-traditions-volume-ii/`](harvyrd-world-traditions-volume-ii/)
 - [`harvyrd-world-traditions-volume-iii/`](harvyrd-world-traditions-volume-iii/)
 - [`harvyrd-world-traditions-volume-iv/`](harvyrd-world-traditions-volume-iv/)
-
-
-### HARVYRÐ — «Qolasta: книга, которая живёт между рукописью и молитвой», v0.1
-
-- [Состав, источники и редакционные границы](HARVYRD/harvyrd-qolasta-v0.1/README.md)
-- [PDF, 24 страницы](HARVYRD/harvyrd-qolasta-v0.1/HARVYRD_Qolasta_reader_guide_ru.pdf)
-- [Редактируемый DOCX](HARVYRD/harvyrd-qolasta-v0.1/HARVYRD_Qolasta_reader_guide_ru.docx)
-- [Полный текст Markdown](HARVYRD/harvyrd-qolasta-v0.1/HARVYRD_Qolasta_reader_guide_ru.md)
-- [Оригинальный ZIP пяти иллюстраций](HARVYRD/harvyrd-qolasta-v0.1/HARVYRD_Qolasta_original_illustrations.zip) · [оригинальные PNG](HARVYRD/harvyrd-qolasta-v0.1/illustrations/)
-
-Читательское руководство о рукописной истории, жанрах и литургической функции Qolasta; это не перевод и не инструкция к обряду. Сохраняются различия между конкретным свидетелем, редакторским решением, живой общиной и научной интерпретацией. В комплект входят пять оригинальных авторских визуальных метафор и проверяемые контрольные суммы.
