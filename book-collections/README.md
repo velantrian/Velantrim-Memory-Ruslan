@@ -4,6 +4,8 @@
 
 [Подробный индекс HARVYRD](HARVYRD.md) · [Точные соответствия путей и хешей](MIGRATION_MANIFEST.json)
 
+**Новые читательские издания HARVYRÐ:** технический путь `HARVYRD/<edition-slug>/` (ASCII `D`), тогда как название серии в тексте — `HARVYRÐ`. Исторические папки `harvyrd-*` остаются непосредственно в `book-collections/`; `MIGRATION_MANIFEST.json` фиксирует прежнюю миграцию и не изменяется. Для новых изданий счётчик в таблице отражает оригинальные файлы книги и иллюстраций без служебных копий для Notion.
+
 | Коллекция | Файлов исходного комплекта |
 |---|---:|
 | [cognition-catalogs](cognition-catalogs/) | 14 |
@@ -25,6 +27,7 @@
 | [harvyrd-mystical-v0.1](harvyrd-mystical-v0.1/) | 19 |
 | [harvyrd-pearl-v0.1](harvyrd-pearl-v0.1/) | 15 |
 | [harvyrd-quran-v0.4-pilot](harvyrd-quran-v0.4-pilot/) | 45 |
+| [HARVYRD/harvyrd-qolasta-v0.1](HARVYRD/harvyrd-qolasta-v0.1/README.md) | 9 |
 | [harvyrd-ramayana-v0.1](harvyrd-ramayana-v0.1/) | 10 |
 | [harvyrd-science-and-health-v0.1](harvyrd-science-and-health-v0.1/) | 55 |
 | [harvyrd-shinto-v0.1](harvyrd-shinto-v0.1/) | 15 |
