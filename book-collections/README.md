@@ -20,8 +20,8 @@
 | [harvyrd-dhammapada-v0.1](harvyrd-dhammapada-v0.1/) | 13 |
 | [harvyrd-granth-v0.1](harvyrd-granth-v0.1/) | 13 |
 | [harvyrd-jain-v0.1](harvyrd-jain-v0.1/) | 13 |
+| [HARVYRD/harvyrd-mandaean-book-of-john-v0.1](HARVYRD/harvyrd-mandaean-book-of-john-v0.1/README.md) | 9 |
 | [harvyrd-mahabharata-v0.1-pilot](harvyrd-mahabharata-v0.1-pilot/) | 13 |
-| [harvyrd-mandaean-book-of-john-v0.1](HARVYRÐ/harvyrd-mandaean-book-of-john-v0.1/) | 9 |
 | [harvyrd-mormon-v0.1](harvyrd-mormon-v0.1/) | 15 |
 | [harvyrd-mystical-v0.1](harvyrd-mystical-v0.1/) | 19 |
 | [harvyrd-pearl-v0.1](harvyrd-pearl-v0.1/) | 15 |
@@ -46,6 +46,6 @@
 
 ## Том V: «Лес, клятва и поднятое небо»
 
-Добавлен [том V «Лес, клятва и поднятое небо»](harvyrd-world-traditions-volume-v/README.md): PDF, DOCX, Markdown и четыре иллюстрации в JPG/PNG — **11 исходных файлов** плюс README коллекции. Все 11 файлов — побайтовые копии; оригиналы сохранены. Теперь в разделе **31 коллекция**.
+Добавлен [том V «Лес, клятва и поднятое небо»](harvyrd-world-traditions-volume-v/README.md): PDF, DOCX, Markdown и четыре иллюстрации в JPG/PNG — **11 исходных файлов** плюс README коллекции. Все 11 файлов — побайтовые копии; оригиналы сохранены. Теперь в разделе **30 коллекций**.
 
 Первоначальные поля и записи MIGRATION_MANIFEST.json описывают историческую миграцию 29 коллекций и не пересчитывались. История исходного копирования отражена отдельно в `local_review_additions`; служебный README не входит в число исходных файлов. Том V опубликован в main после отдельного одобрения владельца; исходный коммит переноса — `d7e028a`.
