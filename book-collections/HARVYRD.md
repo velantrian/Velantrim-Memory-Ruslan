@@ -30,6 +30,15 @@
 
 20 авторских глав по выборочным эпизодам, с маршрутом по 18 парвам, 45 записями отбора и 5 новыми иллюстрациями. Это не полное прочтение эпоса и не перевод с санскрита; основа — выборочное чтение английского перевода K. M. Ganguli.
 
+### HARVYRÐ — «Кефалайи Учителя», читательское введение v0.1
+- [Описание и границы издания](harvyrd-kephalaia-teacher-v0.1/README.md)
+- [Иллюстрированная PDF-книга](harvyrd-kephalaia-teacher-v0.1/HARVYRD_KEPHALAIA_TEACHER_v0.1_Illustrated.pdf)
+- [Редактируемая DOCX-книга](harvyrd-kephalaia-teacher-v0.1/HARVYRD_KEPHALAIA_TEACHER_v0.1_Illustrated.docx)
+- [Полный текст Markdown](harvyrd-kephalaia-teacher-v0.1/HARVYRD_KEPHALAIA_TEACHER_v0.1_Full_Text.md)
+- [Пакет иллюстраций](harvyrd-kephalaia-teacher-v0.1/HARVYRD_KEPHALAIA_TEACHER_v0.1_Illustration_Bundle.zip)
+
+Восемь оригинальных глав о конкретном коптском собрании, его берлинском и дублинском кодексах, Медине-Мади, редакционной реконструкции и фрагментарном многоязычном наследии манихейства. Это не полный перевод манихейского Писания; пересказы оригинальные, а источники включают каталоги, издания, университетские и рецензируемые исследования.
+
 ### «Предания народов мира». Том V. Лес, клятва и поднятое небо
 
 - [Состав комплекта, происхождение и ограничения](harvyrd-world-traditions-volume-v/README.md)
@@ -41,7 +50,7 @@
 
 ## Навигация по всем папкам проектов
 
-Ниже перечислены все 26 папок проектов, перенесённые из `projects/religion-spirituality/` в `book-collections/`. Ссылки повторяют имена папок; где внутри есть `README.md`, он добавлен отдельной ссылкой. Для папок без README здесь не предполагаются название, охват или статус сверх того, что следует из самого каталога.
+Ниже перечислены все 27 папок проектов, перенесённые из `projects/religion-spirituality/` в `book-collections/`. Ссылки повторяют имена папок; где внутри есть `README.md`, он добавлен отдельной ссылкой. Для папок без README здесь не предполагаются название, охват или статус сверх того, что следует из самого каталога.
 
 - [`harvyrd-advaita-vedanta-v0.1/`](harvyrd-advaita-vedanta-v0.1/)
 - [`harvyrd-avesta-v0.1/`](harvyrd-avesta-v0.1/)
@@ -55,6 +64,7 @@
 - [`harvyrd-dhammapada-v0.1/`](harvyrd-dhammapada-v0.1/)
 - [`harvyrd-granth-v0.1/`](harvyrd-granth-v0.1/)
 - [`harvyrd-jain-v0.1/`](harvyrd-jain-v0.1/)
+- [`harvyrd-kephalaia-teacher-v0.1/`](harvyrd-kephalaia-teacher-v0.1/) — [README](harvyrd-kephalaia-teacher-v0.1/README.md)
 - [`harvyrd-mahabharata-v0.1-pilot/`](harvyrd-mahabharata-v0.1-pilot/) — [README](harvyrd-mahabharata-v0.1-pilot/README.md)
 - [`harvyrd-mormon-v0.1/`](harvyrd-mormon-v0.1/)
 - [`harvyrd-mystical-v0.1/`](harvyrd-mystical-v0.1/)
