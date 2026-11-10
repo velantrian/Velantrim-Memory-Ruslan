@@ -4,6 +4,16 @@
 
 ## Проекты
 
+### HARVYRÐ — Чжоу и: «Книга перемен», читательское издание v0.1
+
+- [Описание, состав, источники и ограничения](HARVYRD/harvyrd-i-ching-v0.1/README.md)
+- [Читательская редакция PDF](HARVYRD/harvyrd-i-ching-v0.1/I_Ching_reader_ru.pdf)
+- [Редактируемый DOCX](HARVYRD/harvyrd-i-ching-v0.1/I_Ching_reader_ru.docx)
+- [Полный текст Markdown](HARVYRD/harvyrd-i-ching-v0.1/I_Ching_reader_ru.md)
+- [Архив 70 иллюстраций](HARVYRD/harvyrd-i-ching-v0.1/illustrations_bundle.zip) · [источники](HARVYRD/harvyrd-i-ching-v0.1/sources/SOURCE_INDEX.md) · [SHA-256](HARVYRD/harvyrd-i-ching-v0.1/SHA256SUMS)
+
+26 страниц и 64 авторских резюме. Это не новый перевод и не руководство по гаданию; ранний гадательный корпус, поздние «Десять крыльев» и последующие прочтения разграничены, а спорные традиционные атрибуции отмечены как недоказанные.
+
 ### HARVYRÐ — «Писание первое: Коран», пилот v0.4
 
 - [Страница проекта и состав пакета](harvyrd-quran-v0.4-pilot/README.md)
