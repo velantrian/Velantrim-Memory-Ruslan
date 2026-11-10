@@ -20,6 +20,7 @@
 | [harvyrd-dhammapada-v0.1](harvyrd-dhammapada-v0.1/) | 13 |
 | [harvyrd-granth-v0.1](harvyrd-granth-v0.1/) | 13 |
 | [harvyrd-jain-v0.1](harvyrd-jain-v0.1/) | 13 |
+| [HARVYRD/harvyrd-mandaean-book-of-john-v0.1](HARVYRD/harvyrd-mandaean-book-of-john-v0.1/README.md) | 9 |
 | [harvyrd-mahabharata-v0.1-pilot](harvyrd-mahabharata-v0.1-pilot/) | 13 |
 | [harvyrd-mormon-v0.1](harvyrd-mormon-v0.1/) | 15 |
 | [harvyrd-mystical-v0.1](harvyrd-mystical-v0.1/) | 19 |

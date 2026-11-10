@@ -39,6 +39,16 @@
 
 Лианжа и Нсонго, Пабуджи, Нареау: авторские пересказы и источниковые очерки с обозначенными границами. Комплект опубликован после отдельного одобрения владельца; исходные файлы книги и иллюстрации перенесены без изменения.
 
+### HARVYRÐ — «Книга Иоанна у мандаев», читательский путеводитель v0.1
+- [Состав комплекта, источники и редакционные оговорки](HARVYRD/harvyrd-mandaean-book-of-john-v0.1/README.md)
+- [Иллюстрированная PDF-редакция (21 страница)](HARVYRD/harvyrd-mandaean-book-of-john-v0.1/HARVYRD_Mandaean_Book_of_John_reader_ru.pdf)
+- [Редактируемый DOCX](HARVYRD/harvyrd-mandaean-book-of-john-v0.1/HARVYRD_Mandaean_Book_of_John_reader_ru.docx)
+- [Полный текст Markdown](HARVYRD/harvyrd-mandaean-book-of-john-v0.1/HARVYRD_Mandaean_Book_of_John_reader_ru.md)
+- [Оригинальный комплект иллюстраций](HARVYRD/harvyrd-mandaean-book-of-john-v0.1/HARVYRD_Mandaean_Book_of_John_illustrations.zip)
+- [Манифест источников и SHA-256](HARVYRD/harvyrd-mandaean-book-of-john-v0.1/source_manifest.json)
+
+Авторский обзор корпуса, а не полный перевод, критическое издание или биография Иоанна. Деление на 76 единиц относится к конкретному изданию Häberl–McGrath; непубличное жреческое знание не реконструируется. Исторические гипотезы и современное общинное самоописание разделены; иллюстрации являются метафорами.
+
 ## Навигация по всем папкам проектов
 
 Ниже перечислены все 26 папок проектов, перенесённые из `projects/religion-spirituality/` в `book-collections/`. Ссылки повторяют имена папок; где внутри есть `README.md`, он добавлен отдельной ссылкой. Для папок без README здесь не предполагаются название, охват или статус сверх того, что следует из самого каталога.
