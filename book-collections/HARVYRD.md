@@ -41,7 +41,7 @@
 
 ## Навигация по всем папкам проектов
 
-Ниже перечислены все 26 папок проектов, перенесённые из `projects/religion-spirituality/` в `book-collections/`. Ссылки повторяют имена папок; где внутри есть `README.md`, он добавлен отдельной ссылкой. Для папок без README здесь не предполагаются название, охват или статус сверх того, что следует из самого каталога.
+Ниже перечислены все 27 папок проектов, перенесённые из `projects/religion-spirituality/` в `book-collections/`. Ссылки повторяют имена папок; где внутри есть `README.md`, он добавлен отдельной ссылкой. Для папок без README здесь не предполагаются название, охват или статус сверх того, что следует из самого каталога.
 
 - [`harvyrd-advaita-vedanta-v0.1/`](harvyrd-advaita-vedanta-v0.1/)
 - [`harvyrd-avesta-v0.1/`](harvyrd-avesta-v0.1/)
@@ -69,3 +69,4 @@
 - [`harvyrd-world-traditions-volume-ii/`](harvyrd-world-traditions-volume-ii/)
 - [`harvyrd-world-traditions-volume-iii/`](harvyrd-world-traditions-volume-iii/)
 - [`harvyrd-world-traditions-volume-iv/`](harvyrd-world-traditions-volume-iv/)
+- [`harvyrd-world-traditions-volume-v/`](harvyrd-world-traditions-volume-v/)
