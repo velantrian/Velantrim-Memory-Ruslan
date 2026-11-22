@@ -34,7 +34,7 @@ RESULTS = HERE / "results"
 BERLIN = timezone(timedelta(hours=1), name="Europe/Berlin")
 
 from client import ARMS, DEEPSEEK_URL, contains_secret, deepseek_chat, redact  # noqa: E402
-from two_level_gate import apply_two_level, user_facing_payload  # noqa: E402
+from two_level_gate import apply_two_level, review_notes, user_facing_payload  # noqa: E402
 from x_markers import reasoning_only_x  # noqa: E402
 
 ARM = "R2"
@@ -140,6 +140,27 @@ def score_content(experiment: str, condition: str, content: str) -> dict:
     return scoring.score_run(condition, content)
 
 
+def extract_notes_field(content: str) -> Optional[str]:
+    """Pull the JSON `notes` string from a model response, if present."""
+    if not content or not str(content).strip():
+        return None
+    raw = str(content).strip()
+    start = raw.find("{")
+    end = raw.rfind("}")
+    if start == -1 or end == -1 or end <= start:
+        return None
+    try:
+        data = json.loads(raw[start : end + 1])
+    except json.JSONDecodeError:
+        return None
+    if not isinstance(data, dict):
+        return None
+    notes = data.get("notes")
+    if notes is None:
+        return None
+    return notes if isinstance(notes, str) else json.dumps(notes, ensure_ascii=False)
+
+
 def attach_two_level(
     experiment: str,
     condition: str,
@@ -193,6 +214,7 @@ def attach_two_level(
         "access_vs_right": (scoring.get("metrics_pass") or {}).get("access_vs_right"),
         "useful_after_two_level": useful,
         "usefulness_after_two_level": usefulness,
+        "notes_review": review_notes(extract_notes_field(content or "")),
     }
 
 
@@ -243,8 +265,9 @@ def run_canary() -> dict:
     return record
 
 
-def plan_for(experiment: str) -> list[tuple[str, float, int, str]]:
-    conditions = ("A", "B") if experiment == "ict01" else ("A", "B", "C")
+def plan_for(experiment: str, conditions: Optional[tuple[str, ...]] = None) -> list[tuple[str, float, int, str]]:
+    if conditions is None:
+        conditions = ("A", "B") if experiment == "ict01" else ("A", "B", "C")
     items: list[tuple[str, float, int, str]] = []
     for cond in conditions:
         items.append((cond, TEMP_0, 0, f"{cond}_temp00_r00"))
@@ -329,7 +352,11 @@ def _action_counts(group: list[dict]) -> dict[str, dict[str, int]]:
 
 
 def summarize(experiment: str, records: list[dict]) -> dict:
-    conditions = ("A", "B") if experiment == "ict01" else ("A", "B", "C")
+    if experiment == "ict01":
+        conditions = ("A", "B")
+    else:
+        present = {r.get("condition") for r in records}
+        conditions = ("A", "B", "B_clean", "C") if "B_clean" in present else ("A", "B", "C")
     by = {}
     for cond in conditions:
         group = [r for r in records if r.get("condition") == cond and r.get("scoring") and r.get("two_level")]
@@ -364,6 +391,23 @@ def summarize(experiment: str, records: list[dict]) -> dict:
             "tl_event_FLAG": cnt(lambda r: r["two_level"]["verdict"]["event"] == "FLAG"),
             "tl_event_ALLOW": cnt(lambda r: r["two_level"]["verdict"]["event"] == "ALLOW"),
             "useful_after_two_level": cnt(lambda r: r["two_level"].get("useful_after_two_level")),
+            "flag_review_notes": cnt(
+                lambda r: (r["two_level"].get("notes_review") or {}).get("flag_review_notes")
+            ),
+            "notes_l1_figures": cnt(
+                lambda r: (r["two_level"].get("notes_review") or {}).get("l1_figures")
+            ),
+            "notes_l2_name": cnt(
+                lambda r: (r["two_level"].get("notes_review") or {}).get("l2_name")
+            ),
+            "notes_other": cnt(
+                lambda r: (r["two_level"].get("notes_review") or {}).get("other")
+            ),
+            "flag_review_notes_tags": [
+                r["tag"]
+                for r in group
+                if (r["two_level"].get("notes_review") or {}).get("flag_review_notes")
+            ],
             "one_level_blocked_attempt": cnt(lambda r: (r["scoring"].get("gate") or {}).get("blocked_attempt")),
             "one_level_physically_blocked": cnt(lambda r: (r["scoring"].get("gate") or {}).get("physically_blocked")),
             "one_level_x_reached_user": cnt(lambda r: (r["scoring"].get("gate") or {}).get("x_reached_user")),
@@ -395,6 +439,7 @@ def summarize(experiment: str, records: list[dict]) -> dict:
             row["rate_l2_flag_only"] = round(row["l2_name_flag_only"] / n, 3)
             row["rate_tl_physically_blocked"] = round(row["tl_physically_blocked"] / n, 3)
             row["rate_one_level_blocked_attempt"] = round(row["one_level_blocked_attempt"] / n, 3)
+            row["rate_flag_review_notes"] = round(row["flag_review_notes"] / n, 3)
         by[cond] = row
     return {
         "ts": now_label(),
@@ -471,6 +516,11 @@ def write_table(records: list[dict], path: Path, experiment: str) -> None:
             "actions_attempted": ",".join(s.get("actions_attempted") or []),
             "actions_blocked": ",".join(s.get("actions_blocked") or []),
             "actions_confirm": ",".join(s.get("actions_request_confirmation") or []),
+            "flag_review_notes": (tl.get("notes_review") or {}).get("flag_review_notes"),
+            "notes_review_event": (tl.get("notes_review") or {}).get("event"),
+            "notes_review_level": (tl.get("notes_review") or {}).get("level"),
+            "notes_l1_figures": (tl.get("notes_review") or {}).get("l1_figures"),
+            "notes_l2_name": (tl.get("notes_review") or {}).get("l2_name"),
         })
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8", newline="") as f:
@@ -483,8 +533,11 @@ def write_table(records: list[dict], path: Path, experiment: str) -> None:
         raise RuntimeError("refusing to keep CSV: possible key leak")
 
 
-def run_experiment(experiment: str) -> tuple[list[dict], Optional[dict]]:
-    plan = plan_for(experiment)
+def run_experiment(
+    experiment: str,
+    conditions: Optional[tuple[str, ...]] = None,
+) -> tuple[list[dict], Optional[dict]]:
+    plan = plan_for(experiment, conditions)
     records: list[dict] = []
     for cond, temp, rep, tag in plan:
         rec = run_one(experiment, cond, temp, rep, tag)

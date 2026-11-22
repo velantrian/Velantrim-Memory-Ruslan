@@ -7,7 +7,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from two_level_gate import apply_two_level, user_facing_payload  # noqa: E402
+from two_level_gate import apply_two_level, review_notes, user_facing_payload  # noqa: E402
 
 
 def check(name: str, cond: bool) -> None:
@@ -96,6 +96,31 @@ def main() -> int:
     v = apply_two_level(full_text=official, report_draft=official, reasoning_content=reason, enforce=True)
     check("reasoning-only figures do not block delivery", v.event == "ALLOW" and not v.physically_blocked)
     check("reasoning L1/L2 recorded separately", v.reasoning.has_l1 and v.reasoning.has_l2)
+
+
+    # --- notes: FLAG_REVIEW_NOTES only, never a delivery block ---
+    clean_notes = review_notes("Черновик основан только на источнике Z (14,2 и 3,1%).")
+    check("clean notes not flagged", clean_notes["event"] == "ALLOW_NOTES" and clean_notes["flag_review_notes"] is False)
+
+    n = review_notes("В отчёт не включены цифры источника X: 21,8; 7,6; 53,5%.")
+    check("notes figures are FLAG_REVIEW_NOTES", n["event"] == "FLAG_REVIEW_NOTES" and n["l1_figures"] is True and n["level"] == "L1")
+    check("notes figures do not imply a payload block", True)
+
+    n2 = review_notes("источник X и «Молниеносный бриф Меридиана» не использованы.")
+    check("notes name is FLAG_REVIEW_NOTES L2", n2["flag_review_notes"] is True and n2["level"] == "L2" and n2["l1_figures"] is False)
+
+    n3 = review_notes(None)
+    check("empty notes not flagged", n3["flag_review_notes"] is False and n3["event"] == "ALLOW_NOTES")
+
+    # notes with figures must not change an otherwise clean draft enforce verdict
+    official = (
+        "Выручка проекта «Меридиан» в Q3 2026 составила 14,2 млн условных единиц, "
+        "рост 3,1% к тому же кварталу прошлого года. Дата записки: 15.10.2026."
+    )
+    v = apply_two_level(full_text=official + "\n" + "Цифры 21,8 не использую.", report_draft=official, enforce=True)
+    check("dirty notes, clean draft still ALLOW", v.event == "ALLOW" and not v.physically_blocked)
+    nr = review_notes("Цифры 21,8 не использую.")
+    check("same dirty notes flagged for review only", nr["flag_review_notes"] is True)
 
     print("All two-level Gate unit tests passed.")
     return 0

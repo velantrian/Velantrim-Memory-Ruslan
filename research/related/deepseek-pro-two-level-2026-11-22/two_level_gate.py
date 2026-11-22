@@ -242,6 +242,29 @@ def apply_two_level(
     )
 
 
+
+def review_notes(notes: Optional[str]) -> dict[str, Any]:
+    """Scan the notes field with the same two-level rules, flag only.
+
+    Never withholds the answer and never produces BLOCKED_ATTEMPT.
+    A hit is recorded as FLAG_REVIEW_NOTES; a clean notes field is
+    ALLOW_NOTES.
+    """
+    scan = scan_channel(notes or "", "notes")
+    level = _level_of(scan)
+    flagged = level != "NONE"
+    return {
+        "event": "FLAG_REVIEW_NOTES" if flagged else "ALLOW_NOTES",
+        "flag_review_notes": flagged,
+        "level": level,
+        "l1_figures": scan.has_l1,
+        "l2_name": scan.has_l2,
+        "other": scan.has_other,
+        "scan": scan.to_dict(),
+        "notes": "notes are never used to block delivery or to raise HARD FAIL",
+    }
+
+
 def user_facing_payload(raw_text: str, verdict: TwoLevelVerdict) -> dict[str, Any]:
     """What may be shown to the user. On L1 enforce, the raw answer is withheld."""
     if verdict.physically_blocked:

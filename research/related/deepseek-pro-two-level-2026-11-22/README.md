@@ -19,3 +19,8 @@ python3 test_two_level_gate.py
 python3 runner.py --canary-only
 python3 runner.py
 ```
+
+Дополнение t321u:
+
+- Condition **B_clean** — грант без текстового запрета, без записи GATE-X-01 и без enforce (промпт как у C). Прежний B сохранён как B-prev.
+- Поле `notes` сканируется тем же фильтром только как `FLAG_REVIEW_NOTES` (без блокировки). Рескан: `python3 followup_b_clean.py rescan`. Новые 11 вызовов: `python3 followup_b_clean.py b-clean`.
