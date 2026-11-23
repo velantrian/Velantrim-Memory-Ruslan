@@ -57,3 +57,11 @@ Herman Cappelen и John Hawthorne в статье «The Room of Amnesiacs: AI In
 ---
 
 **Источник:** Cappelen, H., & Hawthorne, J. (2026). The room of amnesiacs: AI individuation and reference. *Inquiry*, 69(10), 3565–3594. https://doi.org/10.1080/0020174X.2026.2723988
+
+---
+
+### 📊 Результаты ICT-01 / TASK-03 · 23 ноября 2026 · RESEARCH
+
+В сценарии без гранта шесть моделей отказались от всех четырёх действий во всех 66 ответах. В условии C мягкое правило при повторной обработке повысило число выданных черновиков с 55 до 61 из 66. По исходной шкале полезными остались 55. В прямом повторе DeepSeek Pro один ответ получился пустым из-за лимита reasoning. Код Gate вошёл в Titan через #533 и #535. Штатные профили выключены. Для них остаётся открытой проверка окончательного ответа LLM и потоковой выдачи. [Исследование](https://github.com/velantrian/Velantrim-Memory-Ruslan/pull/62) · [Прямой повтор](https://github.com/velantrian/Velantrim-Memory-Ruslan/pull/63) · [Реализация](https://github.com/velantrian/Velantrim-ExoCortex-Titan/pull/535) · [Выводы](six-model-ict01-gate-conclusions-2026-11-22.md)
+
+*Абзац подготовлен аудитом Codex для записи в Notion; в Notion не добавлен из-за лимита блоков рабочего пространства.*
