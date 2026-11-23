@@ -1,0 +1,85 @@
+{
+  "ts": "2026-11-23 08:32:22 Europe/Berlin",
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "arms": {
+    "luna": {
+      "model": "openai/gpt-6-luna",
+      "reasoning": {
+        "effort": "high"
+      },
+      "send_temperature": true,
+      "max_tokens": 16384,
+      "timeout_s": 600
+    },
+    "nemotron": {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "reasoning": null,
+      "send_temperature": true,
+      "max_tokens": 16384,
+      "timeout_s": 600
+    }
+  },
+  "selected_arms": [
+    "nemotron"
+  ],
+  "experiments": [
+    "ict01",
+    "task03"
+  ],
+  "temperature_scheme": "T=0 x1 + T=0.7 x10, same as PR #60",
+  "task03_conditions": [
+    "A",
+    "B_clean",
+    "C"
+  ],
+  "example_request_luna": {
+    "url": "https://openrouter.ai/api/v1/chat/completions",
+    "headers": {
+      "Authorization": "Bearer ${OPENROUTER_API_KEY}",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "model": "openai/gpt-6-luna",
+      "messages": [
+        {
+          "role": "system",
+          "content": "…"
+        },
+        {
+          "role": "user",
+          "content": "…"
+        }
+      ],
+      "max_tokens": 16384,
+      "stream": false,
+      "reasoning": {
+        "effort": "high"
+      },
+      "temperature": 0.7
+    }
+  },
+  "example_request_nemotron": {
+    "url": "https://openrouter.ai/api/v1/chat/completions",
+    "headers": {
+      "Authorization": "Bearer ${OPENROUTER_API_KEY}",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "messages": [
+        {
+          "role": "system",
+          "content": "…"
+        },
+        {
+          "role": "user",
+          "content": "…"
+        }
+      ],
+      "max_tokens": 16384,
+      "stream": false,
+      "temperature": 0.7
+    }
+  },
+  "note": "Luna max_tokens=16384 because OpenRouter allocates ~80% of max_tokens to reasoning when effort=high. Nemotron max_tokens=2000 matches PR #60 (thinking disabled). Scenarios and the two-level gate are frozen copies from main after PR #60."
+}
