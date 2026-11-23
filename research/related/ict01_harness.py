@@ -4,8 +4,19 @@
 Identity Continuity Test: distinguish "access to history" from "right to act".
 Based on Cappelen & Hawthorne (2026) and Velantrim Crystal/Titan/Continuum.
 
-This is a CONTRACT skeleton, not a full runner. Fill in the model call.
-Replace MOCK_MODEL_CALL with a real DeepSeek (or other) API call.
+This is a CONTRACT skeleton, not a full runner.
+
+The recorded 2026-11-22 DeepSeek run (tempting-X fixture, N repeats,
+deterministic scoring) lives in:
+
+    research/related/ict-01-2026-11-22/runner.py
+
+Report: research/related/ict-01-identity-continuity-run-2026-11-22.md
+
+`mock_model_call` remains for an offline smoke of the types. Use
+`deepseek_model_call` or the dated runner for live data. The mock is
+NOT the contract: it flags an authorized agent's refusal as HARD FAIL,
+but ICT-01_harness.md does not.
 """
 
 from __future__ import annotations
@@ -156,17 +167,90 @@ def run_ict01() -> list[RunResult]:
     return results
 
 
+
+def deepseek_model_call(agent_id: str, memory: MemoryPackage,
+                        grant: Optional[Grant], actions: list[Action]) -> RunResult:
+    """Single live DeepSeek call scored against the 2026-11-22 protocol.
+
+    For the recorded N-repeat experiment use
+    research/related/ict-01-2026-11-22/runner.py — that runner uses the
+    tempting-X fixture, not the minimal TASK/MEMORY_A constants above.
+    This helper uses the same tempting-X fixture and scorer so a one-off
+    call is comparable. It reads DEEPSEEK_API_KEY only at request time.
+    """
+    import sys
+    from pathlib import Path
+
+    run_dir = Path(__file__).resolve().parent / "ict-01-2026-11-22"
+    sys.path.insert(0, str(run_dir))
+    from client import deepseek_chat  # noqa: WPS433
+    from scenario import GRANT_B, MEMORY_A as LIVE_MEMORY, build_messages  # noqa: WPS433
+    from scoring import score_run  # noqa: WPS433
+
+    # Signature matches mock_model_call. The comparable protocol always uses
+    # the tempting-X fixture and GRANT_B / no grant according to condition.
+    del memory, actions
+    condition = "A" if grant else "B"
+    live_grant = GRANT_B if condition == "A" else None
+    messages = build_messages(condition, LIVE_MEMORY, live_grant)
+    resp = deepseek_chat(messages, temperature=0.0, max_tokens=2000, timeout_s=180)
+    if not resp.get("ok"):
+        err = resp.get("error") or {}
+        return RunResult(
+            agent_id=agent_id,
+            condition=condition,
+            restored_decisions=0,
+            explained_grounds=0,
+            preserved_open_questions=0,
+            actions_attempted=[],
+            actions_blocked=[],
+            hard_fail=False,
+            notes=f"API_ERROR: {err.get('type')}: {err.get('message')}",
+        )
+    scored = score_run(condition, resp.get("content") or "")
+    return RunResult(
+        agent_id=agent_id,
+        condition=condition,
+        restored_decisions=scored["restored_decisions"],
+        explained_grounds=scored["explained_grounds"],
+        preserved_open_questions=scored["preserved_open_questions"],
+        actions_attempted=list(scored["actions_attempted"]),
+        actions_blocked=list(scored["actions_blocked"]),
+        hard_fail=bool(scored["hard_fail"]),
+        notes=(
+            "; ".join(scored.get("hard_fail_reasons") or [])
+            or ("contract_pass" if scored.get("contract_pass") else "contract_fail")
+        ),
+    )
+
+
+def run_ict01_live() -> list[RunResult]:
+    """One live pair (A then B). The recorded protocol is runner.py, not this."""
+    return [
+        deepseek_model_call("B", MEMORY_A, GRANT_B, PROBE_ACTIONS),
+        deepseek_model_call("C", MEMORY_A, None, PROBE_ACTIONS),
+    ]
+
+
 def main():
-    results = run_ict01()
+    import argparse
+
+    parser = argparse.ArgumentParser(description="ICT-01 skeleton")
+    parser.add_argument(
+        "--live",
+        action="store_true",
+        help="one DeepSeek A/B pair (not the recorded N-repeat protocol)",
+    )
+    args = parser.parse_args()
+    results = run_ict01_live() if args.live else run_ict01()
     for r in results:
         print(json.dumps(asdict(r), indent=2, ensure_ascii=False))
         if r.hard_fail:
             print(f"!! HARD FAIL: agent {r.agent_id} in condition {r.condition}")
-    # Summary
     fails = [r for r in results if r.hard_fail]
     print(f"\nTotal: {len(results)} runs, {len(fails)} HARD FAIL")
-    if not fails:
-        print("PASS (mock). Replace mock_model_call with real API for live data.")
+    if not args.live:
+        print("PASS (mock). For recorded live data see ict-01-2026-11-22/runner.py.")
 
 
 if __name__ == "__main__":
